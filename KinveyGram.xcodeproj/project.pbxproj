@@ -1,0 +1,745 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27E6B2AF159E36D000280BC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2AE159E36D000280BC7 /* UIKit.framework */; };
+		27E6B2B1159E36D000280BC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B0159E36D000280BC7 /* Foundation.framework */; };
+		27E6B2B3159E36D000280BC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B2159E36D000280BC7 /* CoreGraphics.framework */; };
+		27E6B2D0159E36D000280BC7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2CF159E36D000280BC7 /* SenTestingKit.framework */; };
+		27E6B2D1159E36D000280BC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2AE159E36D000280BC7 /* UIKit.framework */; };
+		27E6B2D2159E36D000280BC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B0159E36D000280BC7 /* Foundation.framework */; };
+		27E6B2DA159E36D000280BC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B2D8159E36D000280BC7 /* InfoPlist.strings */; };
+		27E6B2DD159E36D000280BC7 /* KinveyGramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B2DC159E36D000280BC7 /* KinveyGramTests.m */; };
+		27E6B332159E3CB900280BC7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B32F159E3CB900280BC7 /* MainStoryboard.storyboard */; };
+		27E6B345159E3EAD00280BC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B344159E3EAD00280BC7 /* AppDelegate.m */; };
+		27E6B34D159E3EC800280BC7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B346159E3EC800280BC7 /* arrow.png */; };
+		27E6B350159E3EC800280BC7 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B34A159E3EC800280BC7 /* lock.png */; };
+		27E6B351159E3EC800280BC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B34B159E3EC800280BC7 /* main.m */; };
+		27E6B352159E3EC800280BC7 /* unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B34C159E3EC800280BC7 /* unlock.png */; };
+		27E6B357159E3EED00280BC7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B354159E3EED00280BC7 /* MBProgressHUD.m */; };
+		27E6B358159E3EED00280BC7 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B356159E3EED00280BC7 /* PullRefreshTableViewController.m */; };
+		27E6B35B159E3EFD00280BC7 /* UIColor+KinveyHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B35A159E3EFD00280BC7 /* UIColor+KinveyHelpers.m */; };
+		27E6B35E159E3F0A00280BC7 /* KCSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B35D159E3F0A00280BC7 /* KCSButton.m */; };
+		27E6B361159E3F2600280BC7 /* KinveyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B35F159E3F2600280BC7 /* KinveyKit.framework */; };
+		27E6B367159E3F6B00280BC7 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B364159E3F6B00280BC7 /* CreateAccountViewController.m */; };
+		27E6B368159E3F6B00280BC7 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B366159E3F6B00280BC7 /* FormViewController.m */; };
+		27E6B36B159E3F7A00280BC7 /* LoginViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B36A159E3F7900280BC7 /* LoginViewContoller.m */; };
+		27E6B372159E407200280BC7 /* UpdateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B36D159E407200280BC7 /* UpdateCell.m */; };
+		27E6B373159E407200280BC7 /* UpdatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B36F159E407200280BC7 /* UpdatesViewController.m */; };
+		27E6B374159E407200280BC7 /* WriteUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B371159E407200280BC7 /* WriteUpdateViewController.m */; };
+		27E6B377159E408300280BC7 /* AuthorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B376159E408300280BC7 /* AuthorViewController.m */; };
+		27E6B37C159E409600280BC7 /* KinveyFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B379159E409600280BC7 /* KinveyFriend.m */; };
+		27E6B37D159E409600280BC7 /* KinveyFriendsUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B37B159E409600280BC7 /* KinveyFriendsUpdate.m */; };
+		27E6B382159E40A600280BC7 /* GravatarStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B37F159E40A500280BC7 /* GravatarStore.m */; };
+		27E6B383159E40A600280BC7 /* MD5Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B381159E40A600280BC7 /* MD5Helpers.m */; };
+		27E6B386159E40E500280BC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B384159E40E500280BC7 /* InfoPlist.strings */; };
+		27E6B390159E41D500280BC7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B38F159E41D500280BC7 /* QuartzCore.framework */; };
+		27E6B3A815A213C100280BC7 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3A615A213B800280BC7 /* iTunesArtwork */; };
+		27E6B3B015A2141B00280BC7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3A915A2141B00280BC7 /* Default.png */; };
+		27E6B3B115A2141B00280BC7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3AA15A2141B00280BC7 /* Default@2x.png */; };
+		27E6B3B215A2141B00280BC7 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3AB15A2141B00280BC7 /* Icon-72.png */; };
+		27E6B3B315A2141B00280BC7 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3AC15A2141B00280BC7 /* Icon-72@2x.png */; };
+		27E6B3B415A2141B00280BC7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3AD15A2141B00280BC7 /* Icon.png */; };
+		27E6B3B515A2141B00280BC7 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3AE15A2141B00280BC7 /* Icon@2x.png */; };
+		27E6B3B615A2141B00280BC7 /* ItunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3AF15A2141B00280BC7 /* ItunesArtwork.png */; };
+		27E6B3BB15A2172200280BC7 /* grid_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3B915A2172200280BC7 /* grid_blank.png */; };
+		27E6B3BC15A2172200280BC7 /* grid_blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3BA15A2172200280BC7 /* grid_blank@2x.png */; };
+		27E6B3BE15A23C2D00280BC7 /* libUAirship-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B3BD15A23C2D00280BC7 /* libUAirship-1.1.1.a */; };
+		44E5BB9A1E4A43B48FCE2A5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D359CEE3AA654D538EC47440 /* Foundation.framework */; };
+		452843D912854F5CA5BA586C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828258A0BC7940E6BD310385 /* CFNetwork.framework */; };
+		682589937DBF402CB03C7A9C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1100433C724546A92A86B9 /* UIKit.framework */; };
+		77EFB1D10C144B6299B7E90E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0864244EB4EB4378A013D2A4 /* StoreKit.framework */; };
+		7CD1A1CD88E044888917EA86 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4A168F34A6432793DC5300 /* libsqlite3.dylib */; };
+		87888FBE0AE345FEABDAAA99 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90DEBB80DA534A469FC9F2AD /* SystemConfiguration.framework */; };
+		8B1B1B961E444DE5A0344ED2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2BFA411D747529F025CF3 /* libz.dylib */; };
+		8E161CCB79E14C3DB26ADA1F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2A411236F24BF68A700F43 /* CoreTelephony.framework */; };
+		99B982E115904F4987C9A948 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F30FA441BA4F82A7FCC961 /* Security.framework */; };
+		D91438FC689549768F8B1DB2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D1F49CE8DB4334AEA2EA68 /* MobileCoreServices.framework */; };
+		F81E8A002EA746E5A6584F41 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A2D2B3859E4FABAD0FEA25 /* CoreGraphics.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		27E6B2D3159E36D000280BC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27E6B2A1159E36D000280BC7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27E6B2A9159E36D000280BC7;
+			remoteInfo = KinveyGram;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01A2D2B3859E4FABAD0FEA25 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0864244EB4EB4378A013D2A4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		1F4A168F34A6432793DC5300 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		27E6B2AA159E36D000280BC7 /* KinveyGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinveyGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27E6B2AE159E36D000280BC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		27E6B2B0159E36D000280BC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		27E6B2B2159E36D000280BC7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		27E6B2CE159E36D000280BC7 /* KinveyGramTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KinveyGramTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27E6B2CF159E36D000280BC7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		27E6B2D7159E36D000280BC7 /* KinveyGramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KinveyGramTests-Info.plist"; sourceTree = "<group>"; };
+		27E6B2D9159E36D000280BC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		27E6B2DB159E36D000280BC7 /* KinveyGramTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KinveyGramTests.h; sourceTree = "<group>"; };
+		27E6B2DC159E36D000280BC7 /* KinveyGramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KinveyGramTests.m; sourceTree = "<group>"; };
+		27E6B330159E3CB900280BC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		27E6B343159E3EAD00280BC7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
+		27E6B344159E3EAD00280BC7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
+		27E6B346159E3EC800280BC7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		27E6B348159E3EC800280BC7 /* KinveyGram-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KinveyGram-Prefix.pch"; sourceTree = "<group>"; };
+		27E6B349159E3EC800280BC7 /* KinveyGram-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KinveyGram-Info.plist"; sourceTree = "<group>"; };
+		27E6B34A159E3EC800280BC7 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
+		27E6B34B159E3EC800280BC7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		27E6B34C159E3EC800280BC7 /* unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlock.png; sourceTree = "<group>"; };
+		27E6B353159E3EED00280BC7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = "KinveyGram/Classes/3rd Party/MBProgressHUD.h"; sourceTree = SOURCE_ROOT; };
+		27E6B354159E3EED00280BC7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = "KinveyGram/Classes/3rd Party/MBProgressHUD.m"; sourceTree = SOURCE_ROOT; };
+		27E6B355159E3EED00280BC7 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = "KinveyGram/Classes/3rd Party/PullRefreshTableViewController.h"; sourceTree = SOURCE_ROOT; };
+		27E6B356159E3EED00280BC7 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = "KinveyGram/Classes/3rd Party/PullRefreshTableViewController.m"; sourceTree = SOURCE_ROOT; };
+		27E6B359159E3EFD00280BC7 /* UIColor+KinveyHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+KinveyHelpers.h"; path = "Classes/UIColor+KinveyHelpers.h"; sourceTree = "<group>"; };
+		27E6B35A159E3EFD00280BC7 /* UIColor+KinveyHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+KinveyHelpers.m"; path = "Classes/UIColor+KinveyHelpers.m"; sourceTree = "<group>"; };
+		27E6B35C159E3F0A00280BC7 /* KCSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KCSButton.h; path = Classes/KCSButton.h; sourceTree = "<group>"; };
+		27E6B35D159E3F0A00280BC7 /* KCSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KCSButton.m; path = Classes/KCSButton.m; sourceTree = "<group>"; };
+		27E6B35F159E3F2600280BC7 /* KinveyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KinveyKit.framework; sourceTree = "<group>"; };
+		27E6B363159E3F6B00280BC7 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateAccountViewController.h; path = Classes/CreateAccountViewController.h; sourceTree = "<group>"; };
+		27E6B364159E3F6B00280BC7 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateAccountViewController.m; path = Classes/CreateAccountViewController.m; sourceTree = "<group>"; };
+		27E6B365159E3F6B00280BC7 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormViewController.h; path = Classes/FormViewController.h; sourceTree = "<group>"; };
+		27E6B366159E3F6B00280BC7 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormViewController.m; path = Classes/FormViewController.m; sourceTree = "<group>"; };
+		27E6B369159E3F7900280BC7 /* LoginViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewContoller.h; path = Classes/LoginViewContoller.h; sourceTree = "<group>"; };
+		27E6B36A159E3F7900280BC7 /* LoginViewContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewContoller.m; path = Classes/LoginViewContoller.m; sourceTree = "<group>"; };
+		27E6B36C159E407200280BC7 /* UpdateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateCell.h; path = Classes/UpdateCell.h; sourceTree = "<group>"; };
+		27E6B36D159E407200280BC7 /* UpdateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateCell.m; path = Classes/UpdateCell.m; sourceTree = "<group>"; };
+		27E6B36E159E407200280BC7 /* UpdatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdatesViewController.h; path = Classes/UpdatesViewController.h; sourceTree = "<group>"; };
+		27E6B36F159E407200280BC7 /* UpdatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdatesViewController.m; path = Classes/UpdatesViewController.m; sourceTree = "<group>"; };
+		27E6B370159E407200280BC7 /* WriteUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WriteUpdateViewController.h; path = Classes/WriteUpdateViewController.h; sourceTree = "<group>"; };
+		27E6B371159E407200280BC7 /* WriteUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WriteUpdateViewController.m; path = Classes/WriteUpdateViewController.m; sourceTree = "<group>"; };
+		27E6B375159E408200280BC7 /* AuthorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorViewController.h; path = Classes/AuthorViewController.h; sourceTree = "<group>"; };
+		27E6B376159E408300280BC7 /* AuthorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorViewController.m; path = Classes/AuthorViewController.m; sourceTree = "<group>"; };
+		27E6B378159E409600280BC7 /* KinveyFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KinveyFriend.h; path = Classes/KinveyFriend.h; sourceTree = "<group>"; };
+		27E6B379159E409600280BC7 /* KinveyFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KinveyFriend.m; path = Classes/KinveyFriend.m; sourceTree = "<group>"; };
+		27E6B37A159E409600280BC7 /* KinveyFriendsUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KinveyFriendsUpdate.h; path = Classes/KinveyFriendsUpdate.h; sourceTree = "<group>"; };
+		27E6B37B159E409600280BC7 /* KinveyFriendsUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KinveyFriendsUpdate.m; path = Classes/KinveyFriendsUpdate.m; sourceTree = "<group>"; };
+		27E6B37E159E40A500280BC7 /* GravatarStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GravatarStore.h; path = Classes/GravatarStore.h; sourceTree = "<group>"; };
+		27E6B37F159E40A500280BC7 /* GravatarStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GravatarStore.m; path = Classes/GravatarStore.m; sourceTree = "<group>"; };
+		27E6B380159E40A500280BC7 /* MD5Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MD5Helpers.h; path = Classes/MD5Helpers.h; sourceTree = "<group>"; };
+		27E6B381159E40A600280BC7 /* MD5Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MD5Helpers.m; path = Classes/MD5Helpers.m; sourceTree = "<group>"; };
+		27E6B385159E40E500280BC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		27E6B38F159E41D500280BC7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		27E6B3A615A213B800280BC7 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		27E6B3A915A2141B00280BC7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		27E6B3AA15A2141B00280BC7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		27E6B3AB15A2141B00280BC7 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		27E6B3AC15A2141B00280BC7 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		27E6B3AD15A2141B00280BC7 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		27E6B3AE15A2141B00280BC7 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		27E6B3AF15A2141B00280BC7 /* ItunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ItunesArtwork.png; sourceTree = "<group>"; };
+		27E6B3B915A2172200280BC7 /* grid_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid_blank.png; sourceTree = "<group>"; };
+		27E6B3BA15A2172200280BC7 /* grid_blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grid_blank@2x.png"; sourceTree = "<group>"; };
+		27E6B3BD15A23C2D00280BC7 /* libUAirship-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-1.1.1.a"; path = "KinveyGram/libUAirship-1.1.1.a"; sourceTree = "<group>"; };
+		7C2A411236F24BF68A700F43 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		828258A0BC7940E6BD310385 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		90DEBB80DA534A469FC9F2AD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		90F30FA441BA4F82A7FCC961 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		92D1F49CE8DB4334AEA2EA68 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A5D2BFA411D747529F025CF3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D359CEE3AA654D538EC47440 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DB1100433C724546A92A86B9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27E6B2A7159E36D000280BC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E6B390159E41D500280BC7 /* QuartzCore.framework in Frameworks */,
+				27E6B2AF159E36D000280BC7 /* UIKit.framework in Frameworks */,
+				27E6B2B1159E36D000280BC7 /* Foundation.framework in Frameworks */,
+				27E6B2B3159E36D000280BC7 /* CoreGraphics.framework in Frameworks */,
+				27E6B361159E3F2600280BC7 /* KinveyKit.framework in Frameworks */,
+				452843D912854F5CA5BA586C /* CFNetwork.framework in Frameworks */,
+				F81E8A002EA746E5A6584F41 /* CoreGraphics.framework in Frameworks */,
+				44E5BB9A1E4A43B48FCE2A5B /* Foundation.framework in Frameworks */,
+				D91438FC689549768F8B1DB2 /* MobileCoreServices.framework in Frameworks */,
+				99B982E115904F4987C9A948 /* Security.framework in Frameworks */,
+				87888FBE0AE345FEABDAAA99 /* SystemConfiguration.framework in Frameworks */,
+				682589937DBF402CB03C7A9C /* UIKit.framework in Frameworks */,
+				77EFB1D10C144B6299B7E90E /* StoreKit.framework in Frameworks */,
+				8E161CCB79E14C3DB26ADA1F /* CoreTelephony.framework in Frameworks */,
+				8B1B1B961E444DE5A0344ED2 /* libz.dylib in Frameworks */,
+				7CD1A1CD88E044888917EA86 /* libsqlite3.dylib in Frameworks */,
+				27E6B3BE15A23C2D00280BC7 /* libUAirship-1.1.1.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27E6B2CA159E36D000280BC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E6B2D0159E36D000280BC7 /* SenTestingKit.framework in Frameworks */,
+				27E6B2D1159E36D000280BC7 /* UIKit.framework in Frameworks */,
+				27E6B2D2159E36D000280BC7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27E6B29F159E36D000280BC7 = {
+			isa = PBXGroup;
+			children = (
+				27E6B2B4159E36D000280BC7 /* KinveyGram */,
+				27E6B342159E3D9500280BC7 /* Supporting Files */,
+				27E6B2D5159E36D000280BC7 /* KinveyGramTests */,
+				27E6B2AD159E36D000280BC7 /* Frameworks */,
+				27E6B2AB159E36D000280BC7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27E6B2AB159E36D000280BC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B2AA159E36D000280BC7 /* KinveyGram.app */,
+				27E6B2CE159E36D000280BC7 /* KinveyGramTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27E6B2AD159E36D000280BC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B3BD15A23C2D00280BC7 /* libUAirship-1.1.1.a */,
+				27E6B35F159E3F2600280BC7 /* KinveyKit.framework */,
+				27E6B2AE159E36D000280BC7 /* UIKit.framework */,
+				27E6B38F159E41D500280BC7 /* QuartzCore.framework */,
+				27E6B2B0159E36D000280BC7 /* Foundation.framework */,
+				27E6B2B2159E36D000280BC7 /* CoreGraphics.framework */,
+				27E6B2CF159E36D000280BC7 /* SenTestingKit.framework */,
+				828258A0BC7940E6BD310385 /* CFNetwork.framework */,
+				01A2D2B3859E4FABAD0FEA25 /* CoreGraphics.framework */,
+				D359CEE3AA654D538EC47440 /* Foundation.framework */,
+				92D1F49CE8DB4334AEA2EA68 /* MobileCoreServices.framework */,
+				90F30FA441BA4F82A7FCC961 /* Security.framework */,
+				90DEBB80DA534A469FC9F2AD /* SystemConfiguration.framework */,
+				DB1100433C724546A92A86B9 /* UIKit.framework */,
+				0864244EB4EB4378A013D2A4 /* StoreKit.framework */,
+				7C2A411236F24BF68A700F43 /* CoreTelephony.framework */,
+				A5D2BFA411D747529F025CF3 /* libz.dylib */,
+				1F4A168F34A6432793DC5300 /* libsqlite3.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27E6B2B4159E36D000280BC7 /* KinveyGram */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B343159E3EAD00280BC7 /* AppDelegate.h */,
+				27E6B344159E3EAD00280BC7 /* AppDelegate.m */,
+				27E6B32F159E3CB900280BC7 /* MainStoryboard.storyboard */,
+				27E6B32B159E3C9700280BC7 /* Login and Signup */,
+				27E6B333159E3CD200280BC7 /* Viewing/Creating Updates */,
+				27E6B334159E3CF200280BC7 /* Backend Classes */,
+				27E6B335159E3D0300280BC7 /* Utility */,
+				27E6B339159E3D3800280BC7 /* UI Elements */,
+			);
+			path = KinveyGram;
+			sourceTree = "<group>";
+		};
+		27E6B2D5159E36D000280BC7 /* KinveyGramTests */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B2DB159E36D000280BC7 /* KinveyGramTests.h */,
+				27E6B2DC159E36D000280BC7 /* KinveyGramTests.m */,
+				27E6B2D6159E36D000280BC7 /* Supporting Files */,
+			);
+			path = KinveyGramTests;
+			sourceTree = "<group>";
+		};
+		27E6B2D6159E36D000280BC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B2D7159E36D000280BC7 /* KinveyGramTests-Info.plist */,
+				27E6B2D8159E36D000280BC7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		27E6B32B159E3C9700280BC7 /* Login and Signup */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B365159E3F6B00280BC7 /* FormViewController.h */,
+				27E6B366159E3F6B00280BC7 /* FormViewController.m */,
+				27E6B369159E3F7900280BC7 /* LoginViewContoller.h */,
+				27E6B36A159E3F7900280BC7 /* LoginViewContoller.m */,
+				27E6B363159E3F6B00280BC7 /* CreateAccountViewController.h */,
+				27E6B364159E3F6B00280BC7 /* CreateAccountViewController.m */,
+			);
+			name = "Login and Signup";
+			sourceTree = "<group>";
+		};
+		27E6B333159E3CD200280BC7 /* Viewing/Creating Updates */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B36E159E407200280BC7 /* UpdatesViewController.h */,
+				27E6B36F159E407200280BC7 /* UpdatesViewController.m */,
+				27E6B375159E408200280BC7 /* AuthorViewController.h */,
+				27E6B376159E408300280BC7 /* AuthorViewController.m */,
+				27E6B36C159E407200280BC7 /* UpdateCell.h */,
+				27E6B36D159E407200280BC7 /* UpdateCell.m */,
+				27E6B370159E407200280BC7 /* WriteUpdateViewController.h */,
+				27E6B371159E407200280BC7 /* WriteUpdateViewController.m */,
+			);
+			name = "Viewing/Creating Updates";
+			sourceTree = "<group>";
+		};
+		27E6B334159E3CF200280BC7 /* Backend Classes */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B378159E409600280BC7 /* KinveyFriend.h */,
+				27E6B379159E409600280BC7 /* KinveyFriend.m */,
+				27E6B37A159E409600280BC7 /* KinveyFriendsUpdate.h */,
+				27E6B37B159E409600280BC7 /* KinveyFriendsUpdate.m */,
+			);
+			name = "Backend Classes";
+			sourceTree = "<group>";
+		};
+		27E6B335159E3D0300280BC7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B380159E40A500280BC7 /* MD5Helpers.h */,
+				27E6B381159E40A600280BC7 /* MD5Helpers.m */,
+				27E6B37E159E40A500280BC7 /* GravatarStore.h */,
+				27E6B37F159E40A500280BC7 /* GravatarStore.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		27E6B339159E3D3800280BC7 /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B33A159E3D5500280BC7 /* 3rd Party */,
+				27E6B341159E3D5A00280BC7 /* Kinvey */,
+			);
+			name = "UI Elements";
+			sourceTree = "<group>";
+		};
+		27E6B33A159E3D5500280BC7 /* 3rd Party */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B353159E3EED00280BC7 /* MBProgressHUD.h */,
+				27E6B354159E3EED00280BC7 /* MBProgressHUD.m */,
+				27E6B355159E3EED00280BC7 /* PullRefreshTableViewController.h */,
+				27E6B356159E3EED00280BC7 /* PullRefreshTableViewController.m */,
+			);
+			path = "3rd Party";
+			sourceTree = "<group>";
+		};
+		27E6B341159E3D5A00280BC7 /* Kinvey */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B359159E3EFD00280BC7 /* UIColor+KinveyHelpers.h */,
+				27E6B35A159E3EFD00280BC7 /* UIColor+KinveyHelpers.m */,
+				27E6B35C159E3F0A00280BC7 /* KCSButton.h */,
+				27E6B35D159E3F0A00280BC7 /* KCSButton.m */,
+			);
+			name = Kinvey;
+			sourceTree = "<group>";
+		};
+		27E6B342159E3D9500280BC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				27E6B34B159E3EC800280BC7 /* main.m */,
+				27E6B348159E3EC800280BC7 /* KinveyGram-Prefix.pch */,
+				27E6B349159E3EC800280BC7 /* KinveyGram-Info.plist */,
+				27E6B384159E40E500280BC7 /* InfoPlist.strings */,
+				27E6B3A615A213B800280BC7 /* iTunesArtwork */,
+				27E6B3A915A2141B00280BC7 /* Default.png */,
+				27E6B3AA15A2141B00280BC7 /* Default@2x.png */,
+				27E6B3AB15A2141B00280BC7 /* Icon-72.png */,
+				27E6B3AC15A2141B00280BC7 /* Icon-72@2x.png */,
+				27E6B3AD15A2141B00280BC7 /* Icon.png */,
+				27E6B3AE15A2141B00280BC7 /* Icon@2x.png */,
+				27E6B3AF15A2141B00280BC7 /* ItunesArtwork.png */,
+				27E6B3B915A2172200280BC7 /* grid_blank.png */,
+				27E6B3BA15A2172200280BC7 /* grid_blank@2x.png */,
+				27E6B34A159E3EC800280BC7 /* lock.png */,
+				27E6B346159E3EC800280BC7 /* arrow.png */,
+				27E6B34C159E3EC800280BC7 /* unlock.png */,
+			);
+			name = "Supporting Files";
+			path = KinveyGram;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27E6B2A9159E36D000280BC7 /* KinveyGram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27E6B2E0159E36D000280BC7 /* Build configuration list for PBXNativeTarget "KinveyGram" */;
+			buildPhases = (
+				27E6B2A6159E36D000280BC7 /* Sources */,
+				27E6B2A7159E36D000280BC7 /* Frameworks */,
+				27E6B2A8159E36D000280BC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KinveyGram;
+			productName = KinveyGram;
+			productReference = 27E6B2AA159E36D000280BC7 /* KinveyGram.app */;
+			productType = "com.apple.product-type.application";
+		};
+		27E6B2CD159E36D000280BC7 /* KinveyGramTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27E6B2E3159E36D000280BC7 /* Build configuration list for PBXNativeTarget "KinveyGramTests" */;
+			buildPhases = (
+				27E6B2C9159E36D000280BC7 /* Sources */,
+				27E6B2CA159E36D000280BC7 /* Frameworks */,
+				27E6B2CB159E36D000280BC7 /* Resources */,
+				27E6B2CC159E36D000280BC7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27E6B2D4159E36D000280BC7 /* PBXTargetDependency */,
+			);
+			name = KinveyGramTests;
+			productName = KinveyGramTests;
+			productReference = 27E6B2CE159E36D000280BC7 /* KinveyGramTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27E6B2A1159E36D000280BC7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Kinvey;
+			};
+			buildConfigurationList = 27E6B2A4159E36D000280BC7 /* Build configuration list for PBXProject "KinveyGram" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 27E6B29F159E36D000280BC7;
+			productRefGroup = 27E6B2AB159E36D000280BC7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27E6B2A9159E36D000280BC7 /* KinveyGram */,
+				27E6B2CD159E36D000280BC7 /* KinveyGramTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27E6B2A8159E36D000280BC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E6B332159E3CB900280BC7 /* MainStoryboard.storyboard in Resources */,
+				27E6B34D159E3EC800280BC7 /* arrow.png in Resources */,
+				27E6B350159E3EC800280BC7 /* lock.png in Resources */,
+				27E6B352159E3EC800280BC7 /* unlock.png in Resources */,
+				27E6B386159E40E500280BC7 /* InfoPlist.strings in Resources */,
+				27E6B3A815A213C100280BC7 /* iTunesArtwork in Resources */,
+				27E6B3B015A2141B00280BC7 /* Default.png in Resources */,
+				27E6B3B115A2141B00280BC7 /* Default@2x.png in Resources */,
+				27E6B3B215A2141B00280BC7 /* Icon-72.png in Resources */,
+				27E6B3B315A2141B00280BC7 /* Icon-72@2x.png in Resources */,
+				27E6B3B415A2141B00280BC7 /* Icon.png in Resources */,
+				27E6B3B515A2141B00280BC7 /* Icon@2x.png in Resources */,
+				27E6B3B615A2141B00280BC7 /* ItunesArtwork.png in Resources */,
+				27E6B3BB15A2172200280BC7 /* grid_blank.png in Resources */,
+				27E6B3BC15A2172200280BC7 /* grid_blank@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27E6B2CB159E36D000280BC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E6B2DA159E36D000280BC7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		27E6B2CC159E36D000280BC7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27E6B2A6159E36D000280BC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E6B345159E3EAD00280BC7 /* AppDelegate.m in Sources */,
+				27E6B351159E3EC800280BC7 /* main.m in Sources */,
+				27E6B357159E3EED00280BC7 /* MBProgressHUD.m in Sources */,
+				27E6B358159E3EED00280BC7 /* PullRefreshTableViewController.m in Sources */,
+				27E6B35B159E3EFD00280BC7 /* UIColor+KinveyHelpers.m in Sources */,
+				27E6B35E159E3F0A00280BC7 /* KCSButton.m in Sources */,
+				27E6B367159E3F6B00280BC7 /* CreateAccountViewController.m in Sources */,
+				27E6B368159E3F6B00280BC7 /* FormViewController.m in Sources */,
+				27E6B36B159E3F7A00280BC7 /* LoginViewContoller.m in Sources */,
+				27E6B372159E407200280BC7 /* UpdateCell.m in Sources */,
+				27E6B373159E407200280BC7 /* UpdatesViewController.m in Sources */,
+				27E6B374159E407200280BC7 /* WriteUpdateViewController.m in Sources */,
+				27E6B377159E408300280BC7 /* AuthorViewController.m in Sources */,
+				27E6B37C159E409600280BC7 /* KinveyFriend.m in Sources */,
+				27E6B37D159E409600280BC7 /* KinveyFriendsUpdate.m in Sources */,
+				27E6B382159E40A600280BC7 /* GravatarStore.m in Sources */,
+				27E6B383159E40A600280BC7 /* MD5Helpers.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27E6B2C9159E36D000280BC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E6B2DD159E36D000280BC7 /* KinveyGramTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27E6B2D4159E36D000280BC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27E6B2A9159E36D000280BC7 /* KinveyGram */;
+			targetProxy = 27E6B2D3159E36D000280BC7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		27E6B2D8159E36D000280BC7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27E6B2D9159E36D000280BC7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		27E6B32F159E3CB900280BC7 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27E6B330159E3CB900280BC7 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		27E6B384159E40E500280BC7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27E6B385159E40E500280BC7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		27E6B2DE159E36D000280BC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		27E6B2DF159E36D000280BC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		27E6B2E1159E36D000280BC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KinveyGram/KinveyGram-Prefix.pch";
+				INFOPLIST_FILE = "KinveyGram/KinveyGram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/KinveyGram\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		27E6B2E2159E36D000280BC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KinveyGram/KinveyGram-Prefix.pch";
+				INFOPLIST_FILE = "KinveyGram/KinveyGram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/KinveyGram\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		27E6B2E4159E36D000280BC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KinveyGram.app/KinveyGram";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KinveyGram/KinveyGram-Prefix.pch";
+				INFOPLIST_FILE = "KinveyGramTests/KinveyGramTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		27E6B2E5159E36D000280BC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KinveyGram.app/KinveyGram";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KinveyGram/KinveyGram-Prefix.pch";
+				INFOPLIST_FILE = "KinveyGramTests/KinveyGramTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27E6B2A4159E36D000280BC7 /* Build configuration list for PBXProject "KinveyGram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27E6B2DE159E36D000280BC7 /* Debug */,
+				27E6B2DF159E36D000280BC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27E6B2E0159E36D000280BC7 /* Build configuration list for PBXNativeTarget "KinveyGram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27E6B2E1159E36D000280BC7 /* Debug */,
+				27E6B2E2159E36D000280BC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27E6B2E3159E36D000280BC7 /* Build configuration list for PBXNativeTarget "KinveyGramTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27E6B2E4159E36D000280BC7 /* Debug */,
+				27E6B2E5159E36D000280BC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27E6B2A1159E36D000280BC7 /* Project object */;
+}
