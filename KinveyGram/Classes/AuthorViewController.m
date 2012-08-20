@@ -11,6 +11,8 @@
 #import "GravatarStore.h"
 #import "UpdateCell.h"
 
+#define kAuthor @"_acl.creator"
+
 @interface AuthorViewController () {
     @private
     NSArray* _lastFive;
@@ -69,7 +71,7 @@
 
 - (void) updateCount
 {
-    [_updateStore group:[NSArray arrayWithObject:@"author"] reduce:[KCSReduceFunction COUNT] condition:[KCSQuery query] completionBlock:^(KCSGroup *valuesOrNil, NSError *errorOrNil) {
+    [_updateStore group:[NSArray arrayWithObject:kAuthor] reduce:[KCSReduceFunction COUNT] condition:[KCSQuery query] completionBlock:^(KCSGroup *valuesOrNil, NSError *errorOrNil) {
         if (valuesOrNil != nil) {
             self.grouping = valuesOrNil;
             [self.tableView reloadData];
@@ -79,9 +81,9 @@
 
 - (void) updateLastFive
 {
-    KCSQuery* lastFiveQuery = [KCSQuery queryOnField:@"author" withExactMatchForValue:self.author];
+    KCSQuery* lastFiveQuery = [KCSQuery queryOnField:kAuthor withExactMatchForValue:self.author];
     lastFiveQuery.limitModifer = [[KCSQueryLimitModifier alloc] initWithLimit:5];
-    KCSQuerySortModifier* sortByDate = [[KCSQuerySortModifier alloc] initWithField:@"userDate" inDirection:kKCSAscending];
+    KCSQuerySortModifier* sortByDate = [[KCSQuerySortModifier alloc] initWithField:@"userDate" inDirection:kKCSDescending];
     [lastFiveQuery addSortModifier:sortByDate];
 
     [_updateStore queryWithQuery:lastFiveQuery withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
@@ -151,7 +153,7 @@
         cell.imageView.image = self.image;
         
     } else {
-        id updateCount = [grouping reducedValueForFields:[NSDictionary dictionaryWithObjectsAndKeys:self.author, @"author", nil]];
+        id updateCount = [grouping reducedValueForFields:[NSDictionary dictionaryWithObjectsAndKeys:self.author, kAuthor, nil]];
         updateCount = (updateCount == nil || [updateCount isEqual:[NSNull null]] || [updateCount intValue] == NSNotFound) ? NSLocalizedString(@"??", @"'Number' for unkown number of updates") : updateCount;
         cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ Updates", @"number of updates label for an author"), updateCount];
     }

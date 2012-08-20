@@ -9,7 +9,6 @@
 
 @implementation KinveyFriendsUpdate
 @synthesize text = _text;
-@synthesize author = _author;
 @synthesize kinveyId = _kinveyId;
 @synthesize userDate = _userDate;
 @synthesize attachment = _attachment;
@@ -20,7 +19,6 @@
 {
     return [NSDictionary dictionaryWithObjectsAndKeys:
             @"text", @"text",
-            @"author", @"author",
             KCSEntityKeyId, @"kinveyId",
             @"userDate", @"userDate",
             @"attachment", @"attachment",

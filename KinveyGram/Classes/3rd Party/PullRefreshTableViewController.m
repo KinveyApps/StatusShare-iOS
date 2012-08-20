@@ -67,9 +67,9 @@
 }
 
 - (void)setupStrings{
-  textPull = [[NSString alloc] initWithString:@"Pull down to refresh..."];
-  textRelease = [[NSString alloc] initWithString:@"Release to refresh..."];
-  textLoading = [[NSString alloc] initWithString:@"Loading..."];
+  textPull = @"Pull down to refresh...";
+  textRelease = @"Release to refresh...";
+  textLoading = @"Loading...";
 }
 
 - (void)addPullToRefreshHeader {

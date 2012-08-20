@@ -100,7 +100,6 @@
 {
     if (self.updateTextView.text.length > 0) {
         KinveyFriendsUpdate* update = [[KinveyFriendsUpdate alloc] init];
-        update.author = [[KCSClient sharedClient] currentUser].kinveyObjectId;
         update.text = updateTextView.text;
         update.userDate = [NSDate date];
         if (self.attachedImage != nil) {
