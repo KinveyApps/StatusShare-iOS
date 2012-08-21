@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSDate* userDate;
 @property (nonatomic, retain) UIImage* attachment;
 @property (nonatomic, retain) KCSMetadata* meta;
+@property (nonatomic, retain) NSArray* location;
 
 @end

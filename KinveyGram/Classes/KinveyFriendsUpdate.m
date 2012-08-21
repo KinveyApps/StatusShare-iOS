@@ -13,16 +13,18 @@
 @synthesize userDate = _userDate;
 @synthesize attachment = _attachment;
 @synthesize meta = _meta;
+@synthesize location = _location;
 
 // Kinvey code use: any "KCSPersistable" has to implement this mapping method
 - (NSDictionary *)hostToKinveyPropertyMapping
 {
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            @"text", @"text",
-            KCSEntityKeyId, @"kinveyId",
-            @"userDate", @"userDate",
-            @"attachment", @"attachment",
-            KCSEntityKeyMetadata, @"meta",
-            nil];
+    return @{
+    @"text"       : @"text",
+    @"userDate"   : @"userDate",
+    @"attachment" : @"attachment",
+    @"meta"       : KCSEntityKeyMetadata,
+    @"kinveyId"   : KCSEntityKeyId,
+    @"location"   : KCSEntityKeyGeolocation,
+    };
 }
 @end

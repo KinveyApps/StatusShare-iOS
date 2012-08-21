@@ -3,8 +3,10 @@ This is a [Kinvey](http://www.kinvey.com) iOS Sample app to illustrate how to ta
 
 In particular this sample application highlights the following key backend tasks:
 * Allow users to sign up and log in
+    * Allows users to log in with Facebook credentials
 * Create public/private shared data
 * Link images to application data
+* Save location information and display on a map
 * Provide offline functionality
 * Connect on the client-side to 3rd party service (Gravatar)
 
@@ -13,7 +15,7 @@ In particular this sample application highlights the following key backend tasks
 ![](https://github.com/Kinvey/KinveyGram/raw/master/assets/KinveyGram_ss1.png)
 ![](https://github.com/Kinvey/KinveyGram/raw/master/assets/KinveyGram_ss3.png)
 ![](https://github.com/Kinvey/KinveyGram/raw/master/assets/KinveyGram_ss2.png)
-
+![](https://github.com/Kinvey/KinveyGram/raw/master/assets/KinveyGram_ss4.png)
 
 ## Using the App
 1. First time users, tap "Create New Account"
@@ -22,8 +24,10 @@ In particular this sample application highlights the following key backend tasks
 3. Press the "Compose" button to write a new Update.
    * The camera button allows an image to be attached to the update.
    * Tapping the lock/unlock button makes the update private/public
+   * Tapping the globe button will geo-tag the post (if the globe goes green).
 4. Refresh the list by pulling down.
 5. Tap a row in the list to see the author listed with the last five updates for that user.
+   * If there is a geo-coded update in the last 5 for a particular author, the most recent one's coordinates will be displayed. Tapping this row will show the update on a map.
 
 ## Using the Kinvey Backend
 The following section describes where to look in the code for examples of common backend tasks.
@@ -31,6 +35,8 @@ The following section describes where to look in the code for examples of common
 ### User management
 * `- [CreateAccountViewController createNewAccount:]` goes through the process of adding a new user to the users collection for a Kinvey-powered application. 
 * `- [LoginViewContoller login:]` provides an example of using the `KCSUser` class to verify input credentials.
+* `- [LoginViewContoller loginWithFacebook:]` provides an example of using the Facebook SDK obtain a Facebook session token an log in to Kinvey with it.
+
 
 ### Data caching and linking
 * The `UpdatesViewController` (the main list view) uses a `KCSLinkedAppdataStore` with a cache policy: `KCSCachePolicyBoth`. This means the UI will be updated immediately with the cached results of the last query to the server, and then query the backend for new information. If the app is offline, it will just use the cache, otherwise the UI will update again when the new results come back from the server.
@@ -39,12 +45,17 @@ The following section describes where to look in the code for examples of common
 ### Controlling Data Visibilty
 * The `WriteUpdateViewController` lets the user choose the post visibility through a toggle button in the toolbar. This affects the `globalRead` property of the post through the created update's `KCSMetadata` object. 
 
+### User Location
+* The `WriteUpdateViewController` lets the user tag the update post with the device's current location. This uses the `CLLocationManager` class to get the location (assuming the user has granted location permission to the app). This data is stored in the special `KCSEntityKeyGeolocation` field, which allows for `KCSQuery` geo-queries on the updates (although not yet done in this sample, see the [Kinvey GeoTag](https://github.com/Kinvey/KinveyGeoTag) for sample code).
+* There are additional methods in this version of `KinveyKit` to convert `CLLocation` objects to NSArrays for serialization to the backend. 
+
 ### Taking Advantage of 3rd-Party APIs
 * While you can link arbitrary APIs on the backend, I wanted to provide an example of using the `KCSStore` protocol to extend the library through creating custom data sources. `GravatarStore` connects to [Gravatar](http://en.gravatar.com/site/implement/)'s API to load images to represent each user.
-    * `GravatarStore` uses `queryWithQuery:` to make calls to the gravatar API. The input query is the username, for this example. 
+    * `GravatarStore` uses `queryWithQuery:` to make calls to the Gravatar API. The input query is the username, for this example. 
     * The `GravatarStore` class can be used as-is by any other application that wants to use Gravatar images. <font size=-1>(just be sure to also copy `MD5Helpers`)</font>
     
 
 ## System Requirements
 * iOS 5 or later (uses storyboards)
-* KinveyKit library 1.5.0 or later
+* KinveyKit library 1.7.0 or later
+* Facebook SDK 3.0 or later

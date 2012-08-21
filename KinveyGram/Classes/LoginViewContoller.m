@@ -8,7 +8,9 @@
 #import "LoginViewContoller.h"
 
 #import <KinveyKit/KinveyKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
+#import "AppDelegate.h"
 #import "MBProgressHUD.h"
 
 @interface LoginViewContoller()
@@ -19,6 +21,7 @@
 @synthesize userNameTextField;
 @synthesize passwordTextField;
 @synthesize createAccountButton;
+@synthesize facebookLoginButton;
 
 - (void)viewDidLoad
 {
@@ -30,6 +33,7 @@
     [self setUserNameTextField:nil];
     [self setPasswordTextField:nil];
     [self setCreateAccountButton:nil];
+    [self setFacebookLoginButton:nil];
     [super viewDidUnload];
 }
 
@@ -99,34 +103,60 @@
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 
-- (IBAction)login:(id)sender 
+- (void) handeLogin:(NSError*)errorOrNil
+{
+    [self reenableButtons];
+    if (errorOrNil != nil) {
+        BOOL wasUserError = [errorOrNil domain] == KCSUserErrorDomain;
+        NSString* title = wasUserError ? NSLocalizedString(@"Invalid Credentials", @"credentials error title") : NSLocalizedString(@"An error occurred.", @"Generic error message");
+        NSString* message = wasUserError ? NSLocalizedString(@"Wrong username or password. Please check and try again.", @"credentials error message") : [errorOrNil localizedDescription];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message                                                           delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                                              otherButtonTitles:nil];
+        [alert show];
+    } else {
+        //clear fields on success
+        self.userNameTextField.text = @"";
+        self.passwordTextField.text = @"";
+        //logged in went okay - go to the table
+        [self performSegueWithIdentifier:@"toTable" sender:self];
+    }
+ 
+}
+
+- (IBAction)login:(id)sender
 {
     [self disableButtons:NSLocalizedString(@"Logging in", @"Logging In Message")];
     
     ///Kinvey-Use code: login with the typed credentials
     [KCSUser loginWithUsername:self.userNameTextField.text password:self.passwordTextField.text withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
-        [self reenableButtons];
-        if (errorOrNil != nil) {
-            BOOL wasUserError = [errorOrNil domain] == KCSUserErrorDomain;
-            NSString* title = wasUserError ? NSLocalizedString(@"Invalid Credentials", @"credentials error title") : NSLocalizedString(@"An error occurred.", @"Generic error message");
-            NSString* message = wasUserError ? NSLocalizedString(@"Wrong username or password. Please check and try again.", @"credentials error message") : [errorOrNil localizedDescription];
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title
-                                                            message:message                                                           delegate:self 
-                                                  cancelButtonTitle:NSLocalizedString(@"OK", @"OK") 
-                                                  otherButtonTitles:nil];
-            [alert show];
-        } else {
-            //clear fields on success
-            self.userNameTextField.text = @"";
-            self.passwordTextField.text = @"";
-            //logged in went okay - go to the table
-            [self performSegueWithIdentifier:@"toTable" sender:self];
-        }
-
+        [self handeLogin:errorOrNil];
     }];
 }
+
+- (IBAction)loginWithFacebook:(id)sender
+{
+    AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    FBSession* session = [delegate session];
+
+    // if the session isn't open, let's open it now and present the login UX to the user
+    [session openWithCompletionHandler:^(FBSession *session,
+                                                 FBSessionState status,
+                                                 NSError *error) {
+        if (status == FBSessionStateOpen) {
+            NSString* accessToken = session.accessToken;
+            [KCSUser loginWithFacebookAccessToken:accessToken withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
+                [self handeLogin:errorOrNil];
+            }];
+        }
+        
+
+    }];
+
+}
       
-- (IBAction)createAccount:(id)sender 
+- (IBAction)createAccount:(id)sender
 {
     [self performSegueWithIdentifier:@"pushToCreateAccount" sender:self];
 }

@@ -40,7 +40,7 @@
 @end
 
 @implementation UpdateCell
-@synthesize nameLabel, textLabel, timeLabel, avatar, thumbnailView;
+@synthesize nameLabel, textLabel, timeLabel, avatar, thumbnailView, pinView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -70,12 +70,19 @@
         
         [bgView addSubview:textLabel];
         
-        timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(265., 8., 34., 18.)]; //width - 
+        CGRect timeFrame = CGRectMake(265., 8., 34., 18.);
+        timeLabel = [[UILabel alloc] initWithFrame:timeFrame];
         timeLabel.textColor = [UIColor colorWithIntRed:173 green:174 blue:173];
         timeLabel.font = [UIFont systemFontOfSize:12.];
         timeLabel.textAlignment = UITextAlignmentRight;
         timeLabel.backgroundColor = [UIColor clearColor];
         [bgView addSubview:timeLabel];
+        
+        CGFloat pinSize = 20.;
+        pinView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(timeFrame) - pinSize, CGRectGetMaxY(timeFrame) + 2., pinSize, pinSize)];
+        pinView.image = [UIImage imageNamed:@"globe_green"];
+        pinView.hidden = YES;
+        [bgView addSubview:pinView];
         
         avatar = [[UIImageView alloc] initWithFrame:CGRectMake(8., 8., kAvatarSize, kAvatarSize)];
         avatar.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -112,7 +119,7 @@
 
 - (void) setUpdate:(KinveyFriendsUpdate*)update
 {
-    self.nameLabel.text = update.author;
+    self.nameLabel.text = [update.meta creatorId];
     self.textLabel.text = update.text;
     //Kinvey code usage: if a KCSLinkedAppdataStore is not used, then linked resources will be NSDictionaries of the image metadata rather than the UIImage itself
     if (update.attachment != nil && [update.attachment isKindOfClass:[UIImage class]]) {
@@ -135,13 +142,14 @@
         dateFormat = [NSString stringWithFormat:@"%0.fd", days];
     }
     self.timeLabel.text = dateFormat;
+    self.pinView.hidden = update.location == nil;
     
-    KCSCollection* users = [KCSCollection collectionFromString:@"friends" ofClass:[KCSEntityDict class]];
+    KCSCollection* users = [[KCSClient sharedClient].currentUser userCollection];
     KCSCachedStore* userStore = [KCSCachedStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:users, KCSStoreKeyResource, [NSNumber numberWithInt:KCSCachePolicyLocalFirst], KCSStoreKeyCachePolicy, nil]];
-    [userStore loadObjectWithID:update.author withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
+    [userStore loadObjectWithID:[update.meta creatorId] withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
         if (objectsOrNil && objectsOrNil.count > 0) {
-            KCSEntityDict* user = [objectsOrNil objectAtIndex:0];
-            NSString* name = [user getValueForProperty:@"userName"];
+            KCSUser* user = [objectsOrNil objectAtIndex:0];
+            NSString* name = user.username;
             nameLabel.text = name;
             
             NSUInteger size = [[UIScreen mainScreen]  scale] * kAvatarSize;

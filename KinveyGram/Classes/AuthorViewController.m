@@ -11,7 +11,33 @@
 #import "GravatarStore.h"
 #import "UpdateCell.h"
 
+#import <MapKit/MapKit.h>
+
 #define kAuthor @"_acl.creator"
+
+@interface UpdateAnnotation : NSObject <MKAnnotation>
+{
+    CLLocationCoordinate2D _coordinate;
+}
+
+@end
+
+@implementation UpdateAnnotation
+- (id) initWithLoc:(NSArray*)loc
+{
+    self = [super init];
+    if (self) {
+        _coordinate = CLLocationCoordinate2DMake([[loc objectAtIndex:1] doubleValue], [[loc objectAtIndex:0] doubleValue]);
+
+    }
+    return self;
+}
+
+- (CLLocationCoordinate2D)coordinate;
+{
+    return _coordinate;
+}
+@end
 
 @interface AuthorViewController () {
     @private
@@ -52,12 +78,12 @@
 
 - (void) updateGravatar
 {
-    KCSCollection* users = [KCSCollection collectionFromString:@"friends" ofClass:[KCSEntityDict class]];
-    KCSCachedStore* userStore = [KCSCachedStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:users, KCSStoreKeyResource, [NSNumber numberWithInt:KCSCachePolicyLocalFirst], KCSStoreKeyCachePolicy, nil]];
+    KCSCollection* users = [[KCSClient sharedClient].currentUser userCollection];    KCSCachedStore* userStore = [KCSCachedStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:users, KCSStoreKeyResource, [NSNumber numberWithInt:KCSCachePolicyLocalFirst], KCSStoreKeyCachePolicy, nil]];
     [userStore loadObjectWithID:self.author withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
         if (objectsOrNil && objectsOrNil.count > 0) {
-            KCSEntityDict* user = [objectsOrNil objectAtIndex:0];
-            self.name = [user getValueForProperty:@"userName"];
+            KCSUser* user = [objectsOrNil objectAtIndex:0];
+            self.name = user.username;
+            self.title = user.username;
             
             NSUInteger size = [[self.view.window screen]  scale] * 48.;
             GravatarStore* store = [GravatarStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:size], GravatarStoreOptionSizeKey, nil]];
@@ -130,7 +156,7 @@
     // Return the number of rows in the section.
     switch (section) {
         case 0:
-            return 2;
+            return 3;
             break;
         case 1:
             return _lastFive.count;
@@ -152,10 +178,28 @@
         cell.textLabel.text = self.name == nil ? self.author : self.name;
         cell.imageView.image = self.image;
         
-    } else {
+    } else if (row == 1) {
+        //N Updates Row
         id updateCount = [grouping reducedValueForFields:[NSDictionary dictionaryWithObjectsAndKeys:self.author, kAuthor, nil]];
         updateCount = (updateCount == nil || [updateCount isEqual:[NSNull null]] || [updateCount intValue] == NSNotFound) ? NSLocalizedString(@"??", @"'Number' for unkown number of updates") : updateCount;
         cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ Updates", @"number of updates label for an author"), updateCount];
+    } else if (row == 2) {
+        //Location Row
+        NSArray* lastLoc = nil;
+        for (KinveyFriendsUpdate* update in _lastFive) {
+            if (update.location && update.location.count > 0) {
+                lastLoc = update.location;
+                break;
+            }
+        }
+        if (lastLoc) {
+            cell.textLabel.text = [NSString stringWithFormat:@"Last location:"];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", lastLoc];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        } else {
+            cell.textLabel.text = @"No Recent Location";
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     }
     
     return cell;
@@ -190,5 +234,30 @@
         return NSLocalizedString(@"Last Five Updates", @"Last five title");
     }
     return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0 & indexPath.row == 2) {
+        //selected the location row
+        MKMapView* mapView = [[MKMapView alloc] init];
+        mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        UIViewController* vc = [[UIViewController alloc] init];
+        vc.view = mapView;
+        NSArray* lastLoc = nil;
+        for (KinveyFriendsUpdate* update in _lastFive) {
+            if (update.location && update.location.count > 0) {
+                lastLoc = update.location;
+                break;
+            }
+        }
+        UpdateAnnotation* an = [[UpdateAnnotation alloc] initWithLoc:lastLoc];
+        [mapView addAnnotation:an];
+        [self.navigationController pushViewController:vc animated:YES];
+        [mapView setCenterCoordinate:an.coordinate];
+        [mapView setRegion:MKCoordinateRegionMake(an.coordinate, MKCoordinateSpanMake(2, 2))];
+
+    }
 }
 @end

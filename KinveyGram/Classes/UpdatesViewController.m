@@ -67,7 +67,7 @@
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         KinveyFriendsUpdate* update = [self updateAtIndex:indexPath.row];
         
-        [segue.destinationViewController setAuthor:update.author];
+        [segue.destinationViewController setAuthor:[update.meta creatorId]];
     }
 }
 
@@ -148,7 +148,7 @@
     
     NSMutableSet* authorSet = [NSMutableSet setWithCapacity:self.updates.count];
     for (KinveyFriendsUpdate* update in authorSet) {
-        [authorSet addObject:update.author];
+        [authorSet addObject:[update.meta creatorId]];
     }
 }
 

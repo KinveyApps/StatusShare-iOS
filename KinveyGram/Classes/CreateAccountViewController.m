@@ -9,8 +9,6 @@
 
 #import <KinveyKit/KinveyKit.h>
 
-#import "KinveyFriend.h"
-
 #define kMinPasswordLength 4
 #define kMinUsernameLength 4
 
@@ -37,14 +35,7 @@
     [KCSUser userWithUsername:userName.text password:password.text withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
         if (errorOrNil == nil) {
             //In addition to creating the user that is used for login-purposes, this app also creates a public "user" entity that is for display in the table
-            KinveyFriend* newUser = [[KinveyFriend alloc] init];
-            newUser.kinveyId = user.kinveyObjectId;
-            newUser.userName = user.username;
-            [newUser saveToCollection:[KCSCollection collectionFromString:@"friends" ofClass:[KinveyFriend class]] withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
-                //do nothing - assume it goes through ok
-                //for a real app, you should cache this information and resend when appropriate until it is accepted
-                [self.navigationController popViewControllerAnimated:YES];
-            } withProgressBlock:nil];
+            [self.navigationController popViewControllerAnimated:YES];
         } else {
             BOOL wasUserError = [errorOrNil domain] == KCSUserErrorDomain;
             NSString* title = wasUserError ? [NSString stringWithFormat:NSLocalizedString(@"Could not create new user with username %@", @"create username error title"), username]: NSLocalizedString(@"An error occurred.", @"Generic error message");

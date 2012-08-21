@@ -20,6 +20,7 @@ IBOutlet UILabel *textLabel;
 
 @property (retain, nonatomic) UIImageView* avatar;
 @property (retain, nonatomic) UIImageView* thumbnailView;
+@property (retain, nonatomic) UIImageView* pinView;
 
 - (void) setUpdate:(KinveyFriendsUpdate*)update;
 

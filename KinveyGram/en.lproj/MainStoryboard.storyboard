@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bNk-Zq-7jW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bNk-Zq-7jW">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
         <!--Login View Contoller-->
@@ -67,6 +66,21 @@ KinveyGram</string>
                                             <action selector="login:" destination="HpY-yX-P3C" eventType="touchUpInside" id="1SH-Q9-X33"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Da0-r0-u9C" customClass="KCSButton">
+                                        <rect key="frame" x="20" y="384" width="280" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Log In With Facebook">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginWithFacebook:" destination="HpY-yX-P3C" eventType="touchUpInside" id="GHe-q1-MfB"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fN4-Wr-tWd" customClass="KCSButton">
                                         <rect key="frame" x="20" y="305" width="280" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -91,6 +105,7 @@ KinveyGram</string>
                     <navigationItem key="navigationItem" id="Dp3-PT-GYI"/>
                     <connections>
                         <outlet property="createAccountButton" destination="fN4-Wr-tWd" id="N0n-SR-cgt"/>
+                        <outlet property="facebookLoginButton" destination="Da0-r0-u9C" id="3WY-5T-NwY"/>
                         <outlet property="loginButton" destination="KUY-fa-ywf" id="xcH-FB-ntj"/>
                         <outlet property="passwordTextField" destination="K1N-lx-bG1" id="98L-MU-eJc"/>
                         <outlet property="scrollView" destination="9AZ-xk-wTR" id="X3p-dL-46Z"/>
@@ -289,6 +304,11 @@ new account</string>
                                                     <action selector="togglePrivacy:" destination="vqA-EW-TIs" id="LAy-l6-emb"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem image="globe.png" id="OIL-Hw-PSK">
+                                                <connections>
+                                                    <action selector="toggleGeolocation:" destination="vqA-EW-TIs" id="BW8-ZJ-4xf"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="tsL-Vf-X7s"/>
                                             <barButtonItem systemItem="camera" id="M3V-Yz-gar">
                                                 <connections>
@@ -306,6 +326,7 @@ new account</string>
                     <navigationItem key="navigationItem" id="emu-wA-e62"/>
                     <connections>
                         <outlet property="bottomToolbar" destination="PE5-vi-tqv" id="4KZ-SY-4Kp"/>
+                        <outlet property="geoButtonItem" destination="OIL-Hw-PSK" id="2cC-Ry-wBS"/>
                         <outlet property="mainView" destination="ooC-bB-HGA" id="57l-OT-K9s"/>
                         <outlet property="postButton" destination="6y8-um-gfN" id="PJ8-Fq-TBE"/>
                         <outlet property="updateTextView" destination="mxn-yE-s1d" id="D4o-6w-rrK"/>
@@ -335,6 +356,7 @@ new account</string>
         </scene>
     </scenes>
     <resources>
+        <image name="globe.png" width="32" height="32"/>
         <image name="grid_blank.png" width="320" height="480"/>
         <image name="unlock.png" width="32" height="32"/>
     </resources>

@@ -8,12 +8,16 @@
 #import "WriteUpdateViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <CoreLocation/CoreLocation.h>
+#import <KinveyKit/CLLocation+Kinvey.h>
 
 #import "KinveyFriendsUpdate.h"
+#import "UIColor+KinveyHelpers.h"
 
 @interface WriteUpdateViewController ()
 @property (nonatomic, retain) id<KCSStore> updateStore;
 @property (nonatomic, retain) UIImage* attachedImage;
+@property (nonatomic, retain) CLLocationManager* locationManager;
 @end
 
 @implementation WriteUpdateViewController
@@ -21,8 +25,10 @@
 @synthesize updateTextView;
 @synthesize mainView;
 @synthesize postButton;
+@synthesize geoButtonItem;
 @synthesize updateStore;
 @synthesize attachedImage;
+@synthesize locationManager;
 
 
 - (void)viewDidLoad
@@ -31,25 +37,39 @@
     public = YES;
     
     //Kinvey use code: create a new collection with a linked data store
+    // no KCSStoreKeyOfflineSaveDelegate is specified
     KCSCollection* collection = [KCSCollection collectionFromString:@"Updates" ofClass:[KinveyFriendsUpdate class]];
-    self.updateStore = [KCSLinkedAppdataStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:collection, KCSStoreKeyResource, [NSNumber numberWithInt:KCSCachePolicyBoth], KCSStoreKeyCachePolicy, nil]];
-    
+    self.updateStore = [KCSLinkedAppdataStore storeWithOptions:@{ KCSStoreKeyResource : collection, KCSStoreKeyCachePolicy : @(KCSCachePolicyBoth), KCSStoreKeyUniqueOfflineSaveIdentifier : @"WriteUpdateViewController" , KCSStoreKeyOfflineSaveDelegate : self }];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardUpdated:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     //Kinvey use code: watch for network reachability to change so we can update the UI make a post able to send. 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kKCSReachabilityChangedNotification object:nil];
+    
+    if ([CLLocationManager locationServicesEnabled]) {
+        //set up the location manger
+        self.locationManager = [[CLLocationManager alloc] init];
+        locationManager.delegate = self; //we don't actually care about updates since only the current loc is used
+        [locationManager startUpdatingLocation];
+    }
 }
 
 - (void)viewDidUnload
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
+
+    [self.locationManager stopUpdatingLocation];
+    
+    [self setLocationManager:nil];
     [self setUpdateTextView:nil];
     [self setMainView:nil];
     [self setBottomToolbar:nil];
     [self setBottomToolbar:nil];
     [self setPostButton:nil];
+    [self setGeoButtonItem:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -58,6 +78,8 @@
     
     //Kinvey use code: only enable the post button if Kinvey is reachable
     self.postButton.enabled = [[[KCSClient sharedClient] networkReachability] isReachable];
+    
+    self.geoButtonItem.enabled = [CLLocationManager locationServicesEnabled] && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -110,6 +132,10 @@
                 update.meta = [[KCSMetadata alloc] init];
             }
             [update.meta setGloballyReadable:NO];
+        }
+        if (location && [CLLocationManager locationServicesEnabled]) {
+            CLLocation* l = [self.locationManager location];
+            update.location = [l kinveyValue];
         }
         
         //Kinvey use code: add a new update to the updates collection
@@ -183,5 +209,25 @@
     public = !public;
     UIBarButtonItem* item = sender;
     [item setImage:[UIImage imageNamed:(public ? @"unlock" : @"lock")]];
+}
+
+- (IBAction)toggleGeolocation:(id)sender
+{
+    location = !location;
+    UIBarButtonItem* item = sender;
+    item.tintColor = location ? [[[UIColor greenColor] darkerColor] colorWithAlphaComponent:0.5]: nil;
+}
+
+#pragma mark - Offline Save Delegate
+
+// don't save any queued saves that older than a day
+- (BOOL) shouldSave:(id<KCSPersistable>)entity lastSaveTime:(NSDate *)timeSaved
+{
+    NSTimeInterval oneDayAgo = 60 /* sec/min */ * 60 /* min/hr */ * 24 /* hr/day*/; //because NSTimeInterval in seconds
+    if ([timeSaved timeIntervalSinceNow] < oneDayAgo) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 @end
