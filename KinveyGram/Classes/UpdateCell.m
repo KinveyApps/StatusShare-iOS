@@ -150,7 +150,17 @@
         if (objectsOrNil && objectsOrNil.count > 0) {
             KCSUser* user = [objectsOrNil objectAtIndex:0];
             NSString* name = user.username;
-            nameLabel.text = name;
+            NSDictionary *socialIdentity = [user getValueForAttribute:@"_socialIdentity"];
+            if (socialIdentity != nil) {
+                NSDictionary *facebookIdentity = [socialIdentity objectForKey:@"facebook"];
+                if (facebookIdentity != nil) {
+                    NSString* facebookName = [facebookIdentity objectForKey:@"name"];
+                    if ((facebookName != nil) && ([facebookName length] > 0)) {
+                        name = facebookName;
+                    }
+                }
+            }
+            self.nameLabel.text = name;
             
             NSUInteger size = [[UIScreen mainScreen]  scale] * kAvatarSize;
             GravatarStore* store = [GravatarStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:size], GravatarStoreOptionSizeKey, nil]];
