@@ -141,19 +141,18 @@
     FBSession* session = [delegate session];
 
     // if the session isn't open, let's open it now and present the login UX to the user
-    [session openWithCompletionHandler:^(FBSession *session,
-                                                 FBSessionState status,
-                                                 NSError *error) {
-        if (status == FBSessionStateOpen) {
-            NSString* accessToken = session.accessToken;
-            [KCSUser loginWithFacebookAccessToken:accessToken withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
-                [self handeLogin:errorOrNil];
-            }];
-        }
-        
-
-    }];
-
+    if (!session.isOpen) {
+        [session openWithCompletionHandler:^(FBSession *session,
+                                             FBSessionState status,
+                                             NSError *error) {
+            if (status == FBSessionStateOpen) {
+                NSString* accessToken = session.accessToken;
+                [KCSUser loginWithFacebookAccessToken:accessToken withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
+                    [self handeLogin:errorOrNil];
+                }];
+            }
+        }];
+    }
 }
       
 - (IBAction)createAccount:(id)sender
