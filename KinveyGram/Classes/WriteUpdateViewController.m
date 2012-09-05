@@ -9,7 +9,11 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import <CoreLocation/CoreLocation.h>
+
+#if 0
+#error This feature is not supported in KinveyKit 1.7
 #import <KinveyKit/CLLocation+Kinvey.h>
+#endif
 
 #import "KinveyFriendsUpdate.h"
 #import "UIColor+KinveyHelpers.h"
@@ -133,11 +137,14 @@
             }
             [update.meta setGloballyReadable:NO];
         }
+#if 0
+#error This feature is not supported in KinveyKit 1.7
         if (location && [CLLocationManager locationServicesEnabled]) {
             CLLocation* l = [self.locationManager location];
+
             update.location = [l kinveyValue];
         }
-        
+#endif
         //Kinvey use code: add a new update to the updates collection
         [updateStore saveObject:update withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
             if (errorOrNil == nil) {
