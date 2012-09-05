@@ -31,7 +31,6 @@
 		27E6B358159E3EED00280BC7 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B356159E3EED00280BC7 /* PullRefreshTableViewController.m */; };
 		27E6B35B159E3EFD00280BC7 /* UIColor+KinveyHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B35A159E3EFD00280BC7 /* UIColor+KinveyHelpers.m */; };
 		27E6B35E159E3F0A00280BC7 /* KCSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B35D159E3F0A00280BC7 /* KCSButton.m */; };
-		27E6B361159E3F2600280BC7 /* KinveyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B35F159E3F2600280BC7 /* KinveyKit.framework */; };
 		27E6B367159E3F6B00280BC7 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B364159E3F6B00280BC7 /* CreateAccountViewController.m */; };
 		27E6B368159E3F6B00280BC7 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B366159E3F6B00280BC7 /* FormViewController.m */; };
 		27E6B36B159E3F7A00280BC7 /* LoginViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B36A159E3F7900280BC7 /* LoginViewContoller.m */; };
@@ -63,6 +62,7 @@
 		8B1B1B961E444DE5A0344ED2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2BFA411D747529F025CF3 /* libz.dylib */; };
 		8E161CCB79E14C3DB26ADA1F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2A411236F24BF68A700F43 /* CoreTelephony.framework */; };
 		99B982E115904F4987C9A948 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F30FA441BA4F82A7FCC961 /* Security.framework */; };
+		D34F0ED515F7A144002A36C3 /* KinveyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34F0ED415F7A144002A36C3 /* KinveyKit.framework */; };
 		D91438FC689549768F8B1DB2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D1F49CE8DB4334AEA2EA68 /* MobileCoreServices.framework */; };
 		F81E8A002EA746E5A6584F41 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A2D2B3859E4FABAD0FEA25 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
@@ -114,7 +114,6 @@
 		27E6B35A159E3EFD00280BC7 /* UIColor+KinveyHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+KinveyHelpers.m"; path = "Classes/UIColor+KinveyHelpers.m"; sourceTree = "<group>"; };
 		27E6B35C159E3F0A00280BC7 /* KCSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KCSButton.h; path = Classes/KCSButton.h; sourceTree = "<group>"; };
 		27E6B35D159E3F0A00280BC7 /* KCSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KCSButton.m; path = Classes/KCSButton.m; sourceTree = "<group>"; };
-		27E6B35F159E3F2600280BC7 /* KinveyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KinveyKit.framework; sourceTree = "<group>"; };
 		27E6B363159E3F6B00280BC7 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateAccountViewController.h; path = Classes/CreateAccountViewController.h; sourceTree = "<group>"; };
 		27E6B364159E3F6B00280BC7 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateAccountViewController.m; path = Classes/CreateAccountViewController.m; sourceTree = "<group>"; };
 		27E6B365159E3F6B00280BC7 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormViewController.h; path = Classes/FormViewController.h; sourceTree = "<group>"; };
@@ -153,6 +152,7 @@
 		90F30FA441BA4F82A7FCC961 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		92D1F49CE8DB4334AEA2EA68 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A5D2BFA411D747529F025CF3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D34F0ED415F7A144002A36C3 /* KinveyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KinveyKit.framework; sourceTree = "<group>"; };
 		D359CEE3AA654D538EC47440 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DB1100433C724546A92A86B9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -168,7 +168,6 @@
 				27E6B2AF159E36D000280BC7 /* UIKit.framework in Frameworks */,
 				27E6B2B1159E36D000280BC7 /* Foundation.framework in Frameworks */,
 				27E6B2B3159E36D000280BC7 /* CoreGraphics.framework in Frameworks */,
-				27E6B361159E3F2600280BC7 /* KinveyKit.framework in Frameworks */,
 				452843D912854F5CA5BA586C /* CFNetwork.framework in Frameworks */,
 				F81E8A002EA746E5A6584F41 /* CoreGraphics.framework in Frameworks */,
 				44E5BB9A1E4A43B48FCE2A5B /* Foundation.framework in Frameworks */,
@@ -182,6 +181,7 @@
 				7CD1A1CD88E044888917EA86 /* libsqlite3.dylib in Frameworks */,
 				272EF18115E2B9F3008E3F68 /* libUAirship-1.2.2.a in Frameworks */,
 				272EF19515E302B7008E3F68 /* FacebookSDK.framework in Frameworks */,
+				D34F0ED515F7A144002A36C3 /* KinveyKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,11 +221,11 @@
 		27E6B2AD159E36D000280BC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D34F0ED415F7A144002A36C3 /* KinveyKit.framework */,
 				272EF19415E302B7008E3F68 /* FacebookSDK.framework */,
 				272EF18015E2B9F3008E3F68 /* libUAirship-1.2.2.a */,
 				272EF18A15E2C1CF008E3F68 /* MapKit.framework */,
 				272EF17C15E2B808008E3F68 /* CoreLocation.framework */,
-				27E6B35F159E3F2600280BC7 /* KinveyKit.framework */,
 				27E6B2AE159E36D000280BC7 /* UIKit.framework */,
 				27E6B38F159E41D500280BC7 /* QuartzCore.framework */,
 				27E6B2B0159E36D000280BC7 /* Foundation.framework */,
