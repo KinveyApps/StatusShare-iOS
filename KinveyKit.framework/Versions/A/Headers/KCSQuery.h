@@ -29,7 +29,8 @@ typedef enum
     kKCSIn = 1029,
     kKCSMaxDistance = 1030,
     
-    
+    // String Operators
+    kKCSRegex = 2000,
 
     // Joining Operators
     kKCSOr = 4097,
@@ -45,9 +46,20 @@ typedef enum
     
     // Internal Operators
     kKCSWithin = 17000,
-    kKCSMulti = 17001
+    kKCSMulti = 17001,
+    kKCSOptions = 17002
     
 } KCSQueryConditional;
+
+/** Options for regular expression matching in queries */
+typedef enum  {
+    kKCSRegexepDefault = 0, /** Default Options */
+    kKCSRegexpCaseInsensitive = 1 << 0, /** Match letters in the pattern independent of case. */
+    kKCSRegexpAllowCommentsAndWhitespace  = 1 << 1, /** Ignore whitespace and #-prefixed comments in the pattern. */
+    kKCSRegexpDotMatchesAll = 1 << 3, /** Allow . to match all characters, including newlines */
+    kKCSRegexpAnchorsMatchLines = 1 << 4, /** Allow ^ and $ to match the start and end of lines. */
+} KCSRegexpQueryOptions;
+
 
 // DO NOT CHANGE THE VALUES IN THIS ENUM.  They're meaningful to the implementation of this class
 typedef enum {
@@ -185,6 +197,8 @@ typedef enum {
 - Array Operators
     - `kKCSAll`
     - `kKCSSize`
+- String Operators
+    - `kKCSRegex`
  
 
  The basic operators allow simple comparisons, Geo Query operators allow geographically relevant queries, set membership
@@ -284,6 +298,40 @@ typedef enum {
  
  */
 + (KCSQuery *)query;
+
+/*! Creates a regular expression query on a field, with options.
+ 
+  This query will return entities where the field values match the regular expression. By default, the match is case-sensitive and new-lines do not match anchors.
+ 
+ Available options are (and can be or'ed together):
+ 
+ * `kKCSRegexepDefault` - Default Options
+ * `kKCSRegexpCaseInsensitive` - Match letters in the pattern independent of case.
+ * `kKCSRegexpAllowCommentsAndWhitespace` - Ignore whitespace and #-prefixed comments in the pattern.
+ * `kKCSRegexpDotMatchesAll` - Allow . to match all characters, including newlines.
+ * `kKCSRegexpAnchorsMatchLines` - Allow ^ and $ to match the start and end of lines.
+ 
+ @param field The field in Kinvey to query on.
+ @param expression the regular expression string
+ @param options regular expression options
+ @see queryOnField:withRegex:
+ @return The new KCSQuery object (autoreleased).
+ @since 1.8
+ */
++ (KCSQuery *)queryOnField:(NSString*)field withRegex:(NSString*)expression options:(KCSRegexpQueryOptions)options;
+
+/*! Creates a regular expression query on a field.
+ 
+ This query will return entities where the field values match the regular expression. By default, the match is case-sensitive and new-lines do not match anchors. 
+ 
+ @param field The field in Kinvey to query on.
+ @param expression the regular expression string
+ @see queryOnField:withRegex:options:
+ @return The new KCSQuery object (autoreleased).
+ @since 1.8
+ */
++ (KCSQuery *)queryOnField:(NSString*)field withRegex:(NSString*)expression;
+
 
 ///---------------------------------------------------------------------------------------
 /// @name Modifying Queries

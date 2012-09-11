@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define MINIMUM_KCS_VERSION_SUPPORTED @"1.0"
+#define MINIMUM_KCS_VERSION_SUPPORTED @"2.0"
 
 @class KCSAnalytics;
 @class UIApplication;

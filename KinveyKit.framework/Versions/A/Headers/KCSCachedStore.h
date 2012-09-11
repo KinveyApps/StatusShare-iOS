@@ -17,10 +17,12 @@ typedef enum KCSCachePolicy {
     KCSCachePolicyLocalOnly,
     KCSCachePolicyLocalFirst,
     KCSCachePolicyNetworkFirst,
-    KCSCachePolicyBoth
+    KCSCachePolicyBoth,
+    KCSCachePolicyReadOnceAndSaveLocal_Xperimental //for caching assests that change infrequently (e.g. ui assets, names of presidents, etc)
 } KCSCachePolicy;
 
 #define KCSStoreKeyCachePolicy @"cachePolicy"
+#define KCSStoreKeyLocalCacheTimeout @"localcache.timeout"
 
 /**
  This application data store caches queries, depending on the policy.
@@ -60,7 +62,7 @@ typedef enum KCSCachePolicy {
 
 /** @name Querying/Fetching */
 
-/**  Load objects from the store with the given IDs.
+/**  Load objects from the store with the given IDs (optional cache policy).
  
  @param objectID this is an individual ID or an array of IDs to load
  @param completionBlock A block that gets invoked when all objects are loaded
@@ -73,7 +75,7 @@ typedef enum KCSCachePolicy {
        withProgressBlock:(KCSProgressBlock)progressBlock
              cachePolicy:(KCSCachePolicy)cachePolicy;
 
-/** Query or fetch an object (or objects) in the store.
+/** Query or fetch an object (or objects) in the store (optional cache policy).
  
  This method takes a query object and returns the value from the server or cache, depending on the supplied `cachePolicy`. 
  
@@ -86,7 +88,7 @@ typedef enum KCSCachePolicy {
  */
 - (void)queryWithQuery:(id)query withCompletionBlock:(KCSCompletionBlock)completionBlock withProgressBlock:(KCSProgressBlock)progressBlock cachePolicy:(KCSCachePolicy)cachePolicy;
 
-/*! Aggregate objects in the store and apply a function to all members in that group.
+/*! Aggregate objects in the store and apply a function to all members in that group (optional cache policy).
  
  This method will find the objects in the store, collect them with other other objects that have the same value for the specified fields, and then apply the supplied function on those objects. Right now the types of functions that can be applied are simple mathematical operations. See KCSReduceFunction for more information on the types of functions available.
  

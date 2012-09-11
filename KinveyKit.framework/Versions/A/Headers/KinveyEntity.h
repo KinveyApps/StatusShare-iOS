@@ -87,9 +87,15 @@
 */
 - (void)findEntityWithProperty: (NSString *)property matchingStringValue: (NSString *)value fromCollection: (KCSCollection *)collection withDelegate: (id<KCSEntityDelegate>)delegate;
 
-/*! Return the "_id" value for this entity
+/*! Return the client property name for the kinvey id
+ *
+ * @returns the client property name for the kinvey id
+ */
+- (NSString *)kinveyObjectIdHostProperty;
+
+/*! Return the `KCSEntityKeyId` value for this entity
 *
-* @returns the "_id" value for this entity.
+* @returns the `KCSEntityKeyId` value for this entity.
 */
 - (NSString *)kinveyObjectId;
 

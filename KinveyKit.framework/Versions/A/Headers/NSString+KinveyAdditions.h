@@ -57,6 +57,9 @@
  */
 + (NSString *)stringByPercentEncodingString:(NSString *)string;
 
-
+/*! Tests that the substring is somewhere inside the string
+ @param substring the string to look for inside this one.
+ */
+- (BOOL) containsStringCaseInsensitive:(NSString*)substring;
 
 @end
