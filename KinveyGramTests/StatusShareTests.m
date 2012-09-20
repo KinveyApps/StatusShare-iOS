@@ -1,13 +1,13 @@
 //
-//  KinveyGramTests.m
-//  KinveyGramTests
+//  StatusShareTests.m
+//  StatusShareTests
 //
 //  Copyright (c) 2012 Kinvey. All rights reserved.
 //
 
-#import "KinveyGramTests.h"
+#import "StatusShareTests.h"
 
-@implementation KinveyGramTests
+@implementation StatusShareTests
 
 - (void)setUp
 {
@@ -25,7 +25,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in KinveyGramTests");
+    STFail(@"Unit tests are not implemented yet in StatusShareTests");
 }
 
 @end

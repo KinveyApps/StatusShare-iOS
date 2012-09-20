@@ -1,4 +1,4 @@
-#KinveyGram
+#StatusShare
 This is a [Kinvey](http://www.kinvey.com) iOS Sample app to illustrate how to take advantage of backend features through the native library's store API. This application allows individual users to share text and photo updates with the other users of the service. 
 
 In particular this sample application highlights the following key backend tasks:
@@ -11,11 +11,11 @@ In particular this sample application highlights the following key backend tasks
 * Connect on the client-side to 3rd party service (Gravatar)
 
 
-![](https://github.com/Kinvey/KinveyGram/raw/master/assets/kinvey_gram_in_phone.png)
-![](https://github.com/Kinvey/KinveyGram/raw/master/assets/KinveyGram_ss1.png)
-![](https://github.com/Kinvey/KinveyGram/raw/master/assets/KinveyGram_ss3.png)
-![](https://github.com/Kinvey/KinveyGram/raw/master/assets/KinveyGram_ss2.png)
-![](https://github.com/Kinvey/KinveyGram/raw/master/assets/KinveyGram_ss4.png)
+![](https://github.com/KinveyApps/StatusShare/raw/master/assets/kinvey_gram_in_phone.png)
+![](https://github.com/KinveyApps/StatusShare/raw/master/assets/StatusShare_ss1.png)
+![](https://github.com/KinveyApps/StatusShare/raw/master/assets/StatusShare_ss3.png)
+![](https://github.com/KinveyApps/StatusShare/raw/master/assets/StatusShare_ss2.png)
+![](https://github.com/KinveyApps/StatusShare/raw/master/assets/StatusShare_ss4.png)
 
 ## Using the App
 1. First time users, tap "Create New Account"

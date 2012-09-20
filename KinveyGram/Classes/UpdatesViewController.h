@@ -1,6 +1,6 @@
 //
 //  UpdatesViewController.h
-//  KinveyGram
+//  StatusShare
 //
 //  Copyright (c) 2012 Kinvey. All rights reserved.
 //

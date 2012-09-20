@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  KinveyGram
+//  StatusShare
 //
 //  Copyright (c) 2012 Kinvey. All rights reserved.
 //
@@ -20,7 +20,7 @@
                                                         withAppSecret:@"<#My App Secret#>" 
                                                          usingOptions:nil];
     
-    //NOTE: the FB APP ID also has to go in the url scheme in KinveyGram-Info.plist so the FB callback has a place to go
+    //NOTE: the FB APP ID also has to go in the url scheme in StatusShare-Info.plist so the FB callback has a place to go
     self.session = [[FBSession alloc] initWithAppID:@"<#Facebook App ID - NOT THE KINVEY ID#>"
                                    permissions:nil
                                urlSchemeSuffix:nil
