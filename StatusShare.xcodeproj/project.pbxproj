@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2721B018160BA6080056A803 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721B015160BA6080056A803 /* Default-568h@2x.png */; };
+		2721B019160BA6080056A803 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721B016160BA6080056A803 /* Default.png */; };
+		2721B01A160BA6080056A803 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721B017160BA6080056A803 /* Default@2x.png */; };
 		272EF17815E2B31E008E3F68 /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 272EF17715E2B31E008E3F68 /* globe.png */; };
 		272EF17B15E2B39D008E3F68 /* globe_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 272EF17A15E2B39D008E3F68 /* globe_green.png */; };
 		272EF17D15E2B808008E3F68 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272EF17C15E2B808008E3F68 /* CoreLocation.framework */; };
@@ -18,11 +21,6 @@
 		27E6B2AF159E36D000280BC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2AE159E36D000280BC7 /* UIKit.framework */; };
 		27E6B2B1159E36D000280BC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B0159E36D000280BC7 /* Foundation.framework */; };
 		27E6B2B3159E36D000280BC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B2159E36D000280BC7 /* CoreGraphics.framework */; };
-		27E6B2D0159E36D000280BC7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2CF159E36D000280BC7 /* SenTestingKit.framework */; };
-		27E6B2D1159E36D000280BC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2AE159E36D000280BC7 /* UIKit.framework */; };
-		27E6B2D2159E36D000280BC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B0159E36D000280BC7 /* Foundation.framework */; };
-		27E6B2DA159E36D000280BC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B2D8159E36D000280BC7 /* InfoPlist.strings */; };
-		27E6B2DD159E36D000280BC7 /* StatusShareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B2DC159E36D000280BC7 /* StatusShareTests.m */; };
 		27E6B332159E3CB900280BC7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B32F159E3CB900280BC7 /* MainStoryboard.storyboard */; };
 		27E6B345159E3EAD00280BC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B344159E3EAD00280BC7 /* AppDelegate.m */; };
 		27E6B34D159E3EC800280BC7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B346159E3EC800280BC7 /* arrow.png */; };
@@ -45,8 +43,6 @@
 		27E6B386159E40E500280BC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B384159E40E500280BC7 /* InfoPlist.strings */; };
 		27E6B390159E41D500280BC7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B38F159E41D500280BC7 /* QuartzCore.framework */; };
 		27E6B3A815A213C100280BC7 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3A615A213B800280BC7 /* iTunesArtwork */; };
-		27E6B3B015A2141B00280BC7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3A915A2141B00280BC7 /* Default.png */; };
-		27E6B3B115A2141B00280BC7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3AA15A2141B00280BC7 /* Default@2x.png */; };
 		27E6B3B215A2141B00280BC7 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3AB15A2141B00280BC7 /* Icon-72.png */; };
 		27E6B3B315A2141B00280BC7 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3AC15A2141B00280BC7 /* Icon-72@2x.png */; };
 		27E6B3B415A2141B00280BC7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3AD15A2141B00280BC7 /* Icon.png */; };
@@ -67,20 +63,13 @@
 		F81E8A002EA746E5A6584F41 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A2D2B3859E4FABAD0FEA25 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		27E6B2D3159E36D000280BC7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27E6B2A1159E36D000280BC7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 27E6B2A9159E36D000280BC7;
-			remoteInfo = KinveyGram;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		01A2D2B3859E4FABAD0FEA25 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0864244EB4EB4378A013D2A4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1F4A168F34A6432793DC5300 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		2721B015160BA6080056A803 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2721B016160BA6080056A803 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		2721B017160BA6080056A803 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		272EF17715E2B31E008E3F68 /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
 		272EF17A15E2B39D008E3F68 /* globe_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe_green.png; sourceTree = "<group>"; };
 		272EF17C15E2B808008E3F68 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -95,7 +84,6 @@
 		27E6B2AE159E36D000280BC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		27E6B2B0159E36D000280BC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		27E6B2B2159E36D000280BC7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		27E6B2CE159E36D000280BC7 /* StatusShareTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StatusShareTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E6B2CF159E36D000280BC7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		27E6B2D7159E36D000280BC7 /* StatusShareTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StatusShareTests-Info.plist"; sourceTree = "<group>"; };
 		27E6B2D9159E36D000280BC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -138,8 +126,6 @@
 		27E6B385159E40E500280BC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		27E6B38F159E41D500280BC7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		27E6B3A615A213B800280BC7 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
-		27E6B3A915A2141B00280BC7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		27E6B3AA15A2141B00280BC7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		27E6B3AB15A2141B00280BC7 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		27E6B3AC15A2141B00280BC7 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		27E6B3AD15A2141B00280BC7 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -185,16 +171,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		27E6B2CA159E36D000280BC7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27E6B2D0159E36D000280BC7 /* SenTestingKit.framework in Frameworks */,
-				27E6B2D1159E36D000280BC7 /* UIKit.framework in Frameworks */,
-				27E6B2D2159E36D000280BC7 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -215,7 +191,7 @@
 			children = (
 				27E6B2B4159E36D000280BC7 /* StatusShare */,
 				27E6B342159E3D9500280BC7 /* Supporting Files */,
-				27E6B2D5159E36D000280BC7 /* StatusShare */,
+				27E6B2D5159E36D000280BC7 /* StatusShareTests */,
 				27E6B2AD159E36D000280BC7 /* Frameworks */,
 				27E6B2AB159E36D000280BC7 /* Products */,
 			);
@@ -225,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				27E6B2AA159E36D000280BC7 /* StatusShare.app */,
-				27E6B2CE159E36D000280BC7 /* StatusShareTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -273,14 +248,13 @@
 			path = StatusShare;
 			sourceTree = "<group>";
 		};
-		27E6B2D5159E36D000280BC7 /* StatusShare */ = {
+		27E6B2D5159E36D000280BC7 /* StatusShareTests */ = {
 			isa = PBXGroup;
 			children = (
 				27E6B2DB159E36D000280BC7 /* StatusShareTests.h */,
 				27E6B2DC159E36D000280BC7 /* StatusShareTests.m */,
 				27E6B2D6159E36D000280BC7 /* Supporting Files */,
 			);
-			name = StatusShare;
 			path = StatusShareTests;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -369,8 +343,9 @@
 				27E6B349159E3EC800280BC7 /* StatusShare-Info.plist */,
 				27E6B384159E40E500280BC7 /* InfoPlist.strings */,
 				27E6B3A615A213B800280BC7 /* iTunesArtwork */,
-				27E6B3A915A2141B00280BC7 /* Default.png */,
-				27E6B3AA15A2141B00280BC7 /* Default@2x.png */,
+				2721B016160BA6080056A803 /* Default.png */,
+				2721B017160BA6080056A803 /* Default@2x.png */,
+				2721B015160BA6080056A803 /* Default-568h@2x.png */,
 				27E6B3AB15A2141B00280BC7 /* Icon-72.png */,
 				27E6B3AC15A2141B00280BC7 /* Icon-72@2x.png */,
 				27E6B3AD15A2141B00280BC7 /* Icon.png */,
@@ -408,25 +383,6 @@
 			productReference = 27E6B2AA159E36D000280BC7 /* StatusShare.app */;
 			productType = "com.apple.product-type.application";
 		};
-		27E6B2CD159E36D000280BC7 /* StatusShareTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 27E6B2E3159E36D000280BC7 /* Build configuration list for PBXNativeTarget "StatusShareTests" */;
-			buildPhases = (
-				27E6B2C9159E36D000280BC7 /* Sources */,
-				27E6B2CA159E36D000280BC7 /* Frameworks */,
-				27E6B2CB159E36D000280BC7 /* Resources */,
-				27E6B2CC159E36D000280BC7 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				27E6B2D4159E36D000280BC7 /* PBXTargetDependency */,
-			);
-			name = StatusShareTests;
-			productName = KinveyGramTests;
-			productReference = 27E6B2CE159E36D000280BC7 /* StatusShareTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -449,7 +405,6 @@
 			projectRoot = "";
 			targets = (
 				27E6B2A9159E36D000280BC7 /* StatusShare */,
-				27E6B2CD159E36D000280BC7 /* StatusShareTests */,
 			);
 		};
 /* End PBXProject section */
@@ -465,8 +420,6 @@
 				27E6B352159E3EC800280BC7 /* unlock.png in Resources */,
 				27E6B386159E40E500280BC7 /* InfoPlist.strings in Resources */,
 				27E6B3A815A213C100280BC7 /* iTunesArtwork in Resources */,
-				27E6B3B015A2141B00280BC7 /* Default.png in Resources */,
-				27E6B3B115A2141B00280BC7 /* Default@2x.png in Resources */,
 				27E6B3B215A2141B00280BC7 /* Icon-72.png in Resources */,
 				27E6B3B315A2141B00280BC7 /* Icon-72@2x.png in Resources */,
 				27E6B3B415A2141B00280BC7 /* Icon.png in Resources */,
@@ -476,34 +429,13 @@
 				27E6B3BC15A2172200280BC7 /* grid_blank@2x.png in Resources */,
 				272EF17815E2B31E008E3F68 /* globe.png in Resources */,
 				272EF17B15E2B39D008E3F68 /* globe_green.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27E6B2CB159E36D000280BC7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27E6B2DA159E36D000280BC7 /* InfoPlist.strings in Resources */,
+				2721B018160BA6080056A803 /* Default-568h@2x.png in Resources */,
+				2721B019160BA6080056A803 /* Default.png in Resources */,
+				2721B01A160BA6080056A803 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		27E6B2CC159E36D000280BC7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		27E6B2A6159E36D000280BC7 /* Sources */ = {
@@ -529,23 +461,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		27E6B2C9159E36D000280BC7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27E6B2DD159E36D000280BC7 /* StatusShareTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		27E6B2D4159E36D000280BC7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 27E6B2A9159E36D000280BC7 /* StatusShare */;
-			targetProxy = 27E6B2D3159E36D000280BC7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		27E6B2D8159E36D000280BC7 /* InfoPlist.strings */ = {
@@ -683,48 +599,6 @@
 			};
 			name = Release;
 		};
-		27E6B2E4159E36D000280BC7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KinveyGram.app/KinveyGram";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KinveyGram/KinveyGram-Prefix.pch";
-				INFOPLIST_FILE = "KinveyGramTests/StatusShareTests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
-				PRODUCT_NAME = StatusShareTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		27E6B2E5159E36D000280BC7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KinveyGram.app/KinveyGram";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KinveyGram/KinveyGram-Prefix.pch";
-				INFOPLIST_FILE = "KinveyGramTests/StatusShareTests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
-				PRODUCT_NAME = StatusShareTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -742,15 +616,6 @@
 			buildConfigurations = (
 				27E6B2E1159E36D000280BC7 /* Debug */,
 				27E6B2E2159E36D000280BC7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		27E6B2E3159E36D000280BC7 /* Build configuration list for PBXNativeTarget "StatusShareTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				27E6B2E4159E36D000280BC7 /* Debug */,
-				27E6B2E5159E36D000280BC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

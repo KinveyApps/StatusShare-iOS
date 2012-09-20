@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bNk-Zq-7jW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bNk-Zq-7jW">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Login View Contoller-->
         <scene sceneID="Av2-Rs-hLe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JZK-6k-6ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HpY-yX-P3C" customClass="LoginViewContoller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ukb-Cp-drc">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -44,7 +43,7 @@
                                         <rect key="frame" x="20" y="66" width="280" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <string key="text">Welcome to
-KinveyGram</string>
+StatusShare</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -113,13 +112,13 @@ KinveyGram</string>
                         <segue destination="biA-Rd-5it" kind="push" identifier="toTable" id="8Ii-D8-DXA"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZK-6k-6ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-399" y="-350"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pLT-ec-hbd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ae4-VX-7e8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="bNk-Zq-7jW" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="KRL-T7-BnO">
                         <autoresizingMask key="autoresizingMask"/>
@@ -128,13 +127,13 @@ KinveyGram</string>
                         <segue destination="HpY-yX-P3C" kind="relationship" relationship="rootViewController" id="dt8-Ru-Q7Y"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ae4-VX-7e8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-895" y="-350"/>
         </scene>
         <!--Create Account View Controller - Create a new account-->
         <scene sceneID="Hel-A9-SMw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SGy-QK-fd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Create a new account" id="3i5-2K-gGS" customClass="CreateAccountViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YcY-cs-NtO" customClass="FormViewBackgroundView">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -216,13 +215,13 @@ new account</string>
                         <outlet property="userName" destination="UML-ZX-gop" id="Vnj-Qd-3bT"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SGy-QK-fd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="60" y="-350"/>
         </scene>
         <!--Updates View Controller - Latest Updates-->
         <scene sceneID="Vd7-Ce-7xS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4mh-z4-2eO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController title="Latest Updates" id="biA-Rd-5it" customClass="UpdatesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MdB-it-HRq">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -252,13 +251,13 @@ new account</string>
                         <segue destination="vqA-EW-TIs" kind="modal" identifier="coverWithWrite" id="y5O-Na-IcU"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4mh-z4-2eO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-394" y="305"/>
         </scene>
         <!--Write Update View Controller - Compose Update-->
         <scene sceneID="2Ge-8i-RFN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Qj-qH-Z00" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Compose Update" id="vqA-EW-TIs" customClass="WriteUpdateViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1yl-dP-92O">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -332,13 +331,13 @@ new account</string>
                         <outlet property="updateTextView" destination="mxn-yE-s1d" id="D4o-6w-rrK"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Qj-qH-Z00" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-350" y="918"/>
         </scene>
         <!--Author View Controller - Authoer View-->
         <scene sceneID="9kJ-eJ-J1Z">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IQP-dq-GE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController title="Authoer View" id="W7H-wY-oSB" customClass="AuthorViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="X7G-js-8AF">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -351,6 +350,7 @@ new account</string>
                     </tableView>
                     <navigationItem key="navigationItem" id="NJA-y6-PIT"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQP-dq-GE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="105" y="305"/>
         </scene>
@@ -360,6 +360,67 @@ new account</string>
         <image name="grid_blank.png" width="320" height="480"/>
         <image name="unlock.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="AuthorViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AuthorViewController.h"/>
+        </class>
+        <class className="CreateAccountViewController" superclassName="FormViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateAccountViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="createNewAccount:"/>
+                <relationship kind="outlet" name="createButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordRepeat" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FormViewBackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FormViewBackgroundView.h"/>
+        </class>
+        <class className="FormViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FormViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="KCSButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KCSButton.h"/>
+        </class>
+        <class className="LoginViewContoller" superclassName="FormViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewContoller.h"/>
+            <relationships>
+                <relationship kind="action" name="createAccount:"/>
+                <relationship kind="action" name="login:"/>
+                <relationship kind="action" name="loginWithFacebook:"/>
+                <relationship kind="outlet" name="createAccountButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="facebookLoginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userNameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="PullRefreshTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PullRefreshTableViewController.h"/>
+        </class>
+        <class className="UpdatesViewController" superclassName="PullRefreshTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UpdatesViewController.h"/>
+        </class>
+        <class className="WriteUpdateViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WriteUpdateViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="post:"/>
+                <relationship kind="action" name="takePicture:"/>
+                <relationship kind="action" name="toggleGeolocation:"/>
+                <relationship kind="action" name="togglePrivacy:"/>
+                <relationship kind="outlet" name="bottomToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="geoButtonItem" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="mainView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="postButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="updateTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
