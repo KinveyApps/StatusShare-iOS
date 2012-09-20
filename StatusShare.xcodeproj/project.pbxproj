@@ -13,6 +13,8 @@
 		272EF18115E2B9F3008E3F68 /* libUAirship-1.2.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 272EF18015E2B9F3008E3F68 /* libUAirship-1.2.2.a */; };
 		272EF18B15E2C1CF008E3F68 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272EF18A15E2C1CF008E3F68 /* MapKit.framework */; };
 		272EF19515E302B7008E3F68 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272EF19415E302B7008E3F68 /* FacebookSDK.framework */; };
+		274C3A89160B5C7B00494C42 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 274C3A86160B5C7B00494C42 /* MBProgressHUD.m */; };
+		274C3A8A160B5C7B00494C42 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274C3A88160B5C7B00494C42 /* PullRefreshTableViewController.m */; };
 		27E6B2AF159E36D000280BC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2AE159E36D000280BC7 /* UIKit.framework */; };
 		27E6B2B1159E36D000280BC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B0159E36D000280BC7 /* Foundation.framework */; };
 		27E6B2B3159E36D000280BC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B2159E36D000280BC7 /* CoreGraphics.framework */; };
@@ -27,8 +29,6 @@
 		27E6B350159E3EC800280BC7 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B34A159E3EC800280BC7 /* lock.png */; };
 		27E6B351159E3EC800280BC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B34B159E3EC800280BC7 /* main.m */; };
 		27E6B352159E3EC800280BC7 /* unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B34C159E3EC800280BC7 /* unlock.png */; };
-		27E6B357159E3EED00280BC7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B354159E3EED00280BC7 /* MBProgressHUD.m */; };
-		27E6B358159E3EED00280BC7 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B356159E3EED00280BC7 /* PullRefreshTableViewController.m */; };
 		27E6B35B159E3EFD00280BC7 /* UIColor+KinveyHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B35A159E3EFD00280BC7 /* UIColor+KinveyHelpers.m */; };
 		27E6B35E159E3F0A00280BC7 /* KCSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B35D159E3F0A00280BC7 /* KCSButton.m */; };
 		27E6B361159E3F2600280BC7 /* KinveyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B35F159E3F2600280BC7 /* KinveyKit.framework */; };
@@ -84,9 +84,13 @@
 		272EF17715E2B31E008E3F68 /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
 		272EF17A15E2B39D008E3F68 /* globe_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe_green.png; sourceTree = "<group>"; };
 		272EF17C15E2B808008E3F68 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		272EF18015E2B9F3008E3F68 /* libUAirship-1.2.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-1.2.2.a"; path = "KinveyGram/libUAirship-1.2.2.a"; sourceTree = "<group>"; };
+		272EF18015E2B9F3008E3F68 /* libUAirship-1.2.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-1.2.2.a"; path = "StatusShare/libUAirship-1.2.2.a"; sourceTree = SOURCE_ROOT; };
 		272EF18A15E2C1CF008E3F68 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		272EF19415E302B7008E3F68 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		274C3A85160B5C7B00494C42 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		274C3A86160B5C7B00494C42 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		274C3A87160B5C7B00494C42 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
+		274C3A88160B5C7B00494C42 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		27E6B2AA159E36D000280BC7 /* StatusShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatusShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E6B2AE159E36D000280BC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		27E6B2B0159E36D000280BC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,10 +110,6 @@
 		27E6B34A159E3EC800280BC7 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		27E6B34B159E3EC800280BC7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		27E6B34C159E3EC800280BC7 /* unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlock.png; sourceTree = "<group>"; };
-		27E6B353159E3EED00280BC7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = "KinveyGram/Classes/3rd Party/MBProgressHUD.h"; sourceTree = SOURCE_ROOT; };
-		27E6B354159E3EED00280BC7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = "KinveyGram/Classes/3rd Party/MBProgressHUD.m"; sourceTree = SOURCE_ROOT; };
-		27E6B355159E3EED00280BC7 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = "KinveyGram/Classes/3rd Party/PullRefreshTableViewController.h"; sourceTree = SOURCE_ROOT; };
-		27E6B356159E3EED00280BC7 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = "KinveyGram/Classes/3rd Party/PullRefreshTableViewController.m"; sourceTree = SOURCE_ROOT; };
 		27E6B359159E3EFD00280BC7 /* UIColor+KinveyHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+KinveyHelpers.h"; path = "Classes/UIColor+KinveyHelpers.h"; sourceTree = "<group>"; };
 		27E6B35A159E3EFD00280BC7 /* UIColor+KinveyHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+KinveyHelpers.m"; path = "Classes/UIColor+KinveyHelpers.m"; sourceTree = "<group>"; };
 		27E6B35C159E3F0A00280BC7 /* KCSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KCSButton.h; path = Classes/KCSButton.h; sourceTree = "<group>"; };
@@ -198,6 +198,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		274C3A84160B5C7B00494C42 /* 3rd Party */ = {
+			isa = PBXGroup;
+			children = (
+				274C3A85160B5C7B00494C42 /* MBProgressHUD.h */,
+				274C3A86160B5C7B00494C42 /* MBProgressHUD.m */,
+				274C3A87160B5C7B00494C42 /* PullRefreshTableViewController.h */,
+				274C3A88160B5C7B00494C42 /* PullRefreshTableViewController.m */,
+			);
+			name = "3rd Party";
+			path = "Classes/3rd Party";
+			sourceTree = "<group>";
+		};
 		27E6B29F159E36D000280BC7 = {
 			isa = PBXGroup;
 			children = (
@@ -258,8 +270,7 @@
 				27E6B335159E3D0300280BC7 /* Utility */,
 				27E6B339159E3D3800280BC7 /* UI Elements */,
 			);
-			name = StatusShare;
-			path = KinveyGram;
+			path = StatusShare;
 			sourceTree = "<group>";
 		};
 		27E6B2D5159E36D000280BC7 /* StatusShare */ = {
@@ -270,8 +281,8 @@
 				27E6B2D6159E36D000280BC7 /* Supporting Files */,
 			);
 			name = StatusShare;
-			path = KinveyGramTests;
-			sourceTree = "<group>";
+			path = StatusShareTests;
+			sourceTree = SOURCE_ROOT;
 		};
 		27E6B2D6159E36D000280BC7 /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -333,21 +344,10 @@
 		27E6B339159E3D3800280BC7 /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
-				27E6B33A159E3D5500280BC7 /* 3rd Party */,
+				274C3A84160B5C7B00494C42 /* 3rd Party */,
 				27E6B341159E3D5A00280BC7 /* Kinvey */,
 			);
 			name = "UI Elements";
-			sourceTree = "<group>";
-		};
-		27E6B33A159E3D5500280BC7 /* 3rd Party */ = {
-			isa = PBXGroup;
-			children = (
-				27E6B353159E3EED00280BC7 /* MBProgressHUD.h */,
-				27E6B354159E3EED00280BC7 /* MBProgressHUD.m */,
-				27E6B355159E3EED00280BC7 /* PullRefreshTableViewController.h */,
-				27E6B356159E3EED00280BC7 /* PullRefreshTableViewController.m */,
-			);
-			path = "3rd Party";
 			sourceTree = "<group>";
 		};
 		27E6B341159E3D5A00280BC7 /* Kinvey */ = {
@@ -385,8 +385,8 @@
 				272EF17A15E2B39D008E3F68 /* globe_green.png */,
 			);
 			name = "Supporting Files";
-			path = KinveyGram;
-			sourceTree = "<group>";
+			path = StatusShare;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -512,8 +512,6 @@
 			files = (
 				27E6B345159E3EAD00280BC7 /* AppDelegate.m in Sources */,
 				27E6B351159E3EC800280BC7 /* main.m in Sources */,
-				27E6B357159E3EED00280BC7 /* MBProgressHUD.m in Sources */,
-				27E6B358159E3EED00280BC7 /* PullRefreshTableViewController.m in Sources */,
 				27E6B35B159E3EFD00280BC7 /* UIColor+KinveyHelpers.m in Sources */,
 				27E6B35E159E3F0A00280BC7 /* KCSButton.m in Sources */,
 				27E6B367159E3F6B00280BC7 /* CreateAccountViewController.m in Sources */,
@@ -526,6 +524,8 @@
 				27E6B37D159E409600280BC7 /* KinveyFriendsUpdate.m in Sources */,
 				27E6B382159E40A600280BC7 /* GravatarStore.m in Sources */,
 				27E6B383159E40A600280BC7 /* MD5Helpers.m in Sources */,
+				274C3A89160B5C7B00494C42 /* MBProgressHUD.m in Sources */,
+				274C3A8A160B5C7B00494C42 /* PullRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,13 +639,13 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KinveyGram/StatusShare-Prefix.pch";
-				INFOPLIST_FILE = "KinveyGram/StatusShare-Info.plist";
+				GCC_PREFIX_HEADER = "StatusShare/StatusShare-Prefix.pch";
+				INFOPLIST_FILE = "StatusShare/StatusShare-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/KinveyGram\"",
+					"\"$(SRCROOT)/StatusShare\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -665,13 +665,13 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KinveyGram/StatusShare-Prefix.pch";
-				INFOPLIST_FILE = "KinveyGram/StatusShare-Info.plist";
+				GCC_PREFIX_HEADER = "StatusShare/StatusShare-Prefix.pch";
+				INFOPLIST_FILE = "StatusShare/StatusShare-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/KinveyGram\"",
+					"\"$(SRCROOT)/StatusShare\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
