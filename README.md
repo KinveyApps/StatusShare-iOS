@@ -11,11 +11,11 @@ In particular this sample application highlights the following key backend tasks
 * Connect on the client-side to 3rd party service (Gravatar)
 
 
-![](https://github.com/KinveyApps/StatusShare/raw/master/assets/kinvey_gram_in_phone.png)
-![](https://github.com/KinveyApps/StatusShare/raw/master/assets/StatusShare_ss1.png)
-![](https://github.com/KinveyApps/StatusShare/raw/master/assets/StatusShare_ss3.png)
-![](https://github.com/KinveyApps/StatusShare/raw/master/assets/StatusShare_ss2.png)
-![](https://github.com/KinveyApps/StatusShare/raw/master/assets/StatusShare_ss4.png)
+![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/kinvey_gram_in_phone.png)
+![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss1.png)
+![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss3.png)
+![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss2.png)
+![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss4.png)
 
 ## Using the App
 1. First time users, tap "Create New Account"
