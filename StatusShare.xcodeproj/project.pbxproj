@@ -13,11 +13,15 @@
 		272EF17815E2B31E008E3F68 /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 272EF17715E2B31E008E3F68 /* globe.png */; };
 		272EF17B15E2B39D008E3F68 /* globe_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 272EF17A15E2B39D008E3F68 /* globe_green.png */; };
 		272EF17D15E2B808008E3F68 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272EF17C15E2B808008E3F68 /* CoreLocation.framework */; };
-		272EF18115E2B9F3008E3F68 /* libUAirship-1.2.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 272EF18015E2B9F3008E3F68 /* libUAirship-1.2.2.a */; };
 		272EF18B15E2C1CF008E3F68 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272EF18A15E2C1CF008E3F68 /* MapKit.framework */; };
 		272EF19515E302B7008E3F68 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272EF19415E302B7008E3F68 /* FacebookSDK.framework */; };
 		274C3A89160B5C7B00494C42 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 274C3A86160B5C7B00494C42 /* MBProgressHUD.m */; };
 		274C3A8A160B5C7B00494C42 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274C3A88160B5C7B00494C42 /* PullRefreshTableViewController.m */; };
+		275D54351616692A003ABE40 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D54341616692A003ABE40 /* Accounts.framework */; };
+		275D54381616692E003ABE40 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D54371616692E003ABE40 /* Twitter.framework */; };
+		275D543D16166B3E003ABE40 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D543C16166B3E003ABE40 /* Social.framework */; };
+		275D543F16166B73003ABE40 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D543E16166B73003ABE40 /* AdSupport.framework */; };
+		275D544116166E6C003ABE40 /* libUAirship-1.3.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D544016166E6C003ABE40 /* libUAirship-1.3.3.a */; };
 		27E6B2AF159E36D000280BC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2AE159E36D000280BC7 /* UIKit.framework */; };
 		27E6B2B1159E36D000280BC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B0159E36D000280BC7 /* Foundation.framework */; };
 		27E6B2B3159E36D000280BC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B2159E36D000280BC7 /* CoreGraphics.framework */; };
@@ -73,13 +77,17 @@
 		272EF17715E2B31E008E3F68 /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
 		272EF17A15E2B39D008E3F68 /* globe_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe_green.png; sourceTree = "<group>"; };
 		272EF17C15E2B808008E3F68 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		272EF18015E2B9F3008E3F68 /* libUAirship-1.2.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-1.2.2.a"; path = "StatusShare/libUAirship-1.2.2.a"; sourceTree = SOURCE_ROOT; };
 		272EF18A15E2C1CF008E3F68 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		272EF19415E302B7008E3F68 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		274C3A85160B5C7B00494C42 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		274C3A86160B5C7B00494C42 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		274C3A87160B5C7B00494C42 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		274C3A88160B5C7B00494C42 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
+		275D54341616692A003ABE40 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		275D54371616692E003ABE40 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		275D543C16166B3E003ABE40 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		275D543E16166B73003ABE40 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		275D544016166E6C003ABE40 /* libUAirship-1.3.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libUAirship-1.3.3.a"; sourceTree = "<group>"; };
 		27E6B2AA159E36D000280BC7 /* StatusShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatusShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E6B2AE159E36D000280BC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		27E6B2B0159E36D000280BC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -148,6 +156,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				275D543F16166B73003ABE40 /* AdSupport.framework in Frameworks */,
+				275D543D16166B3E003ABE40 /* Social.framework in Frameworks */,
+				275D54381616692E003ABE40 /* Twitter.framework in Frameworks */,
+				275D54351616692A003ABE40 /* Accounts.framework in Frameworks */,
 				272EF18B15E2C1CF008E3F68 /* MapKit.framework in Frameworks */,
 				272EF17D15E2B808008E3F68 /* CoreLocation.framework in Frameworks */,
 				27E6B390159E41D500280BC7 /* QuartzCore.framework in Frameworks */,
@@ -166,8 +178,8 @@
 				8E161CCB79E14C3DB26ADA1F /* CoreTelephony.framework in Frameworks */,
 				8B1B1B961E444DE5A0344ED2 /* libz.dylib in Frameworks */,
 				7CD1A1CD88E044888917EA86 /* libsqlite3.dylib in Frameworks */,
-				272EF18115E2B9F3008E3F68 /* libUAirship-1.2.2.a in Frameworks */,
 				272EF19515E302B7008E3F68 /* FacebookSDK.framework in Frameworks */,
+				275D544116166E6C003ABE40 /* libUAirship-1.3.3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +220,12 @@
 		27E6B2AD159E36D000280BC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				275D544016166E6C003ABE40 /* libUAirship-1.3.3.a */,
+				275D543E16166B73003ABE40 /* AdSupport.framework */,
+				275D543C16166B3E003ABE40 /* Social.framework */,
+				275D54371616692E003ABE40 /* Twitter.framework */,
+				275D54341616692A003ABE40 /* Accounts.framework */,
 				272EF19415E302B7008E3F68 /* FacebookSDK.framework */,
-				272EF18015E2B9F3008E3F68 /* libUAirship-1.2.2.a */,
 				272EF18A15E2C1CF008E3F68 /* MapKit.framework */,
 				272EF17C15E2B808008E3F68 /* CoreLocation.framework */,
 				27E6B35F159E3F2600280BC7 /* KinveyKit.framework */,
@@ -498,7 +514,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Katz (5WT935WCFL)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -517,6 +533,7 @@
 					"-ObjC",
 					"-all_load",
 				);
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5D877198-948E-4AC9-8C17-677FF37DA02A";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

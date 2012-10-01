@@ -2,7 +2,7 @@
 //  KCSPush.h
 //  KinveyKit
 //
-//  Copyright (c) 2008-2011, Kinvey, Inc. All rights reserved.
+//  Copyright (c) 2008-2012, Kinvey, Inc. All rights reserved.
 //
 //  This software contains valuable confidential and proprietary information of
 //  KINVEY, INC and is subject to applicable licensing agreements.
@@ -51,8 +51,29 @@
  @warning Push notifications will not work if this method has not been called.
  
  @param options The options dictionary (see KCSClient) that contains the settings for the push service.
+ @deprecated Use onLoadHelper:error: instead.
+ @depcratedIn 1.9
  */
-- (void)onLoadHelper: (NSDictionary *)options;
+- (void)onLoadHelper: (NSDictionary *)options DEPRECATED_ATTRIBUTE;
+
+/*! Start the Push Service
+ 
+ This routine is used to register with the Kinvey Push service (not the same as registering with APNS)
+ and to prepare to receive notifications.  This handles device management and user management.
+ 
+ To use this routine, place a call to this in the applicationDidLoad:withOptions method in the App Delegate.
+ `[[KCSPush sharedPush] onLoadHelper:options error:error];`
+ 
+ Where options (documented in KCSClient) contains the Keys for the Push service.
+ 
+ @warning Push notifications will not work if this method has not been called.
+ 
+ @param options The options dictionary (see KCSClient) that contains the settings for the push service.
+ @param error The error if this method fails
+ @return `NO` if the push notifications are not able to be set-up correctly. Check the out error for possible reasons.
+ @since 1.9
+ */
+- (BOOL) onLoadHelper:(NSDictionary *)options error:(NSError**)error;
 
 /*! Clean-up Push Service
  

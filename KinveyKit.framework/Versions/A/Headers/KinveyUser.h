@@ -32,6 +32,20 @@ enum {
 
 typedef void (^KCSUserCompletionBlock)(KCSUser* user, NSError* errorOrNil, KCSUserActionResult result);
 
+/** Social Network login providers supported for log-in
+ */
+typedef enum  {
+    /** Facebook */
+    KCSSocialIDFacebook,
+    /** Twitter */
+    KCSSocialIDTwitter,
+} KCSUserSocialIdentifyProvider;
+
+/** Access Dictionary key for the token: both Facebook & Twitter */
+#define KCSUserAccessTokenKey @"access_token"
+/** Access Dictionary key for the token secret: just Twitter */
+#define KCSUserAccessTokenSecretKey @"access_token_secret"
+
 /*!  Describes required methods for an object wishing to be notified about the status of user actions.
  *
  * This Protocol should be implemented by a client for processing the results of any User Actions against the Kinvey
@@ -201,11 +215,40 @@ typedef void (^KCSUserCompletionBlock)(KCSUser* user, NSError* errorOrNil, KCSUs
  
  This creates a new Kinvey user or logs in with an existing one associated with the supplied Facebook access token. Kinvey will verify the token with Facebook on the server and return an authorized Kinvey user if the process is sucessful.
  
- To obtain the access token, download the Facebook SDK (https://developers.facebook.com/ios/) and follow the instructions for session log-in. 
+ To obtain the access token, download the Facebook SDK (https://developers.facebook.com/ios/) and follow the instructions for session log-in.
+ @since 1.7
+ @deprecated 1.9 use loginWithWithSocialIdentity:accessDictionary:withCompletionBlock instead
  @param accessToken the `access_token` provided by Facebook.
  @param completionBlock the callback when the login completes or errors out.
  */
-+ (void)loginWithFacebookAccessToken:(NSString*)accessToken withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
++ (void)loginWithFacebookAccessToken:(NSString*)accessToken withCompletionBlock:(KCSUserCompletionBlock)completionBlock DEPRECATED_ATTRIBUTE; 
+
+/** Login a user with social network access information.
+ 
+ This creates a new Kinvey user or logs in with an existing one associated with the supplied access token. Kinvey will verify the token with the social provider on the server and return an authorized Kinvey user if the process is sucessful.
+ 
+ __Facebook:__
+ 
+ To obtain the access token, download the Facebook SDK (https://developers.facebook.com/ios/) and follow the instructions for session log-in. Once the token is obtained, provide it in a dictionary: `[KCSUser loginWithSocialIdentity:KCSSocialIDFacebook accessDictionary:{ KCSUserAccessTokenKey : <#FB Access Token#>} withCompletionBlock:<# completion block #>]`. 
+ 
+ __ Twitter: __
+ 
+ To obtain the access token, follow Twitter's instructions to independently obtain the token ( https://dev.twitter.com/docs/auth/obtaining-access-tokens ) or if you want to use the native Twitter account in iOS 5 & 6 use `+ [KCSUser getAccessDictionaryFromTwitterFromPrimaryAccount:]`. This requires use of Twitter.framewwork and Accounts.framework, and to have your app provisioned for reverse auth.  
+ 
+     [KCSUser getAccessDictionaryFromTwitterFromPrimaryAccount:^(NSDictionary *accessDictOrNil, NSError *errorOrNil) {
+        [KCSUser loginWithSocialIdentity:KCSSocialIDTwitter accessDictionary:accessDictOrNil withCompletionBlock:<# completion block #>]
+      }];
+ 
+ When using your own method for obtaining the token, Twitter requires that you provide the `oauth_token` and `oauth_token_secret` to log-in. `[KCSUser loginWithSocialIdentity:KCSSocialIDTwitter accessDictionary:{ KCSUserAccessTokenKey : <# Twitter OAuth Token #>, KCSUserAccessTokenSecretKey : <# Twitter OAuth Token Secret #>} withCompletionBlock:<# completion block #>]`.
+ 
+ Regardless of the the token is obtained, your Twitter app credentials must also be supplied when creating the KCSClient. Specify the `KCS_TWITTER_CLIENT_KEY` and `KCS_TWITTER_CLIENT_SECRET` in the options dictionary when the app is launched. These credentials are used for reverse auth and on the server side to verify the token with Twitter. 
+ 
+ @param provider the enumerated social network identity provider
+ @param accessDictionary the credentials needed to authenticate the user for log-in
+ @param completionBlock the block to be called when the operation completes or fails
+ @since 1.9
+ */
++ (void)loginWithWithSocialIdentity:(KCSUserSocialIdentifyProvider)provider accessDictionary:(NSDictionary*)accessDictionary withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
 
 /*! Removes a user and their data from Kinvey
  * @param delegate The delegate to inform once the action is complete.

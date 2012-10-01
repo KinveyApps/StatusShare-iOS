@@ -29,13 +29,18 @@
 #define KCS_PORT_KEY @"kcsPortKey"
 #define KCS_SERVICE_KEY @"kcsServiceKey"
 #define KCS_CONNECTION_TIMEOUT_KEY @"kcsConnectionTimeout"
+
 #define KCS_PUSH_KEY_KEY @"kcsPushKey"
 #define KCS_PUSH_SECRET_KEY @"kcsPushSecret"
 #define KCS_PUSH_IS_ENABLED_KEY @"kcsPushEnabled"
 #define KCS_PUSH_MODE_KEY @"kcsPushMode"
 #define KCS_PUSH_DEBUG @"debug"
 #define KCS_PUSH_RELEASE @"release"
+
 #define KCS_USE_OLD_PING_STYLE_KEY @"kcsPingStyle"
+
+#define KCS_TWITTER_CLIENT_KEY @"twitterKey"
+#define KCS_TWITTER_CLIENT_SECRET @"twitterSecret"
 
 /*! A Singleton Class that provides access to all Kinvey Services.
 

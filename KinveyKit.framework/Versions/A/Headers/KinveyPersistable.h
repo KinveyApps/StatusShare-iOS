@@ -121,6 +121,7 @@ implementing these methods.
 #define KCS_DICTIONARY_NAME_KEY @"KCS_DICTIONARY_NAME_KEY"
 #define KCS_DICTIONARY_DATATYPE_BUILDER @"KCS_DICTIONARY_DATATYPE_BUILDER"
 #define KCS_REFERENCE_MAP_KEY @"KinveyObjectBuilder_REFERENCE_MAP_KEY"
+#define KCS_IS_DYNAMIC_ENTITY @"KinveyObjectBuilder_IsDynamic"
 
 
 ///---------------------------------------------------------------------------------------

@@ -145,11 +145,6 @@
             [self.tableView reloadData];
         }
     } withProgressBlock:nil];
-    
-    NSMutableSet* authorSet = [NSMutableSet setWithCapacity:self.updates.count];
-    for (KinveyFriendsUpdate* update in authorSet) {
-        [authorSet addObject:[update.meta creatorId]];
-    }
 }
 
 - (void) logout
