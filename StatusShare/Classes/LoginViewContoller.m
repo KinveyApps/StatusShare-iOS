@@ -147,7 +147,7 @@
                                              NSError *error) {
             if (status == FBSessionStateOpen) {
                 NSString* accessToken = session.accessToken;
-                [KCSUser loginWithFacebookAccessToken:accessToken withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
+                [KCSUser loginWithWithSocialIdentity:KCSSocialIDFacebook accessDictionary:@{KCSUserAccessTokenKey : accessToken} withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
                     [self handeLogin:errorOrNil];
                 }];
             }
