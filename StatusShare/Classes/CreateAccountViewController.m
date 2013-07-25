@@ -2,8 +2,21 @@
 //  CreateAccountViewController.m
 //  StatusShare
 //
-//  Copyright (c) 2012 Kinvey. All rights reserved.
+//  Copyright 2013 Kinvey, Inc.
 //
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
 
 #import "CreateAccountViewController.h"
 
@@ -37,7 +50,7 @@
             //In addition to creating the user that is used for login-purposes, this app also creates a public "user" entity that is for display in the table
             [self.navigationController popViewControllerAnimated:YES];
         } else {
-            BOOL wasUserError = [errorOrNil domain] == KCSUserErrorDomain;
+            BOOL wasUserError = [[errorOrNil domain] isEqual: KCSUserErrorDomain];
             NSString* title = wasUserError ? [NSString stringWithFormat:NSLocalizedString(@"Could not create new user with username %@", @"create username error title"), username]: NSLocalizedString(@"An error occurred.", @"Generic error message");
             NSString* message = wasUserError ? NSLocalizedString(@"Please choose a different username.", @"create username error message") : [errorOrNil localizedDescription];
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title

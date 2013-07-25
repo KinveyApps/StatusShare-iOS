@@ -2,8 +2,21 @@
 //  LoginViewContoller.m
 //  StatusShare
 //
-//  Copyright (c) 2012 Kinvey. All rights reserved.
+//  Copyright 2013 Kinvey, Inc.
 //
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
 
 #import "LoginViewContoller.h"
 
@@ -107,11 +120,12 @@
 {
     [self reenableButtons];
     if (errorOrNil != nil) {
-        BOOL wasUserError = [errorOrNil domain] == KCSUserErrorDomain;
+        BOOL wasUserError = [[errorOrNil domain] isEqual:KCSUserErrorDomain];
         NSString* title = wasUserError ? NSLocalizedString(@"Invalid Credentials", @"credentials error title") : NSLocalizedString(@"An error occurred.", @"Generic error message");
         NSString* message = wasUserError ? NSLocalizedString(@"Wrong username or password. Please check and try again.", @"credentials error message") : [errorOrNil localizedDescription];
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message                                                           delegate:self
+                                                        message:message
+                                                       delegate:self
                                               cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
                                               otherButtonTitles:nil];
         [alert show];
@@ -147,7 +161,7 @@
                                              NSError *error) {
             if (status == FBSessionStateOpen) {
                 NSString* accessToken = session.accessToken;
-                [KCSUser loginWithWithSocialIdentity:KCSSocialIDFacebook accessDictionary:@{KCSUserAccessTokenKey : accessToken} withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
+                [KCSUser loginWithSocialIdentity:KCSSocialIDFacebook accessDictionary:@{KCSUserAccessTokenKey : accessToken} withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
                     [self handeLogin:errorOrNil];
                 }];
             }
