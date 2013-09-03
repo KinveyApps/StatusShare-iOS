@@ -57,8 +57,8 @@ The following section describes where to look in the code for examples of common
 
 ## System Requirements
 * iOS 5 or later (uses storyboards)
-* KinveyKit library 1.17.2 or later
-* Facebook SDK 3.0 or later
+* KinveyKit library 1.20.0
+* Facebook SDK 3.7.1
 
 ## License
 

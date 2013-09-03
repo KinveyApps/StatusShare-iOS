@@ -57,7 +57,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardUpdated:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     //Kinvey use code: watch for network reachability to change so we can update the UI make a post able to send. 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kKCSReachabilityChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:KCSReachabilityChangedNotification object:nil];
     
     if ([CLLocationManager locationServicesEnabled]) {
         //set up the location manger

@@ -163,7 +163,7 @@
 - (void) logout
 {
     self.updates = [NSArray array]; //clear array so that the previous user's data is cached if a different user logins in immediately
-    [[[KCSClient sharedClient] currentUser] logout];
+    [[KCSUser activeUser] logout];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
