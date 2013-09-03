@@ -35,6 +35,7 @@
 @interface UpdatesViewController ()
 @property (nonatomic, retain) NSArray* updates;
 @property (nonatomic, retain) KCSCachedStore* updateStore;
+@property (nonatomic, retain) UILabel* noItemsLabel;
 
 - (void) updateList;
 @end
@@ -50,6 +51,13 @@
     
     KCSCollection* collection = [KCSCollection collectionFromString:@"Updates" ofClass:[KinveyFriendsUpdate class]];
     self.updateStore = [KCSLinkedAppdataStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:collection, KCSStoreKeyResource, [NSNumber numberWithInt:KCSCachePolicyBoth], KCSStoreKeyCachePolicy, nil]];
+    
+    self.noItemsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., 0., 1., 1.)];
+    self.noItemsLabel.textColor = [UIColor darkGrayColor];
+    self.noItemsLabel.shadowColor = [UIColor whiteColor];
+    self.noItemsLabel.shadowOffset = CGSizeMake(0., 1.);
+    self.noItemsLabel.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.noItemsLabel];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -152,10 +160,18 @@
     [query addSortModifier:sortByDate]; //sort the return by the date field
     [query setLimitModifer:[[KCSQueryLimitModifier alloc] initWithLimit:10]]; //just get back 10 results
     [updateStore queryWithQuery:query withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
+        [self performSelector:@selector(stopLoading) withObject:nil afterDelay:1.0]; //too fast transition feels weird
         if (objectsOrNil) {
-            [self performSelector:@selector(stopLoading) withObject:nil afterDelay:2.0];
             self.updates = objectsOrNil;
             [self.tableView reloadData];
+            if (objectsOrNil.count == 0) {
+                self.noItemsLabel.text = NSLocalizedString(@"No Status Updates Found.", nil);
+                [self.noItemsLabel sizeToFit];
+                self.noItemsLabel.center = self.view.center;
+                self.noItemsLabel.hidden = NO;
+            } else {
+                self.noItemsLabel.hidden = YES;
+            }
         }
     } withProgressBlock:nil];
 }

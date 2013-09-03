@@ -21,6 +21,7 @@
 #import "UpdateCell.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 #import "KinveyFriendsUpdate.h"
 
@@ -40,7 +41,7 @@
     UIBezierPath* path = [UIBezierPath bezierPathWithRect:rect];
     [[UIColor colorWithIntRed:172 green:172 blue:172] setStroke];
     [path setLineWidth:1.];
- 
+    
     [[UIColor whiteColor] setFill];
     [path fill];
     
@@ -161,6 +162,7 @@
     KCSCachedStore* userStore = [KCSCachedStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:users, KCSStoreKeyResource, [NSNumber numberWithInt:KCSCachePolicyLocalFirst], KCSStoreKeyCachePolicy, nil]];
     [userStore loadObjectWithID:[update.meta creatorId] withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
         if (objectsOrNil && objectsOrNil.count > 0) {
+            NSString* fbId = nil;
             KCSUser* user = [objectsOrNil objectAtIndex:0];
             NSString* name = user.username;
             NSDictionary *socialIdentity = [user getValueForAttribute:@"_socialIdentity"];
@@ -171,16 +173,39 @@
                     if ((facebookName != nil) && ([facebookName length] > 0)) {
                         name = facebookName;
                     }
+                    fbId = facebookIdentity[@"id"];
                 }
             }
             self.nameLabel.text = name;
             
             NSUInteger size = [[UIScreen mainScreen]  scale] * kAvatarSize;
-            GravatarStore* store = [GravatarStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:size], GravatarStoreOptionSizeKey, nil]];
-            [store queryWithQuery:name withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
-                UIImage* image = [objectsOrNil objectAtIndex:0];
-                self.avatar.image = image;
-            } withProgressBlock:nil];
+            if (fbId == nil) {
+                GravatarStore* store = [GravatarStore storeWithOptions:@{GravatarStoreOptionSizeKey:@(size)}];
+                [store queryWithQuery:name withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
+                    UIImage* image = [objectsOrNil objectAtIndex:0];
+                    self.avatar.image = image;
+                } withProgressBlock:nil];
+            } else {
+                NSString* imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=%d&height=%d",fbId,size,size];
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+                    if (imageData) {
+                        UIImage* image = [UIImage imageWithData:imageData];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.avatar.image = image;
+                        });
+                    } else {
+                        // if can't get facebook image, resort to gravatar
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            GravatarStore* store = [GravatarStore storeWithOptions:@{GravatarStoreOptionSizeKey:@(size)}];
+                            [store queryWithQuery:name withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
+                                UIImage* image = [objectsOrNil objectAtIndex:0];
+                                self.avatar.image = image;
+                            } withProgressBlock:nil];
+                        });
+                    }
+                });
+            }
         }
     } withProgressBlock:nil];
 }

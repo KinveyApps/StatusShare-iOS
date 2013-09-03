@@ -34,15 +34,6 @@
 @end
 
 @implementation WriteUpdateViewController
-@synthesize bottomToolbar;
-@synthesize updateTextView;
-@synthesize mainView;
-@synthesize postButton;
-@synthesize geoButtonItem;
-@synthesize updateStore;
-@synthesize attachedImage;
-@synthesize locationManager;
-
 
 - (void)viewDidLoad
 {
@@ -58,13 +49,6 @@
     
     //Kinvey use code: watch for network reachability to change so we can update the UI make a post able to send. 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:KCSReachabilityChangedNotification object:nil];
-    
-    if ([CLLocationManager locationServicesEnabled]) {
-        //set up the location manger
-        self.locationManager = [[CLLocationManager alloc] init];
-        locationManager.delegate = self; //we don't actually care about updates since only the current loc is used
-        [locationManager startUpdatingLocation];
-    }
 }
 
 - (void)viewDidUnload
@@ -112,7 +96,7 @@
 {
     CGRect endFrame = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     endFrame = [self.mainView.superview.window convertRect:endFrame toView:self.mainView.superview];
-    CGRect textFrame = mainView.frame;
+    CGRect textFrame = self.mainView.frame;
     textFrame.size.height = CGRectGetMinY(endFrame) - CGRectGetMinY(textFrame);
     self.mainView.frame = textFrame;
 }
@@ -135,7 +119,7 @@
 {
     if (self.updateTextView.text.length > 0) {
         KinveyFriendsUpdate* update = [[KinveyFriendsUpdate alloc] init];
-        update.text = updateTextView.text;
+        update.text = self.updateTextView.text;
         update.userDate = [NSDate date];
         if (self.attachedImage != nil) {
             update.attachment = self.attachedImage;
@@ -148,13 +132,13 @@
         }
         if (location && [CLLocationManager locationServicesEnabled]) {
             CLLocation* l = [self.locationManager location];
-            update.location = [l kinveyValue];
+            update.location = l;
         }
         
         //Kinvey use code: add a new update to the updates collection
-        [updateStore saveObject:update withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
+        [self.updateStore saveObject:update withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
             if (errorOrNil == nil) {
-                updateTextView.text = @"";
+                self.updateTextView.text = @"";
                 [self cancel:nil];
             } else {
                 BOOL wasNetworkError = [[errorOrNil domain] isEqual:KCSNetworkErrorDomain];
@@ -229,6 +213,16 @@
     location = !location;
     UIBarButtonItem* item = sender;
     item.tintColor = location ? [[[UIColor greenColor] darkerColor] colorWithAlphaComponent:0.5]: nil;
+    if (location) {
+        if ([CLLocationManager locationServicesEnabled]) {
+            //set up the location manger
+            self.locationManager = [[CLLocationManager alloc] init];
+            _locationManager.delegate = self; //we don't actually care about updates since only the current loc is used
+            [_locationManager startUpdatingLocation];
+        }
+    } else {
+        [_locationManager stopUpdatingLocation];
+    }
 }
 
 #pragma mark - Offline Save Delegate

@@ -20,6 +20,7 @@
 
 #import <Foundation/Foundation.h>
 #import <KinveyKit/KinveyKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 /** This class represents an indivual post to the service */
 @interface KinveyFriendsUpdate : NSObject <KCSPersistable>
@@ -29,6 +30,6 @@
 @property (nonatomic, retain) NSDate* userDate;
 @property (nonatomic, retain) UIImage* attachment;
 @property (nonatomic, retain) KCSMetadata* meta;
-@property (nonatomic, retain) NSArray* location;
+@property (nonatomic, retain) CLLocation* location;
 
 @end

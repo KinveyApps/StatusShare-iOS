@@ -66,10 +66,10 @@
 {
     return self.loginButton;
 }
-      
+
 - (void) validate
 {
-    self.loginButton.enabled = self.userNameTextField.text.length > 0 && self.passwordTextField.text.length > 0; 
+    self.loginButton.enabled = self.userNameTextField.text.length > 0 && self.passwordTextField.text.length > 0;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -104,7 +104,7 @@
 - (void) disableButtons:(NSString*) message;
 {
     self.loginButton.enabled = NO;
-    self.createAccountButton.enabled = NO; 
+    self.createAccountButton.enabled = NO;
     MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = message;
 }
@@ -136,7 +136,7 @@
         //logged in went okay - go to the table
         [self performSegueWithIdentifier:@"toTable" sender:self];
     }
- 
+    
 }
 
 - (IBAction)login:(id)sender
@@ -153,22 +153,22 @@
 {
     AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     FBSession* session = [delegate session];
-
+    
     // if the session isn't open, let's open it now and present the login UX to the user
     if (!session.isOpen) {
-        [session openWithCompletionHandler:^(FBSession *session,
-                                             FBSessionState status,
-                                             NSError *error) {
-            if (status == FBSessionStateOpen) {
-                NSString* accessToken = session.accessTokenData.accessToken;
-                [KCSUser loginWithSocialIdentity:KCSSocialIDFacebook accessDictionary:@{KCSUserAccessTokenKey : accessToken} withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
-                    [self handeLogin:errorOrNil];
+        [session openWithBehavior:FBSessionLoginBehaviorUseSystemAccountIfPresent
+                completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                    if (status == FBSessionStateOpen) {
+                        NSString* accessToken = session.accessTokenData.accessToken;
+                        [KCSUser loginWithSocialIdentity:KCSSocialIDFacebook accessDictionary:@{KCSUserAccessTokenKey : accessToken} withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
+                            [self handeLogin:errorOrNil];
+                        }];
+                    }
+                    
                 }];
-            }
-        }];
     }
 }
-      
+
 - (IBAction)createAccount:(id)sender
 {
     [self performSegueWithIdentifier:@"pushToCreateAccount" sender:self];

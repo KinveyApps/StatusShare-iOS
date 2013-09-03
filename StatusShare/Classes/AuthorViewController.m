@@ -30,17 +30,17 @@
 
 @interface UpdateAnnotation : NSObject <MKAnnotation>
 {
-    CLLocationCoordinate2D _coordinate;
+    CLLocation* _coordinate;
 }
 
 @end
 
 @implementation UpdateAnnotation
-- (id) initWithLoc:(NSArray*)loc
+- (id) initWithLoc:(CLLocation*)loc
 {
     self = [super init];
     if (self) {
-        _coordinate = CLLocationCoordinate2DMake([[loc objectAtIndex:1] doubleValue], [[loc objectAtIndex:0] doubleValue]);
+        _coordinate = loc;
 
     }
     return self;
@@ -48,7 +48,7 @@
 
 - (CLLocationCoordinate2D)coordinate;
 {
-    return _coordinate;
+    return _coordinate.coordinate;
 }
 @end
 
@@ -199,17 +199,25 @@
         cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ Updates", @"number of updates label for an author"), updateCount];
     } else if (row == 2) {
         //Location Row
-        NSArray* lastLoc = nil;
+        CLLocation* lastLoc = nil;
         for (KinveyFriendsUpdate* update in _lastFive) {
-            if (update.location && update.location.count > 0) {
+            if (update.location) {
                 lastLoc = update.location;
                 break;
             }
         }
         if (lastLoc) {
             cell.textLabel.text = [NSString stringWithFormat:@"Last location:"];
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", lastLoc];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"<%5.2f, %5.2f>",lastLoc.coordinate.latitude,lastLoc.coordinate.longitude];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            [[[CLGeocoder alloc] init] reverseGeocodeLocation:lastLoc completionHandler:^(NSArray *placemarks, NSError *error) {
+                if (!error) {
+                    [UIView animateWithDuration:0.5 animations:^{
+                        MKPlacemark* mark = placemarks[0];
+                        cell.detailTextLabel.text = mark.name;
+                    }];
+                }
+            }];
         } else {
             cell.textLabel.text = @"No Recent Location";
             cell.accessoryType = UITableViewCellAccessoryNone;
@@ -259,9 +267,9 @@
         mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         UIViewController* vc = [[UIViewController alloc] init];
         vc.view = mapView;
-        NSArray* lastLoc = nil;
+        CLLocation* lastLoc = nil;
         for (KinveyFriendsUpdate* update in _lastFive) {
-            if (update.location && update.location.count > 0) {
+            if (update.location ) {
                 lastLoc = update.location;
                 break;
             }

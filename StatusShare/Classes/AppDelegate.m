@@ -22,23 +22,20 @@
 #import <KinveyKit/KinveyKit.h>
 
 @implementation AppDelegate
-@synthesize session;
-@synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //Kinvey use code: You'll need to create an app on the backend and initialize it here:
     //http://docs.kinvey.com/ios-developers-guide.html#Initializing_Programmatically
-    (void) [[KCSClient sharedClient] initializeKinveyServiceForAppKey:@"<#My App ID#>"
-                                                        withAppSecret:@"<#My App Secret#>" 
-                                                         usingOptions:nil];
-    
+    KCSClientConfiguration* config = [KCSClientConfiguration configurationWithAppKey:@"<#App Key#>" secret:@"<#App Secret#>"];
+    [[KCSClient sharedClient] initializeWithConfiguration:config];
    
     //NOTE: the FB APP ID also has to go in the url scheme in StatusShare-Info.plist so the FB callback has a place to go
     self.session = [[FBSession alloc] initWithAppID:@"<#Facebook App ID - NOT THE KINVEY ID#>"
                                    permissions:nil
                                urlSchemeSuffix:nil
                             tokenCacheStrategy:nil];
+    [FBSession setActiveSession:self.session];
 
     return YES;
 }
