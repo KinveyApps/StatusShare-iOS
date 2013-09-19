@@ -1,5 +1,5 @@
 //
-//  KinveyFriendsUpdate.h
+//  StatusShareUpdate.h
 //  StatusShare
 //
 //  Copyright 2013 Kinvey, Inc.
@@ -23,7 +23,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 /** This class represents an indivual post to the service */
-@interface KinveyFriendsUpdate : NSObject <KCSPersistable>
+@interface StatusShareUpdate : NSObject <KCSPersistable>
 
 @property (nonatomic, retain) NSString* text;
 @property (nonatomic, retain) NSString* kinveyId;

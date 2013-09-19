@@ -1,5 +1,5 @@
 //
-//  KinveyFriendsUpdate.m
+//  StatusShareUpdate.m
 //  StatusShare
 //
 //  Copyright 2013 Kinvey, Inc.
@@ -18,9 +18,9 @@
 //
 
 
-#import "KinveyFriendsUpdate.h"
+#import "StatusShareUpdate.h"
 
-@implementation KinveyFriendsUpdate
+@implementation StatusShareUpdate
 
 // Kinvey code use: any "KCSPersistable" has to implement this mapping method
 - (NSDictionary *)hostToKinveyPropertyMapping
@@ -33,5 +33,10 @@
     @"kinveyId"   : KCSEntityKeyId,
     @"location"   : KCSEntityKeyGeolocation,
     };
+}
+
++ (NSDictionary *)kinveyPropertyToCollectionMapping
+{
+    return @{@"attachment":KCSFileStoreCollectionName};
 }
 @end

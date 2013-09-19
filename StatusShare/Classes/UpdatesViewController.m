@@ -21,7 +21,7 @@
 #import "UpdatesViewController.h"
 #import <KinveyKit/KinveyKit.h>
 
-#import "KinveyFriendsUpdate.h"
+#import "StatusShareUpdate.h"
 #import "UpdateCell.h"
 
 #import "AuthorViewController.h"
@@ -49,7 +49,7 @@
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor colorWithIntRed:220 green:220 blue:220];
     
-    KCSCollection* collection = [KCSCollection collectionFromString:@"Updates" ofClass:[KinveyFriendsUpdate class]];
+    KCSCollection* collection = [KCSCollection collectionFromString:@"Updates" ofClass:[StatusShareUpdate class]];
     self.updateStore = [KCSLinkedAppdataStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:collection, KCSStoreKeyResource, [NSNumber numberWithInt:KCSCachePolicyBoth], KCSStoreKeyCachePolicy, nil]];
     
     self.noItemsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., 0., 1., 1.)];
@@ -77,7 +77,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (KinveyFriendsUpdate*) updateAtIndex:(NSUInteger)index
+- (StatusShareUpdate*) updateAtIndex:(NSUInteger)index
 {
     return [self.updates objectAtIndex:index];
 }
@@ -86,7 +86,7 @@
 {
     if ([segue.destinationViewController isKindOfClass:[AuthorViewController class]]) {
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
-        KinveyFriendsUpdate* update = [self updateAtIndex:indexPath.row];
+        StatusShareUpdate* update = [self updateAtIndex:indexPath.row];
         
         [segue.destinationViewController setAuthor:[update.meta creatorId]];
     }
@@ -114,7 +114,7 @@
     }
     
     // Configure the cell...
-    KinveyFriendsUpdate* update = [self updateAtIndex:indexPath.row];
+    StatusShareUpdate* update = [self updateAtIndex:indexPath.row];
     [thisCell setUpdate:update];
     
    
@@ -160,7 +160,8 @@
     [query addSortModifier:sortByDate]; //sort the return by the date field
     [query setLimitModifer:[[KCSQueryLimitModifier alloc] initWithLimit:10]]; //just get back 10 results
     [updateStore queryWithQuery:query withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
-        [self performSelector:@selector(stopLoading) withObject:nil afterDelay:1.0]; //too fast transition feels weird
+        //        [self performSelector:@selector(stopLoading) withObject:nil afterDelay:1.0]; //too fast transition feels weird
+        [self.refreshControl endRefreshing];
         if (objectsOrNil) {
             self.updates = objectsOrNil;
             [self.tableView reloadData];

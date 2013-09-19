@@ -24,7 +24,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <KinveyKit/CLLocation+Kinvey.h>
 
-#import "KinveyFriendsUpdate.h"
+#import "StatusShareUpdate.h"
 #import "UIColor+KinveyHelpers.h"
 
 @interface WriteUpdateViewController ()
@@ -42,7 +42,7 @@
     
     //Kinvey use code: create a new collection with a linked data store
     // no KCSStoreKeyOfflineSaveDelegate is specified
-    KCSCollection* collection = [KCSCollection collectionFromString:@"Updates" ofClass:[KinveyFriendsUpdate class]];
+    KCSCollection* collection = [KCSCollection collectionFromString:@"Updates" ofClass:[StatusShareUpdate class]];
     self.updateStore = [KCSLinkedAppdataStore storeWithOptions:@{ KCSStoreKeyResource : collection, KCSStoreKeyCachePolicy : @(KCSCachePolicyBoth), KCSStoreKeyUniqueOfflineSaveIdentifier : @"WriteUpdateViewController" , KCSStoreKeyOfflineSaveDelegate : self }];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardUpdated:) name:UIKeyboardWillChangeFrameNotification object:nil];
@@ -94,11 +94,11 @@
 
 - (void) keyboardUpdated:(NSNotification*)note
 {
-    CGRect endFrame = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    endFrame = [self.mainView.superview.window convertRect:endFrame toView:self.mainView.superview];
-    CGRect textFrame = self.mainView.frame;
-    textFrame.size.height = CGRectGetMinY(endFrame) - CGRectGetMinY(textFrame);
-    self.mainView.frame = textFrame;
+//    CGRect endFrame = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    endFrame = [self.mainView.superview.window convertRect:endFrame toView:self.mainView.superview];
+//    CGRect textFrame = self.mainView.frame;
+//    textFrame.size.height = CGRectGetMinY(endFrame) - CGRectGetMinY(textFrame);
+//    self.mainView.frame = textFrame;
 }
 
 
@@ -112,13 +112,15 @@
 #pragma mark - Actions
 - (IBAction)cancel:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (IBAction)post:(id)sender
 {
     if (self.updateTextView.text.length > 0) {
-        KinveyFriendsUpdate* update = [[KinveyFriendsUpdate alloc] init];
+        StatusShareUpdate* update = [[StatusShareUpdate alloc] init];
         update.text = self.updateTextView.text;
         update.userDate = [NSDate date];
         if (self.attachedImage != nil) {
@@ -165,7 +167,9 @@
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     
-    [self presentModalViewController:imagePicker animated:YES];
+    [self presentViewController:imagePicker animated:YES completion:^{
+        
+    }];
 }
 
 #pragma mark - pictures
@@ -173,7 +177,9 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     self.attachedImage = nil;
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo

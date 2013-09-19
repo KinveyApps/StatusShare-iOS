@@ -20,7 +20,7 @@
 
 #import "AuthorViewController.h"
 
-#import "KinveyFriendsUpdate.h"
+#import "StatusShareUpdate.h"
 #import "GravatarStore.h"
 #import "UpdateCell.h"
 
@@ -67,7 +67,7 @@
 {
     _lastFive = [NSArray array];
     
-    KCSCollection* collection = [KCSCollection collectionFromString:@"Updates" ofClass:[KinveyFriendsUpdate class]];
+    KCSCollection* collection = [KCSCollection collectionFromString:@"Updates" ofClass:[StatusShareUpdate class]];
     _updateStore = [KCSCachedStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:collection, KCSStoreKeyResource, [NSNumber numberWithInt:KCSCachePolicyBoth], KCSStoreKeyCachePolicy, nil]];
 }
 
@@ -200,7 +200,7 @@
     } else if (row == 2) {
         //Location Row
         CLLocation* lastLoc = nil;
-        for (KinveyFriendsUpdate* update in _lastFive) {
+        for (StatusShareUpdate* update in _lastFive) {
             if (update.location) {
                 lastLoc = update.location;
                 break;
@@ -235,7 +235,7 @@
         cell = [[UpdateCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    KinveyFriendsUpdate* update = [_lastFive objectAtIndex:row];
+    StatusShareUpdate* update = [_lastFive objectAtIndex:row];
     [cell setUpdate:update];
 
     return cell;
@@ -268,7 +268,7 @@
         UIViewController* vc = [[UIViewController alloc] init];
         vc.view = mapView;
         CLLocation* lastLoc = nil;
-        for (KinveyFriendsUpdate* update in _lastFive) {
+        for (StatusShareUpdate* update in _lastFive) {
             if (update.location ) {
                 lastLoc = update.location;
                 break;

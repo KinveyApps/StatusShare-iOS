@@ -23,7 +23,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-#import "KinveyFriendsUpdate.h"
+#import "StatusShareUpdate.h"
 
 #import "UIColor+KinveyHelpers.h"
 #import "GravatarStore.h"
@@ -88,7 +88,7 @@
         timeLabel = [[UILabel alloc] initWithFrame:timeFrame];
         timeLabel.textColor = [UIColor colorWithIntRed:173 green:174 blue:173];
         timeLabel.font = [UIFont systemFontOfSize:12.];
-        timeLabel.textAlignment = UITextAlignmentRight;
+        timeLabel.textAlignment = NSTextAlignmentRight;
         timeLabel.backgroundColor = [UIColor clearColor];
         [bgView addSubview:timeLabel];
         
@@ -131,7 +131,7 @@
     thumbnailView.hidden = thumbnailView.image == nil;
 }
 
-- (void) setUpdate:(KinveyFriendsUpdate*)update
+- (void) setUpdate:(StatusShareUpdate*)update
 {
     self.nameLabel.text = [update.meta creatorId];
     self.textLabel.text = update.text;

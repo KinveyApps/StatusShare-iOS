@@ -40,7 +40,7 @@
 		27E6B373159E407200280BC7 /* UpdatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B36F159E407200280BC7 /* UpdatesViewController.m */; };
 		27E6B374159E407200280BC7 /* WriteUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B371159E407200280BC7 /* WriteUpdateViewController.m */; };
 		27E6B377159E408300280BC7 /* AuthorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B376159E408300280BC7 /* AuthorViewController.m */; };
-		27E6B37D159E409600280BC7 /* KinveyFriendsUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B37B159E409600280BC7 /* KinveyFriendsUpdate.m */; };
+		27E6B37D159E409600280BC7 /* StatusShareUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B37B159E409600280BC7 /* StatusShareUpdate.m */; };
 		27E6B382159E40A600280BC7 /* GravatarStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B37F159E40A500280BC7 /* GravatarStore.m */; };
 		27E6B383159E40A600280BC7 /* MD5Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B381159E40A600280BC7 /* MD5Helpers.m */; };
 		27E6B386159E40E500280BC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B384159E40E500280BC7 /* InfoPlist.strings */; };
@@ -54,7 +54,6 @@
 		27E6B3BB15A2172200280BC7 /* grid_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3B915A2172200280BC7 /* grid_blank.png */; };
 		27E6B3BC15A2172200280BC7 /* grid_blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3BA15A2172200280BC7 /* grid_blank@2x.png */; };
 		452843D912854F5CA5BA586C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828258A0BC7940E6BD310385 /* CFNetwork.framework */; };
-		77EFB1D10C144B6299B7E90E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0864244EB4EB4378A013D2A4 /* StoreKit.framework */; };
 		7CD1A1CD88E044888917EA86 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4A168F34A6432793DC5300 /* libsqlite3.dylib */; };
 		87888FBE0AE345FEABDAAA99 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90DEBB80DA534A469FC9F2AD /* SystemConfiguration.framework */; };
 		8B1B1B961E444DE5A0344ED2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2BFA411D747529F025CF3 /* libz.dylib */; };
@@ -65,7 +64,6 @@
 
 /* Begin PBXFileReference section */
 		01A2D2B3859E4FABAD0FEA25 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		0864244EB4EB4378A013D2A4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1F4A168F34A6432793DC5300 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		2721B015160BA6080056A803 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2721B016160BA6080056A803 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -120,8 +118,8 @@
 		27E6B371159E407200280BC7 /* WriteUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WriteUpdateViewController.m; path = Classes/WriteUpdateViewController.m; sourceTree = "<group>"; };
 		27E6B375159E408200280BC7 /* AuthorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorViewController.h; path = Classes/AuthorViewController.h; sourceTree = "<group>"; };
 		27E6B376159E408300280BC7 /* AuthorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorViewController.m; path = Classes/AuthorViewController.m; sourceTree = "<group>"; };
-		27E6B37A159E409600280BC7 /* KinveyFriendsUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KinveyFriendsUpdate.h; path = Classes/KinveyFriendsUpdate.h; sourceTree = "<group>"; };
-		27E6B37B159E409600280BC7 /* KinveyFriendsUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KinveyFriendsUpdate.m; path = Classes/KinveyFriendsUpdate.m; sourceTree = "<group>"; };
+		27E6B37A159E409600280BC7 /* StatusShareUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusShareUpdate.h; path = Classes/StatusShareUpdate.h; sourceTree = "<group>"; };
+		27E6B37B159E409600280BC7 /* StatusShareUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusShareUpdate.m; path = Classes/StatusShareUpdate.m; sourceTree = "<group>"; };
 		27E6B37E159E40A500280BC7 /* GravatarStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GravatarStore.h; path = Classes/GravatarStore.h; sourceTree = "<group>"; };
 		27E6B37F159E40A500280BC7 /* GravatarStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GravatarStore.m; path = Classes/GravatarStore.m; sourceTree = "<group>"; };
 		27E6B380159E40A500280BC7 /* MD5Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MD5Helpers.h; path = Classes/MD5Helpers.h; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				D91438FC689549768F8B1DB2 /* MobileCoreServices.framework in Frameworks */,
 				99B982E115904F4987C9A948 /* Security.framework in Frameworks */,
 				87888FBE0AE345FEABDAAA99 /* SystemConfiguration.framework in Frameworks */,
-				77EFB1D10C144B6299B7E90E /* StoreKit.framework in Frameworks */,
 				8E161CCB79E14C3DB26ADA1F /* CoreTelephony.framework in Frameworks */,
 				8B1B1B961E444DE5A0344ED2 /* libz.dylib in Frameworks */,
 				7CD1A1CD88E044888917EA86 /* libsqlite3.dylib in Frameworks */,
@@ -231,7 +228,6 @@
 				90F30FA441BA4F82A7FCC961 /* Security.framework */,
 				90DEBB80DA534A469FC9F2AD /* SystemConfiguration.framework */,
 				DB1100433C724546A92A86B9 /* UIKit.framework */,
-				0864244EB4EB4378A013D2A4 /* StoreKit.framework */,
 				7C2A411236F24BF68A700F43 /* CoreTelephony.framework */,
 				A5D2BFA411D747529F025CF3 /* libz.dylib */,
 				1F4A168F34A6432793DC5300 /* libsqlite3.dylib */,
@@ -304,8 +300,8 @@
 		27E6B334159E3CF200280BC7 /* Backend Classes */ = {
 			isa = PBXGroup;
 			children = (
-				27E6B37A159E409600280BC7 /* KinveyFriendsUpdate.h */,
-				27E6B37B159E409600280BC7 /* KinveyFriendsUpdate.m */,
+				27E6B37A159E409600280BC7 /* StatusShareUpdate.h */,
+				27E6B37B159E409600280BC7 /* StatusShareUpdate.m */,
 			);
 			name = "Backend Classes";
 			sourceTree = "<group>";
@@ -395,8 +391,21 @@
 		27E6B2A1159E36D000280BC7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Kinvey;
+				TargetAttributes = {
+					27E6B2A9159E36D000280BC7 = {
+						DevelopmentTeam = 5W7CYNR7UE;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 27E6B2A4159E36D000280BC7 /* Build configuration list for PBXProject "StatusShare" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -459,7 +468,7 @@
 				27E6B373159E407200280BC7 /* UpdatesViewController.m in Sources */,
 				27E6B374159E407200280BC7 /* WriteUpdateViewController.m in Sources */,
 				27E6B377159E408300280BC7 /* AuthorViewController.m in Sources */,
-				27E6B37D159E409600280BC7 /* KinveyFriendsUpdate.m in Sources */,
+				27E6B37D159E409600280BC7 /* StatusShareUpdate.m in Sources */,
 				27E6B382159E40A600280BC7 /* GravatarStore.m in Sources */,
 				27E6B383159E40A600280BC7 /* MD5Helpers.m in Sources */,
 				274C3A89160B5C7B00494C42 /* MBProgressHUD.m in Sources */,
@@ -502,12 +511,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -519,10 +530,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -537,18 +552,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -574,7 +594,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StatusShare/StatusShare-Prefix.pch";
 				INFOPLIST_FILE = "StatusShare/StatusShare-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -598,7 +618,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StatusShare/StatusShare-Prefix.pch";
 				INFOPLIST_FILE = "StatusShare/StatusShare-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",

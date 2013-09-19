@@ -22,7 +22,7 @@
 
 #define kAvatarSize 48.
 
-@class KinveyFriendsUpdate;
+@class StatusShareUpdate;
 
 @interface UpdateCell : UITableViewCell
 @property (retain, nonatomic) IBOutlet UILabel *nameLabel;
@@ -35,6 +35,6 @@ IBOutlet UILabel *textLabel;
 @property (retain, nonatomic) UIImageView* thumbnailView;
 @property (retain, nonatomic) UIImageView* pinView;
 
-- (void) setUpdate:(KinveyFriendsUpdate*)update;
+- (void) setUpdate:(StatusShareUpdate*)update;
 
 @end

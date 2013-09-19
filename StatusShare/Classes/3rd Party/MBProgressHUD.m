@@ -372,7 +372,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 - (void)setupLabels {
 	label = [[UILabel alloc] initWithFrame:self.bounds];
 	label.adjustsFontSizeToFitWidth = NO;
-	label.textAlignment = UITextAlignmentCenter;
+	label.textAlignment = NSTextAlignmentCenter;
 	label.opaque = NO;
 	label.backgroundColor = [UIColor clearColor];
 	label.textColor = [UIColor whiteColor];
@@ -383,7 +383,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	detailsLabel = [[UILabel alloc] initWithFrame:self.bounds];
 	detailsLabel.font = self.detailsLabelFont;
 	detailsLabel.adjustsFontSizeToFitWidth = NO;
-	detailsLabel.textAlignment = UITextAlignmentCenter;
+	detailsLabel.textAlignment = NSTextAlignmentCenter;
 	detailsLabel.opaque = NO;
 	detailsLabel.backgroundColor = [UIColor clearColor];
 	detailsLabel.textColor = [UIColor whiteColor];
@@ -448,7 +448,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	totalSize.width = MAX(totalSize.width, indicatorF.size.width);
 	totalSize.height += indicatorF.size.height;
 	
-	CGSize labelSize = [label.text sizeWithFont:label.font];
+	CGSize labelSize = [label.text sizeWithAttributes:@{NSFontAttributeName:label.font}];
 	labelSize.width = MIN(labelSize.width, maxWidth);
 	totalSize.width = MAX(totalSize.width, labelSize.width);
 	totalSize.height += labelSize.height;
@@ -458,7 +458,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 	CGFloat remainingHeight = bounds.size.height - totalSize.height - kPadding - 4 * margin; 
 	CGSize maxSize = CGSizeMake(maxWidth, remainingHeight);
-	CGSize detailsLabelSize = [detailsLabel.text sizeWithFont:detailsLabel.font 
+	CGSize detailsLabelSize = [detailsLabel.text sizeWithFont:detailsLabel.font
 								constrainedToSize:maxSize lineBreakMode:detailsLabel.lineBreakMode];
 	totalSize.width = MAX(totalSize.width, detailsLabelSize.width);
 	totalSize.height += detailsLabelSize.height;
