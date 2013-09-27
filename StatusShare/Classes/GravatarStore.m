@@ -82,9 +82,11 @@
                                 timeoutInterval:60.0];
     NSError* error = nil;
     NSData* data = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:NULL error:&error];
-    UIImage* image = [UIImage imageWithData:data];
     
-    completionBlock([NSArray arrayWithObject:image], error);
+    UIImage* image = [UIImage imageWithData:data];
+    NSArray* objects = image ? @[image] :nil;
+    
+    completionBlock(objects, error);
 }
 
 - (void)saveObject: (id)object withCompletionBlock: (KCSCompletionBlock)completionBlock withProgressBlock: (KCSProgressBlock)progressBlock
