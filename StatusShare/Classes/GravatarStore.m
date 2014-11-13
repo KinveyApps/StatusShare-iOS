@@ -43,7 +43,9 @@
 
 + (id)storeWithOptions:(NSDictionary *)options
 {
-    return [self storeWithAuthHandler:nil withOptions:options];
+    id store = [[self alloc] init];
+    [store configureWithOptions:options];
+    return store;
 }
 
 + (id) storeWithAuthHandler:(KCSAuthHandler *)authHandler withOptions:(NSDictionary *)options
@@ -95,10 +97,10 @@
     completionBlock(nil, [NSError errorWithDomain:GravatarStoreErrorDomain code:KCSNotSupportedError userInfo:nil]);
 }
 
-- (void)removeObject: (id)object withCompletionBlock: (KCSCompletionBlock)completionBlock withProgressBlock: (KCSProgressBlock)progressBlock
+- (void)removeObject: (id)object withCompletionBlock:(KCSCountBlock)completionBlock withProgressBlock: (KCSProgressBlock)progressBlock;
 {
     //Return an error since the Gravatar API is read-only
-    completionBlock(nil, [NSError errorWithDomain:GravatarStoreErrorDomain code:KCSNotSupportedError userInfo:nil]);   
+    completionBlock(0, [NSError errorWithDomain:GravatarStoreErrorDomain code:KCSNotSupportedError userInfo:nil]);
 }
 
 @end
