@@ -11,7 +11,7 @@ In particular this sample application highlights the following key backend tasks
 * Connect on the client-side to 3rd party service (Gravatar)
 
 
-![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/kinvey_gram_in_phone.png)
+![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/Kinvey_StatusShare)
 ![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss1.png)
 ![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss3.png)
 ![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss2.png)
@@ -58,7 +58,7 @@ The following section describes where to look in the code for examples of common
 ## System Requirements
 * iOS 5 or later (uses storyboards)
 * KinveyKit library 1.27.1
-* Facebook SDK 3.7.1
+* Facebook SDK 3.8.0
 
 ## License
 

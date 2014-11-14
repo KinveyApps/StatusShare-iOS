@@ -99,7 +99,7 @@
 - (void) keyboardUpdated:(NSNotification*)note
 {
     CGRect endFrame = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    endFrame = [self.view.superview.window convertRect:endFrame toView:self.view.superview];
+    endFrame = [self.view convertRect:endFrame toView:self.view];
     CGRect bottomFrame = self.bottomToolbar.frame;
     bottomFrame = CGRectMake(0, CGRectGetMinY(endFrame) - bottomFrame.size.height, bottomFrame.size.width, bottomFrame.size.height);
     self.bottomToolbar.frame = bottomFrame;
