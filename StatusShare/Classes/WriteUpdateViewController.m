@@ -47,8 +47,9 @@
                                                                   KCSStoreKeyCachePolicy : @(KCSCachePolicyBoth),
                                                                   KCSStoreKeyOfflineUpdateEnabled : @(YES)}];
     [[KCSClient sharedClient] setOfflineDelegate:self];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardUpdated:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardUpdated:) name:UIKeyboardDidShowNotification object:nil];
     
     //Kinvey use code: watch for network reachability to change so we can update the UI make a post able to send. 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:KCSReachabilityChangedNotification object:nil];
@@ -74,7 +75,7 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [self.updateTextView becomeFirstResponder];
+//    [self.updateTextView becomeFirstResponder];
     
     //Kinvey use code: only enable the post button if Kinvey is reachable
     self.postButton.enabled = [[[KCSClient sharedClient] networkReachability] isReachable];
@@ -97,11 +98,11 @@
 
 - (void) keyboardUpdated:(NSNotification*)note
 {
-//    CGRect endFrame = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    endFrame = [self.mainView.superview.window convertRect:endFrame toView:self.mainView.superview];
-//    CGRect textFrame = self.mainView.frame;
-//    textFrame.size.height = CGRectGetMinY(endFrame) - CGRectGetMinY(textFrame);
-//    self.mainView.frame = textFrame;
+    CGRect endFrame = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    endFrame = [self.view.superview.window convertRect:endFrame toView:self.view.superview];
+    CGRect bottomFrame = self.bottomToolbar.frame;
+    bottomFrame = CGRectMake(0, CGRectGetMinY(endFrame) - bottomFrame.size.height, bottomFrame.size.width, bottomFrame.size.height);
+    self.bottomToolbar.frame = bottomFrame;
 }
 
 
