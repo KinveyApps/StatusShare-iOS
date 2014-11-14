@@ -183,6 +183,7 @@
 {
     self.updates = [NSArray array]; //clear array so that the previous user's data is cached if a different user logins in immediately
     [[KCSUser activeUser] logout];
+    [KCSUser clearSavedCredentials];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
