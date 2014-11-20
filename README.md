@@ -11,7 +11,7 @@ In particular this sample application highlights the following key backend tasks
 * Connect on the client-side to 3rd party service (Gravatar)
 
 
-![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/Kinvey_StatusShare)
+![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/Kinvey_StatusShare.png)
 ![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss1.png)
 ![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss3.png)
 ![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss2.png)
