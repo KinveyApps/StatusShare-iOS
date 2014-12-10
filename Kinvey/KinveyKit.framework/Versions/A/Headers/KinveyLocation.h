@@ -1,8 +1,8 @@
 //
-//  KCSConnectionProgress.h
+//  KinveyLocation.h
 //  KinveyKit
 //
-//  Copyright (c) 2008-2013, Kinvey, Inc. All rights reserved.
+//  Copyright (c) 2014 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -16,19 +16,11 @@
 // contents is a violation of applicable laws.
 //
 
-#import <Foundation/Foundation.h>
 
-/* Indication of current progress of a connection operation
- 
- This object is used to provide current status of the remote operation in progress.
- 
- @bug This feature is not yet implemented in the current version of Kinvey
- 
- */
-@interface KCSConnectionProgress : NSObject
+#ifndef KinveyKit_KinveyLocation_h
+#define KinveyKit_KinveyLocation_h
 
-@property (nonatomic, copy) NSData* data;
-@property (nonatomic) double percentComplete;
+//#import "CLCircularRegion+KinveyKit.h"
+#import "CLLocation+Kinvey.h"
 
-
-@end
+#endif

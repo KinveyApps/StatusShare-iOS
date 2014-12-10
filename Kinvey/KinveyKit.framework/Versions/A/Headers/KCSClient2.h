@@ -1,8 +1,8 @@
 //
-//  KCSConnectionResponse.h
+//  KCSClient2.h
 //  KinveyKit
 //
-//  Copyright (c) 2008-2013, Kinvey, Inc. All rights reserved.
+//  Copyright (c) 2013 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -18,20 +18,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KCSConnectionResponse : NSObject
+@class KCSClientConfiguration;
 
-@property (readonly) NSInteger responseCode; // See KinveyHTTPSStatusCodes for definitions
-@property (retain, readonly) NSData *responseData;
-@property (retain, readonly) NSDictionary *userData;
-@property (retain, readonly) NSDictionary *responseHeaders;
-@property (retain, readonly) NSString* requestId;
+@interface KCSClient2 : NSObject
 
++ (instancetype) sharedClient;
 
-+ (instancetype)connectionResponseWithCode:(NSInteger)code responseData:(NSData *)data headerData:(NSDictionary *)header userData:(NSDictionary *)userDefinedData; 
-
-- (NSString*) stringValue;
-- (id) jsonResponseValue;
-- (id) jsonResponseValue:(NSError**) anError;
-
+@property (nonatomic, strong) KCSClientConfiguration* configuration;
 
 @end

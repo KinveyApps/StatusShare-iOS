@@ -45,7 +45,7 @@
     NSString* username = userName.text;
     
     //Kinvey-Use code: create a new user
-    [KCSUser userWithUsername:userName.text password:password.text withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
+    [KCSUser userWithUsername:userName.text password:password.text fieldsAndValues:nil withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
         if (errorOrNil == nil) {
             //In addition to creating the user that is used for login-purposes, this app also creates a public "user" entity that is for display in the table
             [self.navigationController popViewControllerAnimated:YES];

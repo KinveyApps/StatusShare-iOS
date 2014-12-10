@@ -43,9 +43,13 @@
     //Kinvey use code: create a new collection with a linked data store
     // no KCSStoreKeyOfflineSaveDelegate is specified
     KCSCollection* collection = [KCSCollection collectionFromString:@"Updates" ofClass:[StatusShareUpdate class]];
-    self.updateStore = [KCSLinkedAppdataStore storeWithOptions:@{ KCSStoreKeyResource : collection, KCSStoreKeyCachePolicy : @(KCSCachePolicyBoth), KCSStoreKeyUniqueOfflineSaveIdentifier : @"WriteUpdateViewController" , KCSStoreKeyOfflineSaveDelegate : self }];
-
+    self.updateStore = [KCSLinkedAppdataStore storeWithOptions:@{ KCSStoreKeyResource : collection,
+                                                                  KCSStoreKeyCachePolicy : @(KCSCachePolicyBoth),
+                                                                  KCSStoreKeyOfflineUpdateEnabled : @(YES)}];
+    [[KCSClient sharedClient] setOfflineDelegate:self];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardUpdated:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardUpdated:) name:UIKeyboardDidShowNotification object:nil];
     
     //Kinvey use code: watch for network reachability to change so we can update the UI make a post able to send. 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:KCSReachabilityChangedNotification object:nil];
@@ -71,7 +75,7 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [self.updateTextView becomeFirstResponder];
+//    [self.updateTextView becomeFirstResponder];
     
     //Kinvey use code: only enable the post button if Kinvey is reachable
     self.postButton.enabled = [[[KCSClient sharedClient] networkReachability] isReachable];
@@ -94,11 +98,11 @@
 
 - (void) keyboardUpdated:(NSNotification*)note
 {
-//    CGRect endFrame = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    endFrame = [self.mainView.superview.window convertRect:endFrame toView:self.mainView.superview];
-//    CGRect textFrame = self.mainView.frame;
-//    textFrame.size.height = CGRectGetMinY(endFrame) - CGRectGetMinY(textFrame);
-//    self.mainView.frame = textFrame;
+    CGRect endFrame = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    endFrame = [self.view convertRect:endFrame toView:self.view];
+    CGRect bottomFrame = self.bottomToolbar.frame;
+    bottomFrame = CGRectMake(0, CGRectGetMinY(endFrame) - bottomFrame.size.height, bottomFrame.size.width, bottomFrame.size.height);
+    self.bottomToolbar.frame = bottomFrame;
 }
 
 
@@ -234,13 +238,14 @@
 #pragma mark - Offline Save Delegate
 
 // don't save any queued saves that older than a day
-- (BOOL) shouldSave:(id<KCSPersistable>)entity lastSaveTime:(NSDate *)timeSaved
+- (BOOL) shouldSaveObject:(NSString *)objectId inCollection:(NSString *)collectionName lastAttemptedSaveTime:(NSDate *)saveTime
 {
     NSTimeInterval oneDayAgo = 60 /* sec/min */ * 60 /* min/hr */ * 24 /* hr/day*/; //because NSTimeInterval in seconds
-    if ([timeSaved timeIntervalSinceNow] < oneDayAgo) {
+    if ([saveTime timeIntervalSinceNow] > oneDayAgo) {
         return NO;
     } else {
         return YES;
     }
 }
+
 @end

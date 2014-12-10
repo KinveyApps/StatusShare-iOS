@@ -26,8 +26,7 @@
 
 @interface UpdateCell : UITableViewCell
 @property (retain, nonatomic) IBOutlet UILabel *nameLabel;
-@property (retain, nonatomic)
-IBOutlet UILabel *textLabel;
+@property (retain, nonatomic) IBOutlet UILabel *textLabel;
 
 @property (retain, nonatomic) UILabel* timeLabel;
 

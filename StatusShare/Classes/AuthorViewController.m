@@ -100,7 +100,7 @@
             self.title = user.username;
             
             NSUInteger size = [[self.view.window screen]  scale] * 48.;
-            GravatarStore* store = [GravatarStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:size], GravatarStoreOptionSizeKey, nil]];
+            GravatarStore* store = [GravatarStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:size], GravatarStoreOptionSizeKey, nil]];
             [store queryWithQuery:name withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
                 UIImage* avImage = [objectsOrNil objectAtIndex:0];
                 self.image = avImage;
@@ -195,7 +195,7 @@
     } else if (row == 1) {
         //N Updates Row
         id updateCount = [grouping reducedValueForFields:[NSDictionary dictionaryWithObjectsAndKeys:self.author, kAuthor, nil]];
-        updateCount = (updateCount == nil || [updateCount isEqual:[NSNull null]] || [updateCount intValue] == NSNotFound) ? NSLocalizedString(@"??", @"'Number' for unkown number of updates") : updateCount;
+        updateCount = (updateCount == nil || [updateCount isEqual:[NSNull null]] || [updateCount integerValue] == NSNotFound) ? NSLocalizedString(@"??", @"'Number' for unkown number of updates") : updateCount;
         cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ Updates", @"number of updates label for an author"), updateCount];
     } else if (row == 2) {
         //Location Row

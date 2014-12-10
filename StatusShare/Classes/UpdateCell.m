@@ -186,7 +186,7 @@
                     self.avatar.image = image;
                 } withProgressBlock:nil];
             } else {
-                NSString* imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=%d&height=%d",fbId,size,size];
+                NSString* imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=%lu&height=%ld",fbId,(unsigned long)size,(unsigned long)size];
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
                     if (imageData) {

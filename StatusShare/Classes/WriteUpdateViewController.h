@@ -22,7 +22,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <KinveyKit/KinveyKit.h>
 
-@interface WriteUpdateViewController : UIViewController <UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, KCSOfflineSaveDelegate> {
+@interface WriteUpdateViewController : UIViewController <UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, KCSOfflineUpdateDelegate> {
     
     BOOL public;
     BOOL location;

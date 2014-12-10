@@ -50,7 +50,9 @@
     self.tableView.backgroundColor = [UIColor colorWithIntRed:220 green:220 blue:220];
     
     KCSCollection* collection = [KCSCollection collectionFromString:@"Updates" ofClass:[StatusShareUpdate class]];
-    self.updateStore = [KCSLinkedAppdataStore storeWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:collection, KCSStoreKeyResource, [NSNumber numberWithInt:KCSCachePolicyBoth], KCSStoreKeyCachePolicy, nil]];
+    self.updateStore = [KCSLinkedAppdataStore storeWithOptions:@{ KCSStoreKeyResource : collection,
+                                                                  KCSStoreKeyCachePolicy : @(KCSCachePolicyBoth),
+                                                                  KCSStoreKeyOfflineUpdateEnabled : @(YES)}];
     
     self.noItemsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., 0., 1., 1.)];
     self.noItemsLabel.textColor = [UIColor darkGrayColor];
@@ -160,7 +162,7 @@
     [query addSortModifier:sortByDate]; //sort the return by the date field
     [query setLimitModifer:[[KCSQueryLimitModifier alloc] initWithLimit:10]]; //just get back 10 results
     [updateStore queryWithQuery:query withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
-        //        [self performSelector:@selector(stopLoading) withObject:nil afterDelay:1.0]; //too fast transition feels weird
+        [self performSelector:@selector(stopLoading) withObject:nil afterDelay:1.0]; //too fast transition feels weird
         [self.refreshControl endRefreshing];
         if (objectsOrNil) {
             self.updates = objectsOrNil;
@@ -168,7 +170,7 @@
             if (objectsOrNil.count == 0) {
                 self.noItemsLabel.text = NSLocalizedString(@"No Status Updates Found.", nil);
                 [self.noItemsLabel sizeToFit];
-                self.noItemsLabel.center = self.view.center;
+                self.noItemsLabel.center = CGPointMake(self.tableView.center.x, 200.);// self.tableView.center;
                 self.noItemsLabel.hidden = NO;
             } else {
                 self.noItemsLabel.hidden = YES;
@@ -181,6 +183,7 @@
 {
     self.updates = [NSArray array]; //clear array so that the previous user's data is cached if a different user logins in immediately
     [[KCSUser activeUser] logout];
+    [KCSUser clearSavedCredentials];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

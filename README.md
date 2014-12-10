@@ -11,7 +11,7 @@ In particular this sample application highlights the following key backend tasks
 * Connect on the client-side to 3rd party service (Gravatar)
 
 
-![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/kinvey_gram_in_phone.png)
+![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/Kinvey_StatusShare.png)
 ![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss1.png)
 ![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss3.png)
 ![](https://github.com/KinveyApps/StatusShare-iOS/raw/master/assets/StatusShare_ss2.png)
@@ -46,7 +46,7 @@ The following section describes where to look in the code for examples of common
 * The `WriteUpdateViewController` lets the user choose the post visibility through a toggle button in the toolbar. This affects the `globalRead` property of the post through the created update's `KCSMetadata` object. 
 
 ### User Location
-* The `WriteUpdateViewController` lets the user tag the update post with the device's current location. This uses the `CLLocationManager` class to get the location (assuming the user has granted location permission to the app). This data is stored in the special `KCSEntityKeyGeolocation` field, which allows for `KCSQuery` geo-queries on the updates (although not yet done in this sample, see the [Kinvey GeoTag](https://github.com/Kinvey/KinveyGeoTag) for sample code).
+* The `WriteUpdateViewController` lets the user tag the update post with the device's current location. This uses the `CLLocationManager` class to get the location (assuming the user has granted location permission to the app). This data is stored in the special `KCSEntityKeyGeolocation` field, which allows for `KCSQuery` geo-queries on the updates (although not yet done in this sample, see the [Kinvey GeoTag](https://github.com/KinveyApps/KinveyGeoTag) for sample code).
 * There are additional methods in this version of `KinveyKit` to convert `CLLocation` objects to NSArrays for serialization to the backend. 
 
 ### Taking Advantage of 3rd-Party APIs
@@ -57,12 +57,12 @@ The following section describes where to look in the code for examples of common
 
 ## System Requirements
 * iOS 5 or later (uses storyboards)
-* KinveyKit library 1.20.0
-* Facebook SDK 3.7.1
+* KinveyKit library 1.27.1
+* Facebook SDK 3.8.0
 
 ## License
 
-Copyright (c) 2013 Kinvey, Inc.
+Copyright (c) 2014 Kinvey, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
