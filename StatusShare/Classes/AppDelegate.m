@@ -27,7 +27,7 @@
 {
     //Kinvey use code: You'll need to create an app on the backend and initialize it here:
     //http://docs.kinvey.com/ios-developers-guide.html#Initializing_Programmatically
-    KCSClientConfiguration* config = [KCSClientConfiguration configurationWithAppKey:@"kid_-yTwB-lP5" secret:@"fd55e07aac3644b29dba8f874ad0ceb5"];
+    KCSClientConfiguration* config = [KCSClientConfiguration configurationWithAppKey:@"<#My App Key#>" secret:@"<#My App Secret#>"];
     [[KCSClient sharedClient] initializeWithConfiguration:config];
    
     //NOTE: the FB APP ID also has to go in the url scheme in StatusShare-Info.plist so the FB callback has a place to go

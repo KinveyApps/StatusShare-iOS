@@ -82,7 +82,7 @@
 		275D543E16166B73003ABE40 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		27CF825D17D624E200B5B0CB /* KinveyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KinveyKit.framework; path = Kinvey/KinveyKit.framework; sourceTree = "<group>"; };
 		27CF825F17D625C400B5B0CB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		27E6B2AA159E36D000280BC7 /* KinveyTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinveyTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27E6B2AA159E36D000280BC7 /* StatusShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatusShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E6B2AE159E36D000280BC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		27E6B2B0159E36D000280BC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		27E6B2B2159E36D000280BC7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,8 +95,8 @@
 		27E6B343159E3EAD00280BC7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		27E6B344159E3EAD00280BC7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		27E6B346159E3EC800280BC7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		27E6B348159E3EC800280BC7 /* KinveyTraining-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KinveyTraining-Prefix.pch"; sourceTree = "<group>"; };
-		27E6B349159E3EC800280BC7 /* KinveyTraining-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KinveyTraining-Info.plist"; sourceTree = "<group>"; };
+		27E6B348159E3EC800280BC7 /* StatusShare-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StatusShare-Prefix.pch"; sourceTree = "<group>"; };
+		27E6B349159E3EC800280BC7 /* StatusShare-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "StatusShare-Info.plist"; sourceTree = "<group>"; };
 		27E6B34A159E3EC800280BC7 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		27E6B34B159E3EC800280BC7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		27E6B34C159E3EC800280BC7 /* unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlock.png; sourceTree = "<group>"; };
@@ -189,9 +189,9 @@
 		27E6B29F159E36D000280BC7 = {
 			isa = PBXGroup;
 			children = (
-				27E6B2B4159E36D000280BC7 /* KinveyTraining */,
+				27E6B2B4159E36D000280BC7 /* StatusShare */,
 				27E6B342159E3D9500280BC7 /* Supporting Files */,
-				27E6B2D5159E36D000280BC7 /* KinveyTrainingTests */,
+				27E6B2D5159E36D000280BC7 /* StatusShareTests */,
 				27E6B2AD159E36D000280BC7 /* Frameworks */,
 				27E6B2AB159E36D000280BC7 /* Products */,
 			);
@@ -200,7 +200,7 @@
 		27E6B2AB159E36D000280BC7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				27E6B2AA159E36D000280BC7 /* KinveyTraining.app */,
+				27E6B2AA159E36D000280BC7 /* StatusShare.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -235,7 +235,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		27E6B2B4159E36D000280BC7 /* KinveyTraining */ = {
+		27E6B2B4159E36D000280BC7 /* StatusShare */ = {
 			isa = PBXGroup;
 			children = (
 				27E6B343159E3EAD00280BC7 /* AppDelegate.h */,
@@ -247,18 +247,16 @@
 				27E6B335159E3D0300280BC7 /* Utility */,
 				27E6B339159E3D3800280BC7 /* UI Elements */,
 			);
-			name = KinveyTraining;
 			path = StatusShare;
 			sourceTree = "<group>";
 		};
-		27E6B2D5159E36D000280BC7 /* KinveyTrainingTests */ = {
+		27E6B2D5159E36D000280BC7 /* StatusShareTests */ = {
 			isa = PBXGroup;
 			children = (
 				27E6B2DB159E36D000280BC7 /* StatusShareTests.h */,
 				27E6B2DC159E36D000280BC7 /* StatusShareTests.m */,
 				27E6B2D6159E36D000280BC7 /* Supporting Files */,
 			);
-			name = KinveyTrainingTests;
 			path = StatusShareTests;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -343,8 +341,8 @@
 			isa = PBXGroup;
 			children = (
 				27E6B34B159E3EC800280BC7 /* main.m */,
-				27E6B348159E3EC800280BC7 /* KinveyTraining-Prefix.pch */,
-				27E6B349159E3EC800280BC7 /* KinveyTraining-Info.plist */,
+				27E6B348159E3EC800280BC7 /* StatusShare-Prefix.pch */,
+				27E6B349159E3EC800280BC7 /* StatusShare-Info.plist */,
 				27E6B384159E40E500280BC7 /* InfoPlist.strings */,
 				27E6B3A615A213B800280BC7 /* iTunesArtwork */,
 				2721B016160BA6080056A803 /* Default.png */,
@@ -370,9 +368,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		27E6B2A9159E36D000280BC7 /* KinveyTraining */ = {
+		27E6B2A9159E36D000280BC7 /* StatusShare */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 27E6B2E0159E36D000280BC7 /* Build configuration list for PBXNativeTarget "KinveyTraining" */;
+			buildConfigurationList = 27E6B2E0159E36D000280BC7 /* Build configuration list for PBXNativeTarget "StatusShare" */;
 			buildPhases = (
 				27E6B2A6159E36D000280BC7 /* Sources */,
 				27E6B2A7159E36D000280BC7 /* Frameworks */,
@@ -382,9 +380,9 @@
 			);
 			dependencies = (
 			);
-			name = KinveyTraining;
+			name = StatusShare;
 			productName = KinveyGram;
-			productReference = 27E6B2AA159E36D000280BC7 /* KinveyTraining.app */;
+			productReference = 27E6B2AA159E36D000280BC7 /* StatusShare.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -409,7 +407,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 27E6B2A4159E36D000280BC7 /* Build configuration list for PBXProject "KinveyTraining" */;
+			buildConfigurationList = 27E6B2A4159E36D000280BC7 /* Build configuration list for PBXProject "StatusShare" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -421,7 +419,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				27E6B2A9159E36D000280BC7 /* KinveyTraining */,
+				27E6B2A9159E36D000280BC7 /* StatusShare */,
 			);
 		};
 /* End PBXProject section */
@@ -598,8 +596,8 @@
 					"\"$(SRCROOT)/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "StatusShare/KinveyTraining-Prefix.pch";
-				INFOPLIST_FILE = "StatusShare/KinveyTraining-Info.plist";
+				GCC_PREFIX_HEADER = "StatusShare/StatusShare-Prefix.pch";
+				INFOPLIST_FILE = "StatusShare/StatusShare-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
@@ -607,7 +605,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = KinveyTraining;
+				PRODUCT_NAME = StatusShare;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -623,8 +621,8 @@
 					"\"$(SRCROOT)/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "StatusShare/KinveyTraining-Prefix.pch";
-				INFOPLIST_FILE = "StatusShare/KinveyTraining-Info.plist";
+				GCC_PREFIX_HEADER = "StatusShare/StatusShare-Prefix.pch";
+				INFOPLIST_FILE = "StatusShare/StatusShare-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
@@ -632,7 +630,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = KinveyTraining;
+				PRODUCT_NAME = StatusShare;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -641,7 +639,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		27E6B2A4159E36D000280BC7 /* Build configuration list for PBXProject "KinveyTraining" */ = {
+		27E6B2A4159E36D000280BC7 /* Build configuration list for PBXProject "StatusShare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27E6B2DE159E36D000280BC7 /* Debug */,
@@ -650,7 +648,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		27E6B2E0159E36D000280BC7 /* Build configuration list for PBXNativeTarget "KinveyTraining" */ = {
+		27E6B2E0159E36D000280BC7 /* Build configuration list for PBXNativeTarget "StatusShare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27E6B2E1159E36D000280BC7 /* Debug */,
