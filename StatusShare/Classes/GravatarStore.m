@@ -76,7 +76,7 @@
 - (void)queryWithQuery:(id)query withCompletionBlock:(KCSCompletionBlock)completionBlock withProgressBlock:(KCSProgressBlock)progressBlock
 {
     //query should be one email address
-    NSString* url = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=%ld&d=%@&r=%@", [query md5], (unsigned long)_defaultSize, _defaultIcon, _defaultRating];
+    NSString* url = [NSString stringWithFormat:@"https://www.gravatar.com/avatar/%@?s=%ld&d=%@&r=%@", [query md5], (unsigned long)_defaultSize, _defaultIcon, _defaultRating];
     
     NSURLRequest *theRequest = [NSURLRequest
                                 requestWithURL:[NSURL URLWithString:url]
