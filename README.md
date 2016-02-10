@@ -1,5 +1,5 @@
 #StatusShare
-This is a [Kinvey](http://www.kinvey.com) iOS Sample app to illustrate how to take advantage of backend features through the native library's store API. This application allows individual users to share text and photo updates with the other users of the service. 
+This is a [Kinvey](http://www.kinvey.com) iOS Sample app to illustrate how to take advantage of backend features through the native library's store API. This application allows individual users to share text and photo updates with the other users of the service. You must add your own AppKey and AppSecret in the source code from the Kinvey Console.
 
 In particular this sample application highlights the following key backend tasks:
 * Allow users to sign up and log in
