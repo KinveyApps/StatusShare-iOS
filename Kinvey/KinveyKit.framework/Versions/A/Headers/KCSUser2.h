@@ -2,7 +2,7 @@
 //  KCSUser2.h
 //  KinveyKit
 //
-//  Copyright (c) 2013-2014 Kinvey. All rights reserved.
+//  Copyright (c) 2013-2015 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -16,6 +16,9 @@
 // contents is a violation of applicable laws.
 //
 
+#ifndef KinveyKit_KCSUser2_h
+#define KinveyKit_KCSUser2_h
+
 #import <Foundation/Foundation.h>
 
 #import "KinveyPersistable.h"
@@ -23,6 +26,7 @@
 
 //TODO: need to handle auth for implementers...
 
+KCS_DEPRECATED(Please use KCSUser instead, 1.41.0)
 @protocol KCSUser2 <NSObject, KCSPersistable>
 /* This is the `KCSEntityKeyId` for the user object */
 @property (nonatomic, copy) NSString* userId;
@@ -35,6 +39,7 @@
 
 @end
 
+KCS_DEPRECATED(Please use KCSUser instead, 1.41.0)
 @interface KCSUser2 : NSObject <KCSUser2>
 /* This is the `KCSEntityKeyId` for the user object */
 @property (nonatomic, copy) NSString* userId;
@@ -55,3 +60,5 @@
 
 
 @end
+
+#endif

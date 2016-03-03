@@ -2,7 +2,7 @@
 //  KinveyKit.h
 //  KinveyKit
 //
-//  Copyright (c) 2008-2014, Kinvey, Inc. All rights reserved.
+//  Copyright (c) 2008-2015, Kinvey, Inc. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -16,9 +16,10 @@
 // contents is a violation of applicable laws.
 //
 
-
 #ifndef KinveyKit_h
 #define KinveyKit_h
+
+#import <UIKit/UIKit.h>
 
 #import "KinveyVersion.h"
 
@@ -53,6 +54,7 @@
 
 #import "KCSLogSink.h"
 
+#import "KCSURLProtocol.h"
 
 #if TARGET_OS_IPHONE
 #import "KCSPush.h"

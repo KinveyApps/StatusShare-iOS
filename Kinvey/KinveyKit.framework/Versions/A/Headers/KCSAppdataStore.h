@@ -2,7 +2,7 @@
 //  KCSAppdataStore.h
 //  KinveyKit
 //
-//  Copyright (c) 2012-2013 Kinvey, Inc. All rights reserved.
+//  Copyright (c) 2012-2015 Kinvey, Inc. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -15,6 +15,9 @@
 // Unauthorized reproduction, transmission or distribution of this file and its
 // contents is a violation of applicable laws.
 //
+
+#ifndef KinveyKit_KCSAppdataStore_h
+#define KinveyKit_KCSAppdataStore_h
  
 #import <Foundation/Foundation.h>
 #import "KCSStore.h"
@@ -96,10 +99,11 @@
  @param objectID this is an individual ID or an array of IDs to load
  @param completionBlock A block that gets invoked when all objects are loaded
  @param progressBlock A block that is invoked whenever the store can offer an update on the progress of the operation.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  */
-- (void)loadObjectWithID: (id)objectID 
-     withCompletionBlock: (KCSCompletionBlock)completionBlock
-       withProgressBlock: (KCSProgressBlock)progressBlock;
+-(KCSRequest*)loadObjectWithID:(id)objectID
+           withCompletionBlock:(KCSCompletionBlock)completionBlock
+             withProgressBlock:(KCSProgressBlock)progressBlock;
 
 /*! Aggregate objects in the store and apply a function to all members in that group.
  
@@ -109,11 +113,15 @@
  @param function This is the function that is applied to the items in the group. If you do not want to apply a function, just use queryWithQuery:withCompletionBlock:withProgressBlock: instead and query for items that match specific field values.
  @param completionBlock A block that is invoked when the grouping is complete, or an error occurs. 
  @param progressBlock A block that is invoked whenever the store can offer an update on the progress of the operation.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @see group:reduce:condition:completionBlock:progressBlock:
  @see KCSGroup
  @see KCSReduceFunction
  */
-- (void)group:(id)fieldOrFields reduce:(KCSReduceFunction*)function completionBlock:(KCSGroupCompletionBlock)completionBlock progressBlock:(KCSProgressBlock)progressBlock;
+-(KCSRequest*)group:(id)fieldOrFields
+             reduce:(KCSReduceFunction*)function
+    completionBlock:(KCSGroupCompletionBlock)completionBlock
+      progressBlock:(KCSProgressBlock)progressBlock;
 
 /*! Aggregate objects in the store and apply a function to all members in that group that satisfy the condition.
  
@@ -124,20 +132,25 @@
  @param condition This is a KCSQuery object that is used to filter the objects before grouping. Only groupings with at least one object that matches the condition will appear in the resultant KCSGroup object. __The group function does not support sorting, limit, or skip modifiers__. 
  @param completionBlock A block that is invoked when the grouping is complete, or an error occurs. 
  @param progressBlock A block that is invoked whenever the store can offer an update on the progress of the operation.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @see group:reduce:completionBlock:progressBlock:
  @see KCSGroup
  @see KCSReduceFunction
  */
-- (void) group:(id)fieldOrFields reduce:(KCSReduceFunction*)function condition:(KCSQuery*)condition completionBlock:(KCSGroupCompletionBlock)completionBlock progressBlock:(KCSProgressBlock)progressBlock;
-
+-(KCSRequest*)group:(id)fieldOrFields
+             reduce:(KCSReduceFunction*)function
+          condition:(KCSQuery*)condition
+    completionBlock:(KCSGroupCompletionBlock)completionBlock
+      progressBlock:(KCSProgressBlock)progressBlock;
 
 #pragma mark -  Information
 /** Count all the elements the collection
   
  @param countBlock the block that receives the response 
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @see countWithQuery:completion:
  */
-- (void)countWithBlock: (KCSCountBlock)countBlock;
+-(KCSRequest*)countWithBlock:(KCSCountBlock)countBlock;
 
 /** Count all the elements the collection that match a given query.
  
@@ -145,7 +158,12 @@
  
  @param query the query to filter the elements
  @param countBlock the block that receives the response
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.15.0
  */
-- (void)countWithQuery:(KCSQuery*)query completion:(KCSCountBlock)countBlock;
+-(KCSRequest*)countWithQuery:(KCSQuery*)query
+                  completion:(KCSCountBlock)countBlock;
+
 @end
+
+#endif

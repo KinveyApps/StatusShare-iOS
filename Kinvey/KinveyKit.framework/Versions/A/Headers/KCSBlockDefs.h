@@ -3,7 +3,7 @@
 //  KinveyKit
 //
 //  Created by Brian Wilson on 5/2/12.
-//  Copyright (c) 2012-2013 Kinvey. All rights reserved.
+//  Copyright (c) 2012-2015 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -20,6 +20,9 @@
 #ifndef KinveyKit_KCSBlockDefs_h
 #define KinveyKit_KCSBlockDefs_h
 
+#import "KCSUserActionResult.h"
+
+@class KCSUser;
 @class KCSGroup;
 
 typedef void(^KCSCompletionBlock)(NSArray *objectsOrNil, NSError *errorOrNil);
@@ -34,8 +37,21 @@ typedef void(^KCSProgressBlock)(NSArray *objects, double percentComplete);
  @param count the resulting count of the operation
  @param errorOrNil an non-nil object if an error occurred.
  */
-typedef void(^KCSCountBlock)(unsigned long count, NSError *errorOrNil);
+typedef void (^KCSCountBlock) (unsigned long count, NSError *errorOrNil);
+typedef void (^KCSDeletionBlock) (NSDictionary* deletionDictOrNil, NSError* errorOrNil);
 
 typedef void(^KCSGroupCompletionBlock)(KCSGroup* valuesOrNil, NSError* errorOrNil);
+
+typedef void(^KCSSuccessBlock)(BOOL success, NSError* error);
+
+typedef void (^KCSUserCompletionBlock)(KCSUser* user, NSError* errorOrNil, KCSUserActionResult result);
+typedef void (^KCSUserSendEmailBlock)(BOOL emailSent, NSError* errorOrNil);
+typedef void (^KCSUserCheckUsernameBlock)(NSString* username, BOOL usernameAlreadyTaken, NSError* error);
+
+/** Completion block for `getAccessDictionaryFromTwitterFromPrimaryAccount:` returns either the access dictionary to pass to `+[KCSUser loginWithWithSocialIdentity:accessDictionary:withCompletionBlock]` or an error.
+ */
+typedef void (^KCSLocalCredentialBlock)(NSDictionary* accessDictOrNil, NSError* errorOrNil);
+
+typedef void (^KCSCustomEndpointBlock)(id results, NSError* error);
 
 #endif

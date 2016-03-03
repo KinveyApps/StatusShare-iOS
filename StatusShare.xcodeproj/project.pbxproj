@@ -20,8 +20,6 @@
 		275D54381616692E003ABE40 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D54371616692E003ABE40 /* Twitter.framework */; };
 		275D543D16166B3E003ABE40 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D543C16166B3E003ABE40 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		275D543F16166B73003ABE40 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D543E16166B73003ABE40 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		27CF825E17D624E200B5B0CB /* KinveyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CF825D17D624E200B5B0CB /* KinveyKit.framework */; };
-		27CF826017D625C400B5B0CB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CF825F17D625C400B5B0CB /* FacebookSDK.framework */; };
 		27E6B2AF159E36D000280BC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2AE159E36D000280BC7 /* UIKit.framework */; };
 		27E6B2B1159E36D000280BC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B0159E36D000280BC7 /* Foundation.framework */; };
 		27E6B2B3159E36D000280BC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E6B2B2159E36D000280BC7 /* CoreGraphics.framework */; };
@@ -54,6 +52,9 @@
 		27E6B3BB15A2172200280BC7 /* grid_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3B915A2172200280BC7 /* grid_blank.png */; };
 		27E6B3BC15A2172200280BC7 /* grid_blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B3BA15A2172200280BC7 /* grid_blank@2x.png */; };
 		452843D912854F5CA5BA586C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828258A0BC7940E6BD310385 /* CFNetwork.framework */; };
+		574710511C7BCB060096B15F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CF825F17D625C400B5B0CB /* FacebookSDK.framework */; };
+		574710611C7BCE850096B15F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574710601C7BCE850096B15F /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		57A3B9581C88C55D009E4AF5 /* KinveyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A3B9571C88C55D009E4AF5 /* KinveyKit.framework */; };
 		7CD1A1CD88E044888917EA86 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4A168F34A6432793DC5300 /* libsqlite3.dylib */; };
 		87888FBE0AE345FEABDAAA99 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90DEBB80DA534A469FC9F2AD /* SystemConfiguration.framework */; };
 		8B1B1B961E444DE5A0344ED2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2BFA411D747529F025CF3 /* libz.dylib */; };
@@ -80,7 +81,6 @@
 		275D54371616692E003ABE40 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		275D543C16166B3E003ABE40 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		275D543E16166B73003ABE40 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		27CF825D17D624E200B5B0CB /* KinveyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KinveyKit.framework; path = Kinvey/KinveyKit.framework; sourceTree = "<group>"; };
 		27CF825F17D625C400B5B0CB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		27E6B2AA159E36D000280BC7 /* StatusShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatusShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E6B2AE159E36D000280BC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -134,6 +134,8 @@
 		27E6B3AF15A2141B00280BC7 /* ItunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ItunesArtwork.png; sourceTree = "<group>"; };
 		27E6B3B915A2172200280BC7 /* grid_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid_blank.png; sourceTree = "<group>"; };
 		27E6B3BA15A2172200280BC7 /* grid_blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grid_blank@2x.png"; sourceTree = "<group>"; };
+		574710601C7BCE850096B15F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		57A3B9571C88C55D009E4AF5 /* KinveyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KinveyKit.framework; path = Kinvey/KinveyKit.framework; sourceTree = "<group>"; };
 		7C2A411236F24BF68A700F43 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		828258A0BC7940E6BD310385 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		90DEBB80DA534A469FC9F2AD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -149,6 +151,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				574710611C7BCE850096B15F /* WebKit.framework in Frameworks */,
+				574710511C7BCB060096B15F /* FacebookSDK.framework in Frameworks */,
 				275D543F16166B73003ABE40 /* AdSupport.framework in Frameworks */,
 				275D543D16166B3E003ABE40 /* Social.framework in Frameworks */,
 				275D54381616692E003ABE40 /* Twitter.framework in Frameworks */,
@@ -164,10 +168,9 @@
 				99B982E115904F4987C9A948 /* Security.framework in Frameworks */,
 				87888FBE0AE345FEABDAAA99 /* SystemConfiguration.framework in Frameworks */,
 				8E161CCB79E14C3DB26ADA1F /* CoreTelephony.framework in Frameworks */,
+				57A3B9581C88C55D009E4AF5 /* KinveyKit.framework in Frameworks */,
 				8B1B1B961E444DE5A0344ED2 /* libz.dylib in Frameworks */,
 				7CD1A1CD88E044888917EA86 /* libsqlite3.dylib in Frameworks */,
-				27CF825E17D624E200B5B0CB /* KinveyKit.framework in Frameworks */,
-				27CF826017D625C400B5B0CB /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +211,9 @@
 		27E6B2AD159E36D000280BC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57A3B9571C88C55D009E4AF5 /* KinveyKit.framework */,
+				574710601C7BCE850096B15F /* WebKit.framework */,
 				27CF825F17D625C400B5B0CB /* FacebookSDK.framework */,
-				27CF825D17D624E200B5B0CB /* KinveyKit.framework */,
 				275D543E16166B73003ABE40 /* AdSupport.framework */,
 				275D543C16166B3E003ABE40 /* Social.framework */,
 				275D54371616692E003ABE40 /* Twitter.framework */,
@@ -391,7 +395,7 @@
 		27E6B2A1159E36D000280BC7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Kinvey;
 				TargetAttributes = {
 					27E6B2A9159E36D000280BC7 = {
@@ -523,8 +527,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -538,7 +544,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -567,6 +573,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -574,7 +581,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -591,20 +598,19 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/Kinvey\"",
-					"\"$(SRCROOT)/FacebookSDK\"",
+					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)/Kinvey",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StatusShare/StatusShare-Prefix.pch";
 				INFOPLIST_FILE = "StatusShare/StatusShare-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kinvey.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = StatusShare;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -616,20 +622,19 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/Kinvey\"",
-					"\"$(SRCROOT)/FacebookSDK\"",
+					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)/Kinvey",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StatusShare/StatusShare-Prefix.pch";
 				INFOPLIST_FILE = "StatusShare/StatusShare-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kinvey.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = StatusShare;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

@@ -1,7 +1,7 @@
 // KCSReachability.h
 // KinveyKit
 //
-//  Copyright (c) 2013 Kinvey. All rights reserved.
+//  Copyright (c) 2015 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -14,6 +14,9 @@
 // Unauthorized reproduction, transmission or distribution of this file and its
 // contents is a violation of applicable laws.
 //
+
+#ifndef KinveyKit_KCSReachability_h
+#define KinveyKit_KCSReachability_h
 
 #import "KinveyHeaderInfo.h"
 
@@ -46,4 +49,7 @@ KCS_CONSTANT KCSReachabilityChangedNotification;
  @return `YES` if connection is wifi.
  */
 - (BOOL) isReachableViaWiFi;
+
 @end
+
+#endif

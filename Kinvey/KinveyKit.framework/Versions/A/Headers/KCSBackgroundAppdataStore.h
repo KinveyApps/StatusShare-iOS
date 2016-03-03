@@ -2,7 +2,7 @@
 //  KCSBackgroundAppdataStore.h
 //  KinveyKit
 //
-//  Copyright (c) 2014 Kinvey. All rights reserved.
+//  Copyright (c) 2015 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -16,32 +16,51 @@
 // contents is a violation of applicable laws.
 //
 
+#ifndef KinveyKit_KCSBackgroundAppdataStore_h
+#define KinveyKit_KCSBackgroundAppdataStore_h
+
 #import <Foundation/Foundation.h>
 
 #import "KCSStore.h"
+#import "KCSRequest.h"
+#import "KCSCacheUpdatePolicy.h"
 
 @class KCSCollection;
 @interface KCSBackgroundAppdataStore : NSObject <KCSStore>
 
 @property (nonatomic, strong) KCSAuthHandler *authHandler KCS_DEPRECATED(Auth handler not used, 1.22.0);
 
+/**
+ Enable delta set caching for this store. This optimize the time to retrieve objects from the server since it will only return the delta between the local cache and the Kinvey server.
+ */
+@property (nonatomic) KCSCacheUpdatePolicy cacheUpdatePolicy;
+
 
 + (instancetype) storeWithCollection:(KCSCollection*)collection options:(NSDictionary*)options;
 
 + (instancetype)storeWithCollection:(KCSCollection*)collection authHandler:(KCSAuthHandler *)authHandler withOptions: (NSDictionary *)options KCS_DEPRECATED(Auth handler not used--use storeWithCollection:options: instead, 1.22.0);
 
-- (void)loadObjectWithID: (id)objectID
-     withCompletionBlock: (KCSCompletionBlock)completionBlock
-       withProgressBlock: (KCSProgressBlock)progressBlock;
+-(KCSRequest*)loadObjectWithID:(id)objectID
+           withCompletionBlock:(KCSCompletionBlock)completionBlock
+             withProgressBlock:(KCSProgressBlock)progressBlock;
 
-- (void)group:(id)fieldOrFields reduce:(KCSReduceFunction*)function completionBlock:(KCSGroupCompletionBlock)completionBlock progressBlock:(KCSProgressBlock)progressBlock;
+-(KCSRequest*)group:(id)fieldOrFields
+             reduce:(KCSReduceFunction*)function
+    completionBlock:(KCSGroupCompletionBlock)completionBlock
+      progressBlock:(KCSProgressBlock)progressBlock;
 
-- (void) group:(id)fieldOrFields reduce:(KCSReduceFunction*)function condition:(KCSQuery*)condition completionBlock:(KCSGroupCompletionBlock)completionBlock progressBlock:(KCSProgressBlock)progressBlock;
-
+-(KCSRequest*)group:(id)fieldOrFields
+             reduce:(KCSReduceFunction*)function
+          condition:(KCSQuery*)condition
+    completionBlock:(KCSGroupCompletionBlock)completionBlock
+      progressBlock:(KCSProgressBlock)progressBlock;
 
 #pragma mark -  Information
-- (void)countWithBlock: (KCSCountBlock)countBlock;
+-(KCSRequest*)countWithBlock:(KCSCountBlock)countBlock;
 
-- (void)countWithQuery:(KCSQuery*)query completion:(KCSCountBlock)countBlock;
+-(KCSRequest*)countWithQuery:(KCSQuery*)query
+                  completion:(KCSCountBlock)countBlock;
 
 @end
+
+#endif

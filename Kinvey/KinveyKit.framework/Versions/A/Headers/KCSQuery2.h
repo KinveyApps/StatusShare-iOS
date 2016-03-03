@@ -2,7 +2,7 @@
 //  KCSQuery2.h
 //  KinveyKit
 //
-//  Copyright (c) 2013-2014 Kinvey. All rights reserved.
+//  Copyright (c) 2013-2015 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -22,6 +22,7 @@ typedef enum KCSQueryErrors : NSInteger {
     KCSqueryPredicateNotSupportedError = -3000
     } KCSQueryErrors;
 
+KCS_DEPRECATED(Please use KCSQuery instead, 1.41.0)
 @interface KCSQuery2 : NSObject
 
 + (instancetype) allQuery;

@@ -2,7 +2,7 @@
 //  KinveyUser.h
 //  KinveyKit
 //
-//  Copyright (c) 2008-2014, Kinvey, Inc. All rights reserved.
+//  Copyright (c) 2008-2015, Kinvey, Inc. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -16,11 +16,16 @@
 // contents is a violation of applicable laws.
 //
 
+#ifndef KinveyKit_KinveyUser_h
+#define KinveyKit_KinveyUser_h
+
 #import <Foundation/Foundation.h>
 #import "KinveyPersistable.h"
 #import "KinveyEntity.h"
 #import "KinveyHeaderInfo.h"
 #import "KCSBlockDefs.h"
+#import "KCSUserActionResult.h"
+#import "KCSRequest.h"
 
 @class KCSCollection;
 @class KCSMetadata;
@@ -29,18 +34,6 @@
 @class KCSUser;
 @class KCSUserResult;
 
-typedef enum KCSUserActionResult : NSInteger {
-    KCSUserNoInformation = -1,
-    KCSUserCreated = 1,
-    KCSUserDeleted = 2,
-    KCSUserFound = 3,
-    KCSUSerNotFound = 4
-} KCSUserActionResult;
-
-typedef void (^KCSUserCompletionBlock)(KCSUser* user, NSError* errorOrNil, KCSUserActionResult result);
-typedef void (^KCSUserSendEmailBlock)(BOOL emailSent, NSError* errorOrNil);
-typedef void (^KCSUserCheckUsernameBlock)(NSString* username, BOOL usernameAlreadyTaken, NSError* error);
-
 /** Social Network login providers supported for log-in
  */
 typedef NS_ENUM(NSInteger, KCSUserSocialIdentifyProvider)  {
@@ -48,6 +41,8 @@ typedef NS_ENUM(NSInteger, KCSUserSocialIdentifyProvider)  {
     KCSSocialIDFacebook,
     /** Twitter */
     KCSSocialIDTwitter,
+    /** Google+ */
+    KCSSocialIDGooglePlus,
     /** LinkedIn */
     KCSSocialIDLinkedIn,
     /** Salesforce */
@@ -57,10 +52,20 @@ typedef NS_ENUM(NSInteger, KCSUserSocialIdentifyProvider)  {
     KCSSocialIDOther,
 };
 
-/** Access Dictionary key for the token: both Facebook & Twitter */
+/** Username key for KCSMICAuthorizationGrantTypeAuthCodeAPI options. */
+KCS_CONSTANT KCSUsername;
+
+/** Password key for KCSMICAuthorizationGrantTypeAuthCodeAPI options. */
+KCS_CONSTANT KCSPassword;
+
+/** Access Dictionary key for the token: both Facebook, Twitter and Google+ */
 KCS_CONSTANT KCSUserAccessTokenKey;
 /** Access Dictionary key for the token secret: just Twitter */
 KCS_CONSTANT KCSUserAccessTokenSecretKey;
+/** Access Dictionary key for the refresh token: Google+ */
+KCS_CONSTANT KCSUserAccessRefreshTokenKey;
+/** Access Dictionary key for the expiration token: Google+ */
+KCS_CONSTANT KCSUserAccessExpiresInKey;
 
 /** Notification type. This is called when a user is logged in or logged out. `userInfo` and `object` are nil. Query `+[KCSUser activeUser] to get the new value. */
 KCS_CONSTANT KCSActiveUserChangedNotification;
@@ -173,6 +178,9 @@ KCS_CONSTANT KCSUserAttributeFacebookId;
 /** Optional email address for the user. Publicly queryable be default. */
 @property (nonatomic, copy) NSString *email;
 
+/** Optional social identity for the user. If the user logged in with a social identity (Facebook, Twitter, Google+, or LinkedIn), this object will contain a representation for the social identity.**/
+@property (nonatomic, strong) NSDictionary *socialIdentity;
+
 /** Checks if the user has verified email (by clicking the link in the email sent via `sendEmailConfirmationForUser:withCompletionBlock:`).
  @see sendEmailConfirmationForUser:withCompletionBlock:
  @since 10.1.0
@@ -221,30 +229,38 @@ KCS_CONSTANT KCSUserAttributeFacebookId;
  * @param username The username to create, if it already exists on the back-end an error will be returned.
  * @param password The user's password
  * @param completionBlock The callback to perform when the creation completes (or errors).
+ * @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @deprecated Use +[KCSUser userWithUsername:password:fieldsAndValues:withCompletionBlock:] instead with `nil`.
  @deprecatedIn 1.25.0
  */
-+ (void) userWithUsername:(NSString *)username password:(NSString *)password withCompletionBlock:(KCSUserCompletionBlock)completionBlock KCS_DEPRECATED(Use +[KCSUser userWithUsername:password:fieldsAndValues:withCompletionBlock:] instead, 1.25.0);
++(KCSRequest*)userWithUsername:(NSString *)username
+                      password:(NSString *)password
+           withCompletionBlock:(KCSUserCompletionBlock)completionBlock KCS_DEPRECATED(Use +[KCSUser userWithUsername:password:fieldsAndValues:withCompletionBlock:] instead, 1.25.0);
 
 /** Create a new Kinvey user and register them with the backend.
  * @param username The username to create, if it already exists on the back-end an error will be returned.
  * @param password The user's password
  * @param completionBlock The callback to perform when the creation completes (or errors).
  @param fieldsAndValues additional data to populate the user object, such as `KCSUserAttributeSurname`, `KCSUserAttributeGivenname` and `KCSUserAttributeEmail`. Can be `nil`.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.25.0
  */
-+ (void) userWithUsername:(NSString *)username password:(NSString *)password fieldsAndValues:(NSDictionary*)fieldsAndValues withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
++(KCSRequest*)userWithUsername:(NSString *)username
+                      password:(NSString *)password
+               fieldsAndValues:(NSDictionary*)fieldsAndValues
+           withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
 
 /** Creates a unique user with a default username and password.
  
  When complete, this method will register the new user as the `activeUser`.
  
  @param completionBlock The callback to perform when the creation completes (or errors).
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.19.0
  @deprecated Use +[KCSUser createAutogeneratedUser:completion:] instead with `nil`.
  @deprecatedIn 1.25.0
  */
-+ (void) createAutogeneratedUser:(KCSUserCompletionBlock)completionBlock KCS_DEPRECATED(Use +[KCSUser createAutogeneratedUser:completion:] instead, 1.25.0);
++(KCSRequest*)createAutogeneratedUser:(KCSUserCompletionBlock)completionBlock KCS_DEPRECATED(Use +[KCSUser createAutogeneratedUser:completion:] instead, 1.25.0);
 
 /** Creates a unique user with a default username and password.
  
@@ -252,10 +268,11 @@ KCS_CONSTANT KCSUserAttributeFacebookId;
  
  @param completionBlock The callback to perform when the creation completes (or errors).
  @param fieldsAndValues additional data to populate the user object, such as `KCSUserAttributeSurname`, `KCSUserAttributeGivenname` and `KCSUserAttributeEmail`. Can be `nil`.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.25.0
  */
-+ (void) createAutogeneratedUser:(NSDictionary *)fieldsAndValues completion:(KCSUserCompletionBlock)completionBlock;
-
++(KCSRequest*)createAutogeneratedUser:(NSDictionary *)fieldsAndValues
+                           completion:(KCSUserCompletionBlock)completionBlock;
 
 ///---------------------------------------------------------------------------------------
 /// @name Managing the Current User
@@ -270,10 +287,11 @@ KCS_CONSTANT KCSUserAttributeFacebookId;
  * @param username The username of the user
  * @param password The user's password
  * @param completionBlock The block that is called when the action is complete
+ * @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  */
-+ (void)loginWithUsername: (NSString *)username
-                 password: (NSString *)password 
-      withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
++(KCSRequest*)loginWithUsername:(NSString *)username
+                       password:(NSString *)password
+            withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
 
 /** Login a user with social network access information.
  
@@ -298,14 +316,107 @@ KCS_CONSTANT KCSUserAttributeFacebookId;
  @param provider the enumerated social network identity provider
  @param accessDictionary the credentials needed to authenticate the user for log-in
  @param completionBlock the block to be called when the operation completes or fails
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.9.0
  */
-+ (void)loginWithSocialIdentity:(KCSUserSocialIdentifyProvider)provider accessDictionary:(NSDictionary*)accessDictionary withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
++(KCSRequest*)loginWithSocialIdentity:(KCSUserSocialIdentifyProvider)provider
+                     accessDictionary:(NSDictionary*)accessDictionary
+                  withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
+
+#pragma mark - MIC helper methods
+
+/**
+ Opens the default web browser to login a user using MIC.
+ 
+ @param redirectURI The URI that the grant will redirect to on authentication, as set in the console. Note: this must exactly match one of the redirect URIs configured in the console.
+ @since 1.30.0
+ */
++ (void)loginWithAuthorizationCodeLoginPage:(NSString*)redirectURI;
+
+/**
+ Login a user using MIC code API workflow.
+ 
+ @param redirectURI The URI that the grant will redirect to on authentication, as set in the console. Note: this must exactly match one of the redirect URIs configured in the console.
+ @param options Dictionary with options to be used during the authentication process, such as username (KCSUsername) and password (KCSPassword) for KCSMICAuthorizationGrantTypeAuthCodeAPI.
+ @param completionBlock The block to be called when the operation completes or fails
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
+ @since 1.30.0
+ */
++(KCSRequest*)loginWithAuthorizationCodeAPI:(NSString*)redirectURI
+                                    options:(NSDictionary*)options
+                        withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
+
+/**
+ Check if the URL matches with the redirectURI and contains the authorization code for MIC.
+ 
+ @param redirectURI The URI that the grant will redirect to on authentication, as set in the console. Note: this must exactly match one of the redirect URIs configured in the console.
+ @param url URL to be tested if matches if the redirectURI
+ @return YES if the URL matches with the redirectURI
+ @since 1.30.0
+ */
++ (BOOL)isValidMICRedirectURI:(NSString*)redirectURI
+                       forURL:(NSURL*)url;
+
+/**
+ Parse the URL that contains the authorization code for MIC.
+ 
+ @param redirectURI The URI that the grant will redirect to on authentication, as set in the console. Note: this must exactly match one of the redirect URIs configured in the console.
+ @param url URL to be tested if matches if the redirectURI
+ @param completionBlock The block to be called when the operation completes or fails
+ @since 1.30.0
+ */
++ (void)parseMICRedirectURI:(NSString *)redirectURI
+                     forURL:(NSURL *)url
+        withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
+
+/**
+ Returns the URL to be opened by the WebView or Safari Mobile for KCSMICAuthorizationGrantTypeAuthCodeLoginPage.
+ 
+ @param redirectURI The URI that the grant will redirect to on authentication, as set in the console. Note: this must exactly match one of the redirect URIs configured in the console.
+ @return the URL to be opened by the WebView or Safari Mobile for KCSMICAuthorizationGrantTypeAuthCodeLoginPage.
+ */
++ (NSURL*)URLforLoginWithMICRedirectURI:(NSString*)redirectURI;
+
+/**
+ Presents a modal view controller with a web view and loads the URL returned by the method URLforLoginWithMICRedirectURI:
+ 
+ @param redirectURI The URI that the grant will redirect to on authentication, as set in the console. Note: this must exactly match one of the redirect URIs configured in the console.
+ @param timeout Time to wait for some user interaction, otherwise the view controller will be automatically dismissed.
+ @param completionBlock The block to be called when the operation completes or fails.
+ @since 1.33.0
+ */
++(void)presentMICLoginViewControllerWithRedirectURI:(NSString*)redirectURI
+                                            timeout:(NSTimeInterval)timeout
+                                withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
+
+/**
+ Presents a modal view controller with a web view and loads the URL returned by the method URLforLoginWithMICRedirectURI:
+ 
+ @param redirectURI The URI that the grant will redirect to on authentication, as set in the console. Note: this must exactly match one of the redirect URIs configured in the console.
+ @param completionBlock The block to be called when the operation completes or fails
+ @since 1.33.0
+ */
++(void)presentMICLoginViewControllerWithRedirectURI:(NSString*)redirectURI
+                                withCompletionBlock:(KCSUserCompletionBlock)completionBlock;
+
+/*!
+ Setter to specify the MIC API Version.
+ It might be necessary specify a version for the MIC API if you are not using the default version, for example if you are trying a beta version.
+ */
++(void)setMICApiVersion:(NSString*)micApiVersion;
+
+/*!
+ Getter that returns the MIC API Version
+ */
++(NSString*)micApiVersion;
+
+#pragma mark -
 
 /*! Removes a user and their data from Kinvey
  * @param completionBlock The block that is called when operation is complete or fails.
+ * @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  */
-- (void) removeWithCompletionBlock:(KCSCompletionBlock)completionBlock;
+-(KCSRequest*)removeWithCompletionBlock:(KCSCompletionBlock)completionBlock;
 
 /*! Logout the user.
 */
@@ -322,15 +433,17 @@ KCS_CONSTANT KCSUserAttributeFacebookId;
  __NOTE:__ this only works for the active user. Otherwise there will be an error.
  
  @param completionBlock called when the refresh is complete or fails. The `objectsOrNil` property will have only the user, if there is no error.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.19.0
  */
-- (void) refreshFromServer:(KCSCompletionBlock)completionBlock;
+-(KCSRequest*)refreshFromServer:(KCSCompletionBlock)completionBlock;
                                                                                                                                                  
 /** Called to update the Kinvey state of a user.
-  @param completionBlock block called upon completion or error
-  @since 1.11.0
+ @param completionBlock block called upon completion or error
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
+ @since 1.11.0
  */
-- (void) saveWithCompletionBlock:(KCSCompletionBlock)completionBlock;
+-(KCSRequest*)saveWithCompletionBlock:(KCSCompletionBlock)completionBlock;
 
 //---------------------------------------------------------------------------------------
 /// @name Using User Attributes
@@ -356,9 +469,11 @@ KCS_CONSTANT KCSUserAttributeFacebookId;
 /** Update a user's password and save the user object to the backend. 
  @param newPassword the new password for the user
  @param completionBlock block to be notified when operation is completed or fails. The `objectsOrNil` return array will have the updated user as its only value if successful. 
- @sicne 1.13.0
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
+ @since 1.13.0
  */
-- (void) changePassword:(NSString*)newPassword completionBlock:(KCSCompletionBlock)completionBlock;
+-(KCSRequest*)changePassword:(NSString*)newPassword
+             completionBlock:(KCSCompletionBlock)completionBlock;
 
 ///---------------------------------------------------------------------------------------
 /// @name User email management
@@ -374,17 +489,21 @@ KCS_CONSTANT KCSUserAttributeFacebookId;
  
  @param usernameOrEmail the username or user email to send the password reset link to
  @param completionBlock the request callback. `emailSent` is true if the email address is found and an email is sent (does not guarantee delivery). If `emailSent` is `NO`, then the `errorOrNil` value will have information as to what went wrong on the network. For security reasons, `emailSent` will be true even if the user is not found or the user does not have an associated email.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.10.0
  */
-+ (void) sendPasswordResetForUser:(NSString*)usernameOrEmail withCompletionBlock:(KCSUserSendEmailBlock)completionBlock;
++(KCSRequest*)sendPasswordResetForUser:(NSString*)usernameOrEmail
+                   withCompletionBlock:(KCSUserSendEmailBlock)completionBlock;
 
 /** Sends a username reminder email to the specified user.
  
  @param email the email address to send a reminder to
  @param completionBlock returns `true` if the system received the request, regardless if the email is valid, associated with a user, or actually sent. The error object will be non-nil if a network error occurred.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.19.0
  */
-+ (void) sendForgotUsername:(NSString*)email withCompletionBlock:(KCSUserSendEmailBlock)completionBlock;
++(KCSRequest*)sendForgotUsername:(NSString*)email
+             withCompletionBlock:(KCSUserSendEmailBlock)completionBlock;
 
 /** Sends an request to confirm email address to the specified user.
  
@@ -392,9 +511,11 @@ KCS_CONSTANT KCSUserAttributeFacebookId;
  
  @param username the user to send the password reset link to
  @param completionBlock the request callback. `emailSent` is true if the email address is found and an email is sent (does not guarantee delivery). If `emailSent` is `NO`, then the `errorOrNil` value will have information as to what went wrong on the network. For security reasons, `emailSent` will be true even if the user is not found or the user does not have an associated email.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.10.1
  */
-+ (void) sendEmailConfirmationForUser:(NSString*)username withCompletionBlock:(KCSUserSendEmailBlock)completionBlock;
++(KCSRequest*)sendEmailConfirmationForUser:(NSString*)username
+                       withCompletionBlock:(KCSUserSendEmailBlock)completionBlock;
 
 /** Checkes the server to see if a username is already being used.
  
@@ -404,9 +525,12 @@ KCS_CONSTANT KCSUserAttributeFacebookId;
  
  @param potentialUsername the username to check
  @param completionBlock if there is no error, `usernameAlreadyTaken` will be `YES` if that username is in use, and `NO` if it is available
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.16.0
 */
-+ (void) checkUsername:(NSString*)potentialUsername withCompletionBlock:(KCSUserCheckUsernameBlock)completionBlock;
-
++(KCSRequest*)checkUsername:(NSString*)potentialUsername
+        withCompletionBlock:(KCSUserCheckUsernameBlock)completionBlock;
 
 @end
+
+#endif

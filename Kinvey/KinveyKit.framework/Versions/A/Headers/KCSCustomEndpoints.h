@@ -3,7 +3,7 @@
 //  KinveyKit
 //
 //  Created by Michael Katz on 5/30/13.
-//  Copyright (c) 2013 Kinvey. All rights reserved.
+//  Copyright (c) 2015 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -17,7 +17,12 @@
 // contents is a violation of applicable laws.
 //
 
+#ifndef KinveyKit_KCSCustomEndpoints_h
+#define KinveyKit_KCSCustomEndpoints_h
+
 #import <Foundation/Foundation.h>
+#import "KCSBlockDefs.h"
+#import "KCSRequest.h"
 
 /**
  Class to wrap Custom Business Logic Endpoints.
@@ -29,10 +34,13 @@
  @param endpoint the name of the custom endpoint
  @param params the body paramaters to pass to the endpoint
  @param completionBlock the response block. `results` will be the value returned by your business logic, and `error` will be non-nil if an error occurred.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.17.0
  */
-+ (void) callEndpoint:(NSString*)endpoint
-               params:(NSDictionary*)params
-      completionBlock:(void (^)(id results, NSError* error))completionBlock;
++(KCSRequest*)callEndpoint:(NSString*)endpoint
+                    params:(NSDictionary*)params
+           completionBlock:(KCSCustomEndpointBlock)completionBlock;
 
 @end
+
+#endif

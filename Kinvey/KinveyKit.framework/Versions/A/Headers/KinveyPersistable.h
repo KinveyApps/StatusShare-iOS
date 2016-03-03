@@ -2,7 +2,7 @@
 //  KinveyPersistable.h
 //  KinveyKit
 //
-//  Copyright (c) 2008-2014, Kinvey, Inc. All rights reserved.
+//  Copyright (c) 2008-2015, Kinvey, Inc. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -72,7 +72,9 @@ implementing these methods.
 /* Kinvey backend key for an entity's unique id */
 #define KCSEntityKeyId @"_id"
 /* Kinvey backend key for metadata information */
-#define KCSEntityKeyMetadata @"_kinveymeta"
+#define KCSEntityKeyMetadata @"_kmd"
+/* Kinvey backend key for last modification time metadata information */
+#define KCSEntityKeyMetadataLastModificationTime @"lmt"
 /* Kinvey backend key for geolocation information. This is a free field for doing geo-queries */
 #define KCSEntityKeyGeolocation @"_geoloc"
 

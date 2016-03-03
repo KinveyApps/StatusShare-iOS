@@ -2,7 +2,7 @@
 //  KCSUser+SocialExtras.h
 //  KinveyKit
 //
-//  Copyright (c) 2012-2014 Kinvey. All rights reserved.
+//  Copyright (c) 2012-2015 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -20,10 +20,8 @@
 
 #import "KinveyKit.h"
 #import "KCSWebView.h"
-
-/** Completion block for `getAccessDictionaryFromTwitterFromPrimaryAccount:` returns either the access dictionary to pass to `+[KCSUser loginWithWithSocialIdentity:accessDictionary:withCompletionBlock]` or an error.
- */
-typedef void (^KCSLocalCredentialBlock)(NSDictionary* accessDictOrNil, NSError* errorOrNil);
+#import "KCSBlockDefs.h"
+#import "KinveyUser.h"
 
 /**
  These are additional helpers for KCSUser to obtain credentials from social services. This requires linking in `Twitter.framework` and `Accounts.framework`.
@@ -54,10 +52,11 @@ typedef void (^KCSLocalCredentialBlock)(NSDictionary* accessDictOrNil, NSError* 
  
  @param completionBlock the block to be called when the request completes or faults.
  @param chooseBlock must return a twitter account from the supplied list. CANNOT be `nil`. This block may be called on an arbitrary thread. 
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @since 1.26.1
  */
-+ (void) getAccessDictionaryFromTwitterFromTwitterAccounts:(KCSLocalCredentialBlock)completionBlock accountChooseBlock:(ACAccount* (^)(NSArray* twitterAccounts))chooseBlock;
-
++(KCSRequest*)getAccessDictionaryFromTwitterFromTwitterAccounts:(KCSLocalCredentialBlock)completionBlock
+                                             accountChooseBlock:(ACAccount* (^)(NSArray* twitterAccounts))chooseBlock;
 
 /** Calls LinkedIn to obtain a user's auth token. You have to specify `KCS_LINKEDIN_API_KEY`, `KCS_LINKEDIN_SECRET_KEY`,  `KCS_LINKEDIN_ACCEPT_REDIRECT`, and `KCS_LINKEDIN_CANCEL_REDIRECT` in the `KCSClient` set-up. A web view is needed in order to display LinkedIn's sign-in page. A user must enter LinkedIn credentials and press "Allow access". If the user cancels or the system is unable to verify the app credentials, the process will fail.
  

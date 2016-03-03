@@ -2,7 +2,7 @@
 //  KCSCachedStore.h
 //  KinveyKit
 //
-//  Copyright (c) 2012-2013 Kinvey, Inc. All rights reserved.
+//  Copyright (c) 2012-2015 Kinvey, Inc. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -16,12 +16,15 @@
 // contents is a violation of applicable laws.
 //
 
+#ifndef KinveyKit_KCSCachedStore_h
+#define KinveyKit_KCSCachedStore_h
+
 #import <Foundation/Foundation.h>
 #import "KCSStore.h"
 #import "KCSAppdataStore.h"
 
 /** Cache Policies. These constants determine the caching behavior when used with KCSChacedStore query. */
-typedef enum KCSCachePolicy {
+typedef NS_ENUM(NSUInteger, KCSCachePolicy) {
     /** No Caching - all queries are sent to the server */
     KCSCachePolicyNone,
     KCSCachePolicyLocalOnly,
@@ -29,7 +32,7 @@ typedef enum KCSCachePolicy {
     KCSCachePolicyNetworkFirst,
     KCSCachePolicyBoth,
     KCSCachePolicyReadOnceAndSaveLocal_Xperimental //for caching assests that change infrequently (e.g. ui assets, names of presidents, etc)
-} KCSCachePolicy;
+};
 
 #define KCSStoreKeyCachePolicy @"cachePolicy"
 
@@ -82,12 +85,13 @@ KCS_CONSTANT KCSStoreKeyOfflineUpdateEnabled;
  @param completionBlock A block that gets invoked when all objects are loaded
  @param progressBlock A block that is invoked whenever the store can offer an update on the progress of the operation.
  @param cachePolicy override the object's cachePolicy for this load only.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @see [KCSAppdataStore loadObjectWithID:withCompletionBlock:withProgressBlock:]
  */
-- (void)loadObjectWithID:(id)objectID 
-     withCompletionBlock:(KCSCompletionBlock)completionBlock
-       withProgressBlock:(KCSProgressBlock)progressBlock
-             cachePolicy:(KCSCachePolicy)cachePolicy;
+-(KCSRequest*)loadObjectWithID:(id)objectID
+           withCompletionBlock:(KCSCompletionBlock)completionBlock
+             withProgressBlock:(KCSProgressBlock)progressBlock
+                   cachePolicy:(KCSCachePolicy)cachePolicy;
 
 /** Query or fetch an object (or objects) in the store (optional cache policy).
  
@@ -99,8 +103,12 @@ KCS_CONSTANT KCSStoreKeyOfflineUpdateEnabled;
  @param completionBlock A block that gets invoked when the query/fetch is "complete" (as defined by the store)
  @param progressBlock A block that is invoked whenever the store can offer an update on the progress of the operation.
  @param cachePolicy the policy for to use for this query only. 
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  */
-- (void)queryWithQuery:(id)query withCompletionBlock:(KCSCompletionBlock)completionBlock withProgressBlock:(KCSProgressBlock)progressBlock cachePolicy:(KCSCachePolicy)cachePolicy;
+-(KCSRequest*)queryWithQuery:(id)query
+         withCompletionBlock:(KCSCompletionBlock)completionBlock
+           withProgressBlock:(KCSProgressBlock)progressBlock
+                 cachePolicy:(KCSCachePolicy)cachePolicy;
 
 /*! Aggregate objects in the store and apply a function to all members in that group (optional cache policy).
  
@@ -112,9 +120,15 @@ KCS_CONSTANT KCSStoreKeyOfflineUpdateEnabled;
  @param completionBlock A block that is invoked when the grouping is complete, or an error occurs. 
  @param progressBlock A block that is invoked whenever the store can offer an update on the progress of the operation.
  @param cachePolicy override the object's cachePolicy for this group query only.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  @see [KCSAppdataStore group:reduce:condition:completionBlock:progressBlock:]
  */
-- (void)group:(id)fieldOrFields reduce:(KCSReduceFunction *)function condition:(KCSQuery *)condition completionBlock:(KCSGroupCompletionBlock)completionBlock progressBlock:(KCSProgressBlock)progressBlock cachePolicy:(KCSCachePolicy)cachePolicy;
+-(KCSRequest*)group:(id)fieldOrFields
+             reduce:(KCSReduceFunction *)function
+          condition:(KCSQuery *)condition
+    completionBlock:(KCSGroupCompletionBlock)completionBlock
+      progressBlock:(KCSProgressBlock)progressBlock
+        cachePolicy:(KCSCachePolicy)cachePolicy;
 
 ///---------------------------------------------------------------------------------------
 /// @name Bulk Data Operations
@@ -125,7 +139,16 @@ KCS_CONSTANT KCSStoreKeyOfflineUpdateEnabled;
  @see exportCache
  @since 1.24.0
  */
-- (void) import:(NSArray*)jsonObjects;
+- (void) import:(NSArray*)jsonObjects KCS_DEPRECATED(--use importCache: instead, 1.31.0);
+
+/**
+ Seed the store's cache with entities.
+ 
+ @param jsonObjects an array of `NSDictionary` objects to place into the store's cache. These must have at least an `_id` field set.
+ @see exportCache
+ @since 1.31.0
+ */
+- (void) importCache:(NSArray*)jsonObjects;
 
 /** Export the cache as an array of entities ready for serialization.
  
@@ -142,3 +165,5 @@ KCS_CONSTANT KCSStoreKeyOfflineUpdateEnabled;
 + (void) clearCaches;
 
 @end
+
+#endif

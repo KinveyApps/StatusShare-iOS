@@ -2,7 +2,7 @@
 //  KCSQuery.h
 //  KinveyKit
 //
-//  Copyright (c) 2012-2013 Kinvey. All rights reserved.
+//  Copyright (c) 2012-2015 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -16,10 +16,13 @@
 // contents is a violation of applicable laws.
 //
 
+#ifndef KinveyKit_KCSQuery_h
+#define KinveyKit_KCSQuery_h
+
 #import <Foundation/Foundation.h>
 #import "KinveyHeaderInfo.h"
 
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger, KCSQueryConditional)
 {
     // NO OP
     kKCSNOOP = 1,
@@ -59,13 +62,13 @@ typedef enum : NSInteger
     kKCSExists = 17003,
     kKCSType = 17004
     
-} KCSQueryConditional;
+};
 
 // DO NOT CHANGE THE VALUES IN THIS ENUM.  They're meaningful to the implementation of this class
-typedef enum {
+typedef NS_ENUM(NSInteger, KCSSortDirection) {
     kKCSAscending = 1,
     kKCSDescending = -1
-} KCSSortDirection;
+};
 
 /*! Representation of a sorting directive
  
@@ -252,6 +255,22 @@ typedef enum {
  
  */
 + (KCSQuery *)queryOnField:(NSString *)field usingConditionalsForValues:(KCSQueryConditional)firstConditional, ... NS_REQUIRES_NIL_TERMINATION;
+
+/*! DEPRECATED method, please use queryOnField:usingConditionalPairs: method instead. */
++ (KCSQuery *)queryOnField:(NSString *)field usingConditionalsForValuesArgs:(va_list)args KCS_DEPRECATED(Please use queryOnField:usingConditionalPairs: method instead, 1.32.0);
+
+/*! Query a field for multiple values (AND).
+ 
+ This takes multiple query pairs and adds them all to the query, can be called like (assuming `low` and `high` are NSNumbers)
+ `KCSQuery *q = [KCSQuery queryOnField:@"age" usingConditionalPairs:@[@(kKCSGreaterThan), low, @(kKCSLessThan), high]];`
+ 
+ @param field The field in Kinvey to query on.
+ @param firstConditional The Query Operator (see Overview) that we use to filter
+ @param ... A nil terminated list of pairs of conditionals and values.
+ 
+ @return The new KCSQuery object (autoreleased).
+ */
++ (KCSQuery *)queryOnField:(NSString *)field usingConditionalPairs:(NSArray*)conditionalPairs;
 
 /*! Create a new query joining multiple existing queries.
 
@@ -491,5 +510,6 @@ typedef enum {
  */
 - (void)clearSortModifiers;
 
-
 @end
+
+#endif

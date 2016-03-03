@@ -2,7 +2,7 @@
 //  KCSReduceFunction.h
 //  KinveyKit
 //
-//  Copyright (c) 2012-2013 Kinvey, Inc. All rights reserved.
+//  Copyright (c) 2012-2015 Kinvey, Inc. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -15,6 +15,9 @@
 // Unauthorized reproduction, transmission or distribution of this file and its
 // contents is a violation of applicable laws.
 //
+
+#ifndef KinveyKit_KCSReduceFunction_h
+#define KinveyKit_KCSReduceFunction_h
 
 #import <Foundation/Foundation.h>
 
@@ -60,3 +63,5 @@
 - (NSString*)outputValueName:(NSArray*)fields;
 
 @end
+
+#endif

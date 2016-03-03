@@ -2,7 +2,7 @@
 //  KinveyErrorCodes.h
 //  KinveyKit
 //
-//  Copyright (c) 2012-2013 Kinvey. All rights reserved.
+//  Copyright (c) 2012-2015 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -22,6 +22,8 @@
 // NSError UserInfo Keys
 /** String Error code that corresponds to a specific error on the server. This can be used as the key for checking the error type or creating localized errors */
 #define KCSErrorCode @"kinveyErrorCode"
+#define KCSErrorCodeKey @"Kinvey.kinveyErrorCode"
+
 /** This is an optional server error string, useful for reporting back to Kinvey for debugging purposes. */
 #define KCSErrorInternalError @"kinveyInternalErrorString"
 /** This is an optional request id, useful for reporting back to Kinvey for debugging purposes. */
@@ -100,6 +102,5 @@ typedef enum KCSErrorCodes : NSInteger {
     KCSTestingError = 65535
     
 } KCSErrorCodes;
-
 
 #endif

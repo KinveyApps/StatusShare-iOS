@@ -2,7 +2,7 @@
 //  KCSPing2.h
 //  KinveyKit
 //
-//  Copyright (c) 2013 Kinvey. All rights reserved.
+//  Copyright (c) 2015 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -18,7 +18,7 @@
 
 
 #import <Foundation/Foundation.h>
-#import "KinveyCore.h"
+#import "KCSRequest.h"
 
 KCS_CONSTANT KCS_PING_KINVEY_VERSION;
 KCS_CONSTANT KCS_PING_APP_NAME;
@@ -31,12 +31,14 @@ KCS_CONSTANT KCS_PING_APP_NAME;
 typedef void(^KCSPingBlock2)(NSDictionary* appInfo, NSError* error);
 
 
+KCS_DEPRECATED(Please use KCSPing instead, 1.41.0)
 @interface KCSPing2 : NSObject
 
 /* Ping Kinvey and perform a callback when complete.
  
  @param completionAction The callback to perform on completion.
+ @return KCSRequest object that represents the pending request made against the store. Since version 1.36.0
  */
-+ (void)pingKinveyWithBlock:(KCSPingBlock2)completion;
++(KCSRequest*)pingKinveyWithBlock:(KCSPingBlock2)completion;
 
 @end

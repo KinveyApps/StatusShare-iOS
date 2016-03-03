@@ -2,7 +2,7 @@
 //  KCSFile.h
 //  KinveyKit
 //
-//  Copyright (c) 2012-2013 Kinvey. All rights reserved.
+//  Copyright (c) 2012-2015 Kinvey. All rights reserved.
 //
 // This software is licensed to you under the Kinvey terms of service located at
 // http://www.kinvey.com/terms-of-use. By downloading, accessing and/or using this
@@ -15,6 +15,9 @@
 // Unauthorized reproduction, transmission or distribution of this file and its
 // contents is a violation of applicable laws.
 //
+
+#ifndef KinveyKit_KCSFile_h
+#define KinveyKit_KCSFile_h
 
 #import <Foundation/Foundation.h>
 
@@ -106,4 +109,7 @@
 
 //internal use only, not always set; use `remoteURL` for downloads;
 @property (nonatomic, retain) NSString* downloadURL;
+
 @end
+
+#endif
